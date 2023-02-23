@@ -1,7 +1,5 @@
 ***
 
-# 1 比赛概览
-
 ## 1.1 比赛介绍
 
 OpenAtom Carsmos全球开源自动驾驶算法大赛的主要目标是评估自动驾驶算法在现实交通场景中的驾驶能力。您只需要在 [**比赛报名系统**](https://race.carsmos.cn/) 上注册，提供您的团队信息并通过审核即可参与。
@@ -53,7 +51,7 @@ Openatom Carsmos全球开源自动驾驶算法大赛基于[**Oasis自动驾驶�
 
 - 邮箱：xiaofei@guardstrike.com
 
-## 1.6 如何开始
+## 1.6 文档目录
 
 - [开发环境](install.md)
 
