@@ -41,9 +41,9 @@
 
 ### 2.2.1 基于 Autonomous Agent 创建您的 Agent
 
-你的 **your_agent.py** 应该作为你的代码主入口，用于执行你的自动驾驶算法。比赛系统将会让你的算法在多个规定的场景下依次运行，生成任务结果，评估车辆的行为。
+你需要在 Oasis 竞赛版指定的 **team_code** 目录下，创建 **your_agent.py** 作为你的代码主入口，用于执行你的自动驾驶算法。比赛系统将会让你的算法在多个规定的场景下依次运行，生成任务结果，评估车辆的行为。
 
-你的 Agent 类需要通过继承我们的 AutonomousAgent 类进行对接开发，你可以在 autoagents/autonomous_agent.py 中找到 AutonomousAgent 类，这里规定了所有必须的接口，你需要在自己的agent中重写这些接口。
+你所创建的 your_agent.py 需要通过继承我们的 AutonomousAgent 类进行对接开发，你可以在 autoagents/autonomous_agent.py 中找到 AutonomousAgent 类，这里规定了所有必须的接口，你需要在自己的agent中重写这些接口，接入你的自动驾驶算法模块。
 
 ```python
 from autoagents.autonomous_agent import AutonomousAgent
@@ -80,7 +80,7 @@ class YourAgent(AutonomousAgent):
 
 ```
 
-您可以参考以下函数`from_gps_to_world_coordinate`将 gps 数据转换为世界坐标：
+您可以参考以下函数 `from_gps_to_world_coordinate` 将 gps 数据转换为世界坐标：
 
 ```python
 def from_gps_to_world_coordinate(lat, lon):
@@ -112,6 +112,8 @@ def from_gps_to_world_coordinate(lat, lon):
 ### 2.2.3 覆盖 sensors 方法
 
 您必须要重写 sensors 方法，该方法定义了 agent 能够使用的所有传感器。
+
+在使用 oasis 竞赛版中，your_agent.py 中的 sensors 可直接在 Oasis 竞赛版系统 - 资源库中进行配置，以调试得到适合你的算法的最优传感器配置，在你决定提交到云端参赛时，你需要将你得到的最优的传感器配置写入到 your_agent.py 中的 sensors 方法中，进行提交。
 
 传感器参数配置可以参考 AutonomousAgent 中的示例内容进行配置，同时我们对传感器的可选类型与添加数量做了限制，请参考下述内容
 
@@ -211,13 +213,16 @@ def sensors(self):
 
 ```python
 def destroy(self):
+    # destroy process 
     pass
 ```
 
 ## 2.3 在simulate中使用dora示例
 
 ### 2.3.1 dora简介
-!> 待补充dora简介
+请参考：
+- [**Dora**](https://github.com/dora-rs/dora)
+- [**Dora-drives**](https://github.com/dora-rs/dora-drives)
 
 ### 2.3.2 在dora中替换你的算法
 
@@ -335,27 +340,18 @@ nodes:
 > 更加详细的有关 dora 的内容请参考：[**Dora 文档**](https://dora-rs.github.io/dora-drives/introduction.html)
 
 ## 2.4 训练和测试您的算法
-- 创建一个文件夹用于存放您的代码，并设置环境变量：
-```bash
-mkdir -p ~/carsmos/team_code
-export TEAM_CODE_ROOT=~/carsmos/team_code
-```
-
-- 将您的 your_agent.py 和相关配置以及代码复制到 TEAM_CODE_ROOT 目录下
+将您的 your_agent.py 和相关配置以及代码复制到您的 oasis竞赛版安装映射的本机路径 team_code 目录下
 
 ```bash
-cp your_agent.py ${TEAM_CODE_ROOT}
-cp YOUR_CONFIG ${TEAM_CODE_ROOT}
+cp your_agent.py {YOUR_PATH}/oasis/team_code
+cp YOUR_CONFIG {YOUR_PATH}/oasis/team_code
 ```
 
-- 设置环境变量并开始运行
+在 Oasis 竞赛版中选取您的 your_agent.py 和相关配置，创建作业，运行即可，如图所示。
 
-```bash
-export TEAM_AGENT=your_agent.py
-bash ${TEAM_CODE_ROOT}/start.sh
-```
+  ![Oasis选取your_agent.py，开启作业](js/images/oasis.png)
 
-我们准备了一套预定义的场景，您可以使用这些场景来训练和验证您的算法的性能。场景可以在 oasis-simulate 容器的`/carsmos/simulate/examples`文件夹中找到。
+我们准备了一套预定义的场景，您可以使用这些场景来训练和验证您的算法。场景可以在 *oasis 竞赛版 - 场景库* 中找到。
 
 ***
 

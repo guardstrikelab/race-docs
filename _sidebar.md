@@ -5,3 +5,4 @@
 * [**5.场景说明**](scenarios.md)
 * [**6.License导入说明**](license.md)
 * [**7.声明条款**](clause.md)
+* [**8.报名系统操作说明**](baoming.md)

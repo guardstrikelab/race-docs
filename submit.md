@@ -3,49 +3,39 @@
 ***
 
 ## 4.1 环境准备
-请确保您的环境变量 `TEAM_CODE_ROOT` 指向了您的代码文件夹，否则请参考 [测试您的算法](install.md#24-训练和测试您的算法) 配置环境变量
+- 设置环境变量指向 Oasis竞赛版提供的 team_code 文件夹
 ```bash
-export TEAM_CODE_ROOT={YOUR_PATH}/team_code
+export TEAM_CODE_ROOT={YOUR_PATH}/oasis/team_code
 ```
 
-将您的 agent 文件 YOUR_AGENT.py 以及相关的代码放入`${TEAM_CODE_ROOT}`文件夹中。
+修改 Oasis 竞赛版安装包里提供的 Dockerfile：
 
-> 注意：您对Oasis、Simulate的任何修改在提交后将不会被应用和运行。
+- 如果您基于Dora开发，请修改 `Dockerfile.dora`：
+```bash
+vim Dockerfile.dora
+```
 
-打开用于构建镜像的文件：
-
+- 如果您未基于 Dora 开发，请修改 `Dockerfile`：
 ```bash
 vim Dockerfile
 ```
 
-在dockerfile中，修改如下内容，以指定您的agent路径：并且加上相关配置
-
-**请注意：环境变量 TEAM_AGENT 不要带有路径**
+在 `Dockerfile` 或 `Dockerfile.dora` 中，修改如下内容，以指定您的 your_agent.py 路径：并且加上相关配置
 
 ```bash
-ENV TEAM_AGENT YOUR_AGENT.py
+ENV TEAM_AGENT ${TEAM_CODE_ROOT}/your_agent.py
 ```
 
-## 4.2. 构建并提交镜像
+## 4.2 构建并提交镜像
 
-1. 进入[比赛报名系统](https://race.carsmos.cn/)，点击Get Started，然后**利用您的常用邮箱注册**或者登录
+- 参考 [**报名系统操作说明**](baoming.md#_82-提交流程)
 
-2. 点击“carsmos 2023 开源智驾算法大赛”
+- **镜像上传成功之后，云端即开始运行您的算法。您可以实时看到运行状态**
 
-3. 点击 "申请参数"，在 “Team Name“ 输入框中输入队伍名字，点击创建您的队伍
-
-4. 等待审核，审核通过后进行下一步
-
-5. 审核成功后，会在您的邮件发送短信提示。此时进入报名系统提交页面，点击“新增提交”，可获取提交镜像的命令。
-
-6. **逐条复制命令到您的电脑，并且执行**
-
-> 如果以后多次提交镜像，您只需要执行登录命令、打包镜像命令和推送镜像命令
-
-7. **镜像上传成功之后，云端即开始运行您的算法。**
-
-> 您需要等待一段时间（10分钟至1小时，取决于您的算法），然后您可以在：[**比赛报名系统**](https://race.carsmos.cn/) - carsmos 2023 春季赛事 - Submissions - History
+- 您需要等待一段时间（10分钟至1小时，取决于您的算法），然后您可以在：[**比赛报名系统**](https://race.carsmos.cn/) - carsmos 2023 春季赛事 - Submissions - History
 看到您本次提交的运行结果。
+
+- 每次提交的结果需要后台专家组审核通过之后，才可以参与排名
 
 
 ***
