@@ -68,15 +68,17 @@
 
 ## 1.7 文档目录
 
-- [开发指引](install.md#21-开发环境配置)
+- [开发指引](install.md)
 
-- [比赛规则](rules.md#31-比赛场景)
+- [比赛规则](rules.md)
 
-- [提交说明](submit.md#41-环境准备)
+- [提交说明](submit.md)
 
-- [声明条款](clause.md#5-声明条款)
+- [场景说明](scenarios.md)
 
-- [场景说明](scenarios.md#6-比赛场景)
+- [License导入说明](license.md)
+
+- [声明条款](clause.md)
 
 ***
 

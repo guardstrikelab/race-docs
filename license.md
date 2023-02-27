@@ -2,7 +2,7 @@
 
 ***
 
-## License导入说明
+## 6 License导入说明
 
 1、启动oasis-server服务，可以看到如下页面
 
@@ -39,3 +39,5 @@
 ***
 
 [上一页：场景说明](scenarios.md)
+
+[下一页：声明条款](clause.md)

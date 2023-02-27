@@ -1,4 +1,4 @@
-[上一页：环境配置](install.md)
+[上一页：开发指引](install.md)
 
 ***
 
@@ -96,6 +96,6 @@ $score = 60+40*\frac{|T-x|}{0.4*T}$
 
 ***
 
-[上一页：开发环境](install.md)
+[上一页：开发指引](install.md)
 
 [下一页：提交说明](submit.md)

@@ -52,4 +52,4 @@ ENV TEAM_AGENT YOUR_AGENT.py
 
 [上一页：比赛规则](rules.md)
 
-[下一页：声明条款](clause.md)
+[下一页：场景说明](scenarios.md)
