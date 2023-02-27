@@ -3,9 +3,7 @@
 ***
 
 ## 4.1 环境准备
-
-在您的本机创建一个新文件夹，命名自定义（例如team_code），定义环境变量：
-
+请确保您的环境变量 `TEAM_CODE_ROOT` 指向了您的代码文件夹，否则请参考 [测试您的算法](install.md#24-训练和测试您的算法) 配置环境变量
 ```bash
 export TEAM_CODE_ROOT={YOUR_PATH}/team_code
 ```
@@ -22,7 +20,7 @@ vim Dockerfile
 
 在dockerfile中，修改如下内容，以指定您的agent路径：并且加上相关配置
 
-**请注意：环境变量TEAM_AGENT不要带有路径**
+**请注意：环境变量 TEAM_AGENT 不要带有路径**
 
 ```bash
 ENV TEAM_AGENT YOUR_AGENT.py

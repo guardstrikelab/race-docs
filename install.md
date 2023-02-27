@@ -4,19 +4,34 @@
 
 ## 2.1 开发环境配置
 
-### 2.1.1 拉取oasis竞赛版压缩包 # 安装手册、使用手册
+### 2.1.1 环境要求
+- 操作系统：推荐 Ubuntu 20.04 LTS
+- 内存：8GB及以上
+- CPU：4核及以上
+- 显存：8GB及以上
+- 开发语言：Python 3.8
 
-根据下述地址，拉取oasis竞赛版压缩包，该压缩包包含 安装所需镜像tar包，一键部署脚本，oasis竞赛版使用手册，oasis竞赛版部署要求文档 等。
+### 2.1.2 拉取oasis竞赛版压缩包
 
-### 2.1.2 运行一键部署脚本，安装oasis竞赛版系统
+[点击这里下载 oasis 竞赛版压缩包](https://carsmos.oss-cn-chengdu.aliyuncs.com/oasis-bisai.tar.gz)，解压后里面包含：
+- 安装所需镜像tar包
+- 一键部署脚本
+- oasis竞赛版使用手册
+- oasis竞赛版部署要求文档等
+
+### 2.1.3 运行一键部署脚本，安装oasis竞赛版系统
 
 - 根据部署要求文档，准备oasis竞赛版所要安装的环境
 
 - 运行一键部署脚本，即可将oasis竞赛版安装完毕
 
-### 2.1.3 运行示例
+```bash
+./install.sh
+```
 
-- 可直接通过桌面图标OASIS 进入oasis竞赛版
+### 2.1.4 运行示例
+
+- 可直接通过桌面图标 `OASIS` 进入oasis竞赛版
 
 - 配置场景，加载预置或者自定义agent文件，创建任务即可运行
 
@@ -26,9 +41,9 @@
 
 ### 2.2.1 基于 Autonomous Agent 创建您的 Agent
 
-你的 Agent **your_agent.py** 应该作为你的代码主入口，用于执行你的自动驾驶算法。比赛系统将会让你的算法在多个规定的场景下依次运行，生成任务结果，评估车辆的行为。
+你的 **your_agent.py** 应该作为你的代码主入口，用于执行你的自动驾驶算法。比赛系统将会让你的算法在多个规定的场景下依次运行，生成任务结果，评估车辆的行为。
 
-你的Agent类需要通过继承我们的AutonomousAgent类进行对接开发，你可以在autoagents/autonomous_agent.py中找到AutonomousAgent类，这里规定了所有必须的接口，你需要在自己的agent中重写这些接口。
+你的 Agent 类需要通过继承我们的 AutonomousAgent 类进行对接开发，你可以在 autoagents/autonomous_agent.py 中找到 AutonomousAgent 类，这里规定了所有必须的接口，你需要在自己的agent中重写这些接口。
 
 ```python
 from autoagents.autonomous_agent import AutonomousAgent
@@ -39,13 +54,13 @@ class YourAgent(AutonomousAgent):
 
 ### 2.2.2 覆盖 setup 方法
 
-你需要在你的agent中重写setup方法，此方法会在场景任务运行之前，执行agent所需要的所有初始化和定义，它将在每次加载新的场景时被自动调用. 它可以接收一个指向配置文件的可选参数。 
+你需要在你的 **your_agent.py** 中重写 setup 方法，此方法会在场景任务运行之前，执行 agent 所需要的所有初始化和定义，它将在每次加载新的场景时被自动调用. 它可以接收一个指向配置文件的可选参数。 
 
 ```python
 --agentConfig your_agent_config_file
 ```
 
-同时，如果需要，你可以将经纬度参考属性加载到你的setup方法中，他们会在setup运行之前就被更新，这两个属性是你将waypoint坐标转换成carla坐标的参考值。
+同时，如果需要，你可以将经纬度参考属性加载到你的 setup 方法中，他们会在 setup 运行之前就被更新，这两个属性是你将 waypoint 坐标转换成 carla 坐标的参考值。
 
 ```python
 #latitude and longitude reference
@@ -65,7 +80,7 @@ class YourAgent(AutonomousAgent):
 
 ```
 
-您可以参考以下函数`from_gps_to_world_coordinate`将gps数据转换为世界坐标：
+您可以参考以下函数`from_gps_to_world_coordinate`将 gps 数据转换为世界坐标：
 
 ```python
 def from_gps_to_world_coordinate(lat, lon):
@@ -96,9 +111,9 @@ def from_gps_to_world_coordinate(lat, lon):
 
 ### 2.2.3 覆盖 sensors 方法
 
-您必须要重写sensors方法，该方法定义了agent能够使用的所有传感器。
+您必须要重写 sensors 方法，该方法定义了 agent 能够使用的所有传感器。
 
-传感器参数配置可以参考AutonomousAgent中的示例内容进行配置，同时我们对传感器的可选类型与添加数量做了限制，请参考下述内容
+传感器参数配置可以参考 AutonomousAgent 中的示例内容进行配置，同时我们对传感器的可选类型与添加数量做了限制，请参考下述内容
 
 | 可搭载传感器                | 可搭载数量 |
 | --------------------- | ----- |
@@ -130,7 +145,7 @@ def sensors(self):
         return sensors
 ```
 
-每个传感器由一个dict表示，包含以下字段：
+每个传感器由一个 dict 表示，包含以下字段：
 
 - `type`：要添加的传感器的类型。
 
@@ -138,7 +153,7 @@ def sensors(self):
 
 - `attributes`：这些属性与传感器有关，例如：外在因素和视野等。
 
-用户可以设置每个传感器的内在参数和外在参数（位置和方向），以相对于车辆的中心坐标为准。请注意，CARLA使用UE4的左手坐标系统，即：X-前，Y-右，Z-上。
+用户可以设置每个传感器的内在参数和外在参数（位置和方向），以相对于车辆的中心坐标为准。请注意，CARLA 使用 UE4 的左手坐标系统，即：X-前，Y-右，Z-上。
 
 传感器具体解释如下：
 
@@ -164,9 +179,9 @@ def sensors(self):
 
 ### 2.2.4 覆盖 run_step 方法
 
-这个方法将在每个world tick被调用一次，产生一个新的动作，其形式为 `carla.VehicleControl` 对象。确保该函数返回控制对象，该对象将被用于更新仿真主车。
+这个方法将在每个 world tick 被调用一次，产生一个新的动作，其形式为 `carla.VehicleControl` 对象。确保该函数返回控制对象，该对象将被用于更新仿真主车。
 
-该方法会在每个时间步长中调用一次，返回一个VehicleControl对象。你可以在run_step中开发你的算法，并必须确保你返回的是以carla形式的VehicleControl对象`carla.VehicleControl` ，该返回对象将用于控制仿真主车运动。
+该方法会在每个时间步长中调用一次，返回一个 VehicleControl 对象。你可以在 run_step 中开发你的算法，并必须确保你返回的是以 carla 形式的 VehicleControl 对象 `carla.VehicleControl` ，该返回对象将用于控制仿真主车运动。
 
 ```python
     def run_step(self, input_data, timestamp):
@@ -186,13 +201,13 @@ def sensors(self):
 
 ```
 
-- `input_data`: 是一个在每一个world tick中返回所搭载的传感器的数据的字典。这些数据以 numpy 数组的形式给出。 这个字典由传感器方法中定义的id来索引。
+- `input_data`: 是一个在每一个 world tick 中返回所搭载的传感器的数据的字典。这些数据以 numpy 数组的形式给出。 这个字典由传感器方法中定义的id来索引。
 
 - `Timestamp`：当前仿真世界时间帧号。
 
 ### 2.2.5 覆盖destroy方法
 
-在每个场景任务结束时，destroy 方法将被调用，需要注意的是，每个场景任务结束，我们会清理掉Carla世界内的主车与NPC车辆，所以我们需要您重写destroy方法来结束你的进程或线程。
+在每个场景任务结束时，destroy 方法将被调用，需要注意的是，每个场景任务结束，我们会清理掉 Carla 世界内的主车与 NPC 车辆，所以我们需要您重写 destroy 方法来结束你的进程或线程。
 
 ```python
 def destroy(self):
@@ -206,7 +221,7 @@ def destroy(self):
 
 ### 2.3.2 在dora中替换你的算法
 
-想要将自己的算法（操作符）添加到节点流中，只需要在数据流中创建新的节点即可。我们以添加yolov5目标检测操作符为例，该算法已经在dora-drives/operators/yolov5_op.py中编写好。
+想要将自己的算法（操作符）添加到节点流中，只需要在数据流中创建新的节点即可。我们以添加 yolov5 目标检测操作符为例，该算法已经在dora-drives/operators/yolov5_op.py中编写好。
 
 ```python
 import os
@@ -264,7 +279,7 @@ class Operator:
         return DoraStatus.CONTINUE
 ```
 
-您只需要重写__init__方法和on_input方法，init方法会在初始化节点调用，执行操作符所需要的所有初始化和定义；on_input方法会在每个时间步长中调用一次，您需要在yaml文件中定义入参inputs和输出outputs的内容。如果成功，返回CONTINUE 标志；
+您只需要重写 __init__ 方法和 on_input 方法，init 方法会在初始化节点调用，执行操作符所需要的所有初始化和定义；on_input 方法会在每个时间步长中调用一次，您需要在 yaml 文件中定义入参 inputs 和输出 outputs 的内容。如果成功，返回 CONTINUE 标志；
 
 如果你想运行你的算法操作符，你只需要将它们添加到节点图中去：
 
@@ -311,15 +326,20 @@ nodes:
 
 输入以节点名为前缀，以便能够分离名称冲突。
 
-你可以在docker中使用以下命令，来运行您的算法：
+你可以在 docker 中使用以下命令，来运行您的算法：
 
 ```bash
 ./scripts/launch.sh -b -g tutorials/webcam_yolov5.yaml
 ```
 
-> 更加详细的有关dora的内容请参考：[**Dora 文档**](https://dora-rs.github.io/dora-drives/introduction.html)
+> 更加详细的有关 dora 的内容请参考：[**Dora 文档**](https://dora-rs.github.io/dora-drives/introduction.html)
 
 ## 2.4 训练和测试您的算法
+- 创建一个文件夹用于存放您的代码，并设置环境变量：
+```bash
+mkdir -p ~/carsmos/team_code
+export TEAM_CODE_ROOT=~/carsmos/team_code
+```
 
 - 将您的 your_agent.py 和相关配置以及代码复制到 TEAM_CODE_ROOT 目录下
 
@@ -335,7 +355,7 @@ export TEAM_AGENT=your_agent.py
 bash ${TEAM_CODE_ROOT}/start.sh
 ```
 
-我们准备了一套预定义的场景，您可以使用这些场景来训练和验证您的算法的性能。场景可以在oasis-simulate容器的`/carsmos/simulate/scenarios`文件夹中找到。
+我们准备了一套预定义的场景，您可以使用这些场景来训练和验证您的算法的性能。场景可以在 oasis-simulate 容器的`/carsmos/simulate/examples`文件夹中找到。
 
 ***
 
