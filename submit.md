@@ -44,11 +44,8 @@ ENV TEAM_AGENT YOUR_AGENT.py
 
 7. **镜像上传成功之后，云端即开始运行您的算法。**
 
-> 您需要等待一段时间（10分钟至1小时，取决于您的算法），然后您可以在：
-
-> [**比赛报名系统**](https://race.carsmos.cn/)** - carsmos 2023 春季赛事 - Submissions - History **
-
-> 看到您本次提交的运行结果。
+> 您需要等待一段时间（10分钟至1小时，取决于您的算法），然后您可以在：[**比赛报名系统**](https://race.carsmos.cn/) - carsmos 2023 春季赛事 - Submissions - History
+看到您本次提交的运行结果。
 
 
 ***
