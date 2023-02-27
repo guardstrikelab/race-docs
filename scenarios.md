@@ -58,4 +58,4 @@
 
 [上一页：提交说明](submit.md)
 
-[下一页：声明条款](clause.md)
+[下一页：License导入说明](license.md)

@@ -1,31 +1,41 @@
-### 1、手动执行脚本生成机器码
+[上一页：场景说明](scenarios.md)
 
-机器码默认情况下是自动生成回填的，如果不能自动生成，需要手动生成机器码，操作步骤如下所示。
+***
 
-1.1环境要求
+## License导入说明
 
-ubuntu 20.04（执行脚本的账户需要sudo权限，可以执行sudo -i测试。添加sudo权限，在root用户下，用vi编辑 /etc/sudoers文件，添加如下配置，然后wq!保存退出
+1、启动oasis-server服务，可以看到如下页面
 
-`you_account_name   ALL=(ALL)     NOPASSWD: ALL` ）
+![](js/images/license/image.png)
 
-python 3.8（仅供参考：Anaconda下载地址：[__https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh__](https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh)）
+2、点击license申请按钮，进入license创建页面
 
-#验证conda是否安装正常，通过获取版本号
+![](js/images/license/image1.png)
 
-`conda --version 或 conda -V`
+- 参赛邮箱（填写在报名系统上[__报名的邮箱__](https://race.carsmos.cn/contests)）
 
-#创建制定python版本的环境
+- 参赛队伍名称（填写在报名系统上填写的队伍名称，系统根据邮箱自动带出队伍名称）
 
-`conda create --name py38 python=3.8`
+- 联系电话（参赛者填写自己的联系电话）
 
-#使用如下命令即可激活创建的虚拟环境
+- 机器码（默认自动生成，用于唯一标识某一台机器，如果不能自动生成生成，请参考手动生成机器码如下所示）
 
-`conda activate py38`
+![](js/images/license/image2.png)
 
-### 1.2执行命令生成机器码(*只能在python3.8上运行*)
+![](js/images/license/image3.png)
 
-![](https://tcs-devops.aliyuncs.com/storage/112q723ce83d1c00d64d4fc100f391ed3865?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjVlNzQ4MmQ2MjE1MjJiZDVjN2Y5YjMzNSIsIl9hcHBJZCI6IjVlNzQ4MmQ2MjE1MjJiZDVjN2Y5YjMzNSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTY3NzQ2NzIxNSwiaWF0IjoxNjc2ODYyNDE1LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzExMnE3MjNjZTgzZDFjMDBkNjRkNGZjMTAwZjM5MWVkMzg2NSJ9.wojmKLOIZ0LcSdfDBb_lYOLcV2FF6yR-Eh4pPl30hqs&download=image.png "")
+3、正确填写后点击提交按钮，系统灰自动向报名邮箱发送授权license文件（邮箱附件下载）
 
-机器码生成脚本下载链接: [__https://pan.baidu.com/s/1mSF9hFtRhSr7ZrPuWKzwQA__](https://pan.baidu.com/s/1mSF9hFtRhSr7ZrPuWKzwQA) 提取码: 8ra7 
+![](js/images/license/image4.png)
 
-复制这段内容后打开百度网盘手机App，操作更方便哦
+4、返回首页，配置license，导入上一步下载下来的license授权文件
+
+![](js/images/license/image5.png)
+
+![](js/images/license/image6.png)
+
+5、导入license授权成功后，启动按钮就会显示出来，点击启动进入oasis-server管理系统
+
+***
+
+[上一页：场景说明](scenarios.md)
