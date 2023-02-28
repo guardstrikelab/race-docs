@@ -3,7 +3,7 @@
 ***
 
 ## 4.1 环境准备
-- 设置环境变量指向 Oasis竞赛版提供的 team_code 文件夹
+- 设置环境变量指向 Oasis 竞赛版提供的 team_code 文件夹
 ```bash
 export TEAM_CODE_ROOT={YOUR_PATH}/oasis/team_code
 ```

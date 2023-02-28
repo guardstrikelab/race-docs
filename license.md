@@ -4,7 +4,7 @@
 
 ## 6 License导入说明
 
-1、启动oasis-server服务，可以看到如下页面
+1、启动Oasis-server服务，可以看到如下页面
 
 ![](js/images/license/image.png)
 
@@ -34,7 +34,7 @@
 
 ![](js/images/license/image6.png)
 
-5、导入license授权成功后，启动按钮就会显示出来，点击启动进入oasis-server管理系统
+5、导入license授权成功后，启动按钮就会显示出来，点击启动进入Oasis-server管理系统
 
 ***
 

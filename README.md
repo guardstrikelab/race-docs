@@ -40,17 +40,17 @@
 
 1. 在比赛报名系统注册，创建队伍并邀请队友或加入队伍，参与比赛。参考 [**报名系统操作流程**](baoming.md)。
 
-2. [**点击此处下载Oasis竞赛版**](https://carsmos.oss-cn-chengdu.aliyuncs.com/oasis-bisai.tar.gz) 
+2. [**点击此处下载Oasis竞赛版**](https://carsmos.oss-cn-chengdu.aliyuncs.com/Oasis-bisai.tar.gz) 
 
-3. 根据oasis竞赛版 [__安装部署文档__](install.md#_21-开发环境配置)，安装运行oasis竞赛版系统。
+3. 根据Oasis竞赛版 [__安装部署文档__](install.md#_21-开发环境配置)，安装运行Oasis竞赛版系统。
 
 4. 根据您在 [**比赛报名系统**](https://race.carsmos.cn) 注册的邮箱地址，申请Oasis竞赛版的License。参考：[**License导入说明**](license.md)
 
-5. 通过oasis竞赛版中的 `oasis用户手册`，熟悉系统功能。
+5. 通过Oasis竞赛版中的 `Oasis用户手册`，熟悉系统功能。
 
-6. 根据 [__carsmos开发指引__](install.md#_22-开始开发)，基于oasis竞赛版，开发和测试您的程序。
+6. 根据 [__carsmos开发指引__](install.md#_22-开始开发)，基于Oasis竞赛版，开发和测试您的自动驾驶算法。
 
-7. 在 [**比赛报名系统**](https://race.carsmos.cn/) 按照提示，打包算法到镜像，并提交镜像到云端，等待运行结果和得分。参考[**提交镜像**](submit.md)。
+7. 在 [**比赛报名系统**](https://race.carsmos.cn/) 中按照提示，参考[**提交镜像**](submit.md)，将算法打包到镜像，并提交镜像到云端，等待运行结果和得分。
 
 ## 1.6 比赛帮助和答疑
 
