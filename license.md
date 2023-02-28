@@ -24,7 +24,7 @@
 
 ![](js/images/license/image3.png)
 
-3、正确填写后点击提交按钮，系统灰自动向报名邮箱发送授权license文件（邮箱附件下载）
+3、正确填写后点击提交按钮，系统会自动向报名邮箱发送授权license文件（邮箱附件下载）
 
 ![](js/images/license/image4.png)
 

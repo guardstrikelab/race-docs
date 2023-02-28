@@ -120,8 +120,8 @@ def from_gps_to_world_coordinate(lat, lon):
 | 可搭载传感器                | 可搭载数量 |
 | --------------------- | ----- |
 | sensor.camera.rgb     | 4     |
-| sensor.other.radar: 2 | 2     |
-| sensor.other.gnss:    | 1     |
+| sensor.other.radar    | 2     |
+| sensor.other.gnss     | 1     |
 | sensor.other.imu      | 1     |
 | sensor.opendrive_map  | 1     |
 | sensor.lidar.ray_cast | 1     |
@@ -217,10 +217,10 @@ def destroy(self):
     pass
 ```
 
-## 2.3 在simulate中使用dora示例
+## 2.3 基于dora开发
 
 ### 2.3.1 dora简介
-请参考：
+我们推荐您使用 dora 开发您的算法代码，详情请参考：
 - [**Dora**](https://github.com/dora-rs/dora)
 - [**Dora-drives**](https://github.com/dora-rs/dora-drives)
 

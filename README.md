@@ -46,7 +46,7 @@
 
 4. 根据您在 [**比赛报名系统**](https://race.carsmos.cn) 注册的邮箱地址，申请Oasis竞赛版的License。参考：[**License导入说明**](license.md)
 
-5. 通过Oasis客户端中的 `oasis用户手册`，熟悉系统功能。
+5. 通过oasis竞赛版中的 `oasis用户手册`，熟悉系统功能。
 
 6. 根据 [__carsmos开发指引__](install.md#_22-开始开发)，基于oasis竞赛版，开发和测试您的程序。
 

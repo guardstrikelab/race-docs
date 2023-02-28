@@ -1,8 +1,10 @@
-# Openatom Carsmos全球开源自动驾驶算法大赛
+# 元遨 Carsmos 开源智驾算法大赛
 
 
-> carsmos 2023 春季赛事
+> 2023 春季赛事
 
+举办单位：西安深信科创信息技术有限公司
 
 [比赛报名](https://race.carsmos.cn/)
 [查看文档](README.md)
+
