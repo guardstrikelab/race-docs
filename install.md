@@ -40,11 +40,11 @@
 
 ## 2.2 开始开发
 
-### 2.2.1 基于 Autonomous Agent 创建您的 Agent
+### 2.2.1 基于 Autonomous Agent 创建 Agent
 
-你需要在 Oasis 竞赛版指定的 **team_code** 目录下，创建 **your_agent.py** 作为你的代码主入口，用于执行你的自动驾驶算法。比赛系统将会让你的算法在多个预置的场景下依次运行，生成任务结果，评估你的自动驾驶算法。
+参赛选手需要在 Oasis 竞赛版指定的 **team_code** 目录下，创建 **your_agent.py** 作为代码入口，用于执行自动驾驶算法。比赛系统将会使用算法依次运行多个预置的场景下，生成任务结果，评估参赛选手的自动驾驶算法。
 
-你所创建的 your_agent.py 需要通过继承 AutonomousAgent 类进行开发，你可以在 autoagents/autonomous_agent.py 中找到 AutonomousAgent 类，这里规定了所有必须的接口，你需要在自己的 **your_agent.py** 中重写这些函数，接入你的自动驾驶算法模块。
+参赛选手所创建的 your_agent.py 需要通过继承 AutonomousAgent 类进行开发，可以在 autoagents/autonomous_agent.py 中找到 AutonomousAgent 类，这里规定了所有必须的接口，需要在 **your_agent.py** 中重写这些函数，接入自动驾驶算法模块。
 
 ```python
 from autoagents.autonomous_agent import AutonomousAgent
@@ -55,11 +55,11 @@ class YourAgent(AutonomousAgent):
 
 ### 2.2.2 重写 setup 方法
 
-你需要在 **your_agent.py** 中重写 setup 方法，此方法会在场景任务运行之前，执行 agent 所需要的所有初始化，它将在每次加载新的场景时被自动调用。
+参赛选手需要在 **your_agent.py** 中重写 setup 方法，此方法会在场景任务运行之前，执行 agent 所需要的所有初始化，它将在每次加载新的场景时被自动调用。
 
 如果 your_agent.py 需要加载配置文件，请通过 *path_to_conf_files* 来指定配置文件的路径，否则请忽略。
 
-同时，如果需要，可以将经纬度参考属性加载到你的 setup 方法中，它们会在 setup 运行之前就被更新，这两个属性是你将 waypoint 坐标转换成 carla 坐标的参考值。
+同时，如果需要，可以将经纬度参考属性加载到 setup 方法中，它们会在 setup 运行之前就被更新，这两个属性是将 waypoint 坐标转换成 carla 坐标的参考值。
 
 ```python
 #latitude and longitude reference
@@ -79,7 +79,7 @@ class YourAgent(AutonomousAgent):
 
 ```
 
-您可以参考以下函数 `from_gps_to_world_coordinate` 将 gps 数据转换为世界坐标：
+参赛选手可以参考以下函数 `from_gps_to_world_coordinate` 将 gps 数据转换为世界坐标：
 
 ```python
 def from_gps_to_world_coordinate(lat, lon):
@@ -107,9 +107,9 @@ def from_gps_to_world_coordinate(lat, lon):
 
 ### 2.2.3 重写 sensors 方法
 
-您必须要重写 sensors 方法，该方法定义了 agent 能够使用的所有传感器。
+参赛选手必须要重写 sensors 方法，该方法定义了 agent 能够使用的所有传感器。
 
-在 Oasis 竞赛版中，your_agent.py 中的 sensors 可直接在 Oasis 竞赛版系统 - 资源库中进行配置，以调试得到适合你的算法的最优传感器配置，在你决定提交到云端时，你需要将你得到的最优的传感器配置写入到 your_agent.py 中的 sensors 方法中，进行提交。
+在 Oasis 竞赛版中，your_agent.py 中的 sensors 可直接在 Oasis 竞赛版系统 - 资源库中进行配置，以调试得到适合参赛选手算法的最优传感器配置，在提交到云端时，参赛选手需要将最优的传感器配置写入 your_agent.py 中的 sensors 方法中，进行提交。
 
 传感器参数配置可以参考 AutonomousAgent 中的示例内容进行配置，同时我们对传感器的可选类型与可配置数量做了限制，请参考下述内容
 
@@ -169,17 +169,17 @@ def sensors(self):
 
 - `sensor.speedometer` - 伪传感器，提供线性速度的近似值。
 
-> 如果您尝试使用其他传感器或传感器参数名称错误，会使传感器设置失败。
+> 如果尝试使用其他传感器或传感器参数名称错误，会使传感器设置失败。
 
-> 如果在提交中您使用了超量的传感器，传感器配置验证失败，运行会出错。
+> 如果在提交中使用了超量的传感器，传感器配置验证失败，运行会出错。
 
-此外，还有一些空间限制，限制了传感器在车辆包围盒内的位置。如果一个传感器在任何轴线上与您的主车相距超过3米（例如：`[3.1,0.0,0.0]`），设置将失败。
+此外，还有一些空间限制，限制了传感器在车辆包围盒内的位置。如果一个传感器在任何轴线上与主车相距超过3米（例如：`[3.1,0.0,0.0]`），设置将失败。
 
 ### 2.2.4 重写 run_step 方法
 
 这个方法将在每个 world tick 被调用一次，产生一个新的动作，其形式为 `carla.VehicleControl` 对象。确保该函数返回控制对象，该对象将被用于更新仿真主车。
 
-你可以在 run_step 中开发你的算法，并必须确保你返回的是 `carla.VehicleControl` 对象，该返回对象将用于控制仿真主车运动。
+参赛选手可以在 run_step 中开发算法，并必须确保函数返回的是 `carla.VehicleControl` 对象，该返回对象将用于控制仿真主车运动。
 
 ```python
     def run_step(self, input_data, timestamp):
@@ -205,7 +205,7 @@ def sensors(self):
 
 ### 2.2.5 重写 destroy 方法
 
-在每个场景任务结束时，destroy 方法将被调用，我们需要您重写 destroy 方法来结束相应的进程或线程。
+在每个场景任务结束时，destroy 方法将被调用，需要参赛选手重写 destroy 方法来结束相应的进程或线程。
 
 ```python
 def destroy(self):
@@ -216,11 +216,11 @@ def destroy(self):
 ## 2.3 基于 Dora 开发
 
 ### 2.3.1 Dora简介
-我们推荐您使用 Dora 开发您的算法代码，详情请参考：
+我们推荐使用 Dora 开发算法代码，详情请参考：
 - [**Dora**](https://github.com/dora-rs/dora)
 - [**Dora-drives**](https://github.com/dora-rs/dora-drives)
 
-### 2.3.2 在 Dora 中替换你的算法
+### 2.3.2 在 Dora 中替换算法
 
 想要将自己的算法（操作符）添加到节点流中，只需要在数据流中创建新的节点即可。我们以添加 yolov5 目标检测操作符为例，该算法已经在dora-drives/operators/yolov5_op.py中编写好。
 
@@ -280,9 +280,9 @@ class Operator:
         return DoraStatus.CONTINUE
 ```
 
-您只需要重写 __init__ 方法和 on_input 方法，init 方法会在初始化节点调用，执行操作符所需要的所有初始化和定义；on_input 方法会在每个时间步长中调用一次，您需要在配置数据流的 yaml 文件中定义入参 inputs 和输出 outputs 的内容。如果成功，返回 CONTINUE 标志；
+参赛选手只需要重写 __init__ 方法和 on_input 方法，init 方法会在初始化节点调用，执行操作符所需要的所有初始化和定义；on_input 方法会在每个时间步长中调用一次，参赛选手需要在配置数据流的 yaml 文件中定义入参 inputs 和输出 outputs 的内容。如果成功，返回 CONTINUE 标志；
 
-如果你想运行你的算法操作符，你只需要将它们添加到节点图中去：
+如果想运行算法操作符，参赛选手只需要将它们添加到节点图中去：
 
 ```yaml
 communication:
@@ -315,9 +315,9 @@ nodes:
         tick: dora/timer/millis/100
 ```
 
-- `nodes`：您要运行的节点群
+- `nodes`：要运行的节点群
 
-- `id`    ：您的节点id
+- `id`    ：的节点id
 
 - `python`：要运行的代码文件
 
@@ -327,27 +327,27 @@ nodes:
 
 输入以节点名为前缀，以便能够避免名称冲突。
 
-你可以在 docker 中使用以下命令，来运行您的算法：
+参赛选手可以在 docker 中使用以下命令，来运行算法：
 
 ```bash
 ./scripts/launch.sh -b -g tutorials/webcam_yolov5.yaml
 ```
 
-> 更加详细的有关 dora 的内容请参考：[**Dora 文档**](https://dora-rs.github.io/dora-drives/introduction.html)
+> 更加详细的有关 Dora 的内容请参考：[**Dora 文档**](https://dora-rs.github.io/dora-drives/introduction.html)
 
-## 2.4 训练和测试您的算法
-将您的 your_agent.py 和相关配置以及代码复制到您的 Oasis竞赛版安装映射的本机路径 team_code 目录下
+## 2.4 训练和测试算法
+将 your_agent.py 和相关配置文件以及代码复制到 Oasis竞赛版安装映射的本机路径 team_code 目录下
 
 ```bash
 cp your_agent.py {YOUR_PATH}/oasis/team_code
 cp YOUR_CONFIG {YOUR_PATH}/oasis/team_code
 ```
 
-在 Oasis 竞赛版中选取您的 your_agent.py 和相关配置，创建作业，运行即可，如图所示。
+在 Oasis 竞赛版中选取 your_agent.py 和相关配置文件，创建作业和运行，如图所示。
 
   ![Oasis选取your_agent.py，开启作业](js/images/oasis.png)
 
-我们准备了一套预定义的场景，您可以使用这些场景来训练和验证您的算法。场景可以在 *Oasis 竞赛版 - 场景库* 中找到。
+ Oasis 竞赛版中准备了一套预定义的场景，参赛选手可以使用这些场景来训练和验证算法。场景可以在 *Oasis 竞赛版 - 场景库* 中找到。
 
 ***
 
