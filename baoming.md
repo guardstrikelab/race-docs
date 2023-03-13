@@ -1,5 +1,5 @@
 ## 8.1 参赛流程
-1. 利用邮箱地址注册或登录<br><br>
+1. 推荐使用AtomGit账号登录<br><br>
 ![](js/images/baoming/1.png)
 
 2. 在邮箱中点击链接进行验证<br><br>

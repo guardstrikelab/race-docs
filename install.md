@@ -13,7 +13,7 @@
 
 ### 2.1.2 下载Oasis竞赛版压缩包
 
-[点击这里下载 Oasis 竞赛版压缩包](https://carsmos.oss-cn-chengdu.aliyuncs.com/Oasis-bisai.tar.gz)，压缩包里面包含：
+[点击这里下载 Oasis 竞赛版压缩包](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos_0309.tar.gz)，压缩包里面包含：
 - 安装所需镜像 tar 包
 - 一键部署脚本
 - Oasis 竞赛版使用手册
