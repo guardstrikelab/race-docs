@@ -1,4 +1,4 @@
-[上一页：附录](scenarios.md)
+[上一页：License导入说明](license.md)
 
 ***
 
@@ -24,4 +24,6 @@
 
 ***
 
-[下一页：场景说明](scenarios.md)
+[上一页：License导入说明](license.md)
+
+[下一页：报名系统操作说明](baoming.md)

@@ -1,3 +1,7 @@
+[上一页：声明条款](clause.md)
+
+***
+
 ## 8.1 参赛流程
 1. 推荐使用AtomGit账号登录<br><br>
 ![](js/images/baoming/1.png)
@@ -30,3 +34,7 @@
 
 3. 构建镜像成功后，提交镜像<br><br>
 ![](js/images/baoming/11.png)
+
+***
+
+[上一页：声明条款](clause.md)
