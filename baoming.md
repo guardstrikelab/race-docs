@@ -1,6 +1,7 @@
-[上一页：声明条款](clause.md)
+[上一页：License导入说明](license.md)
 
 ***
+# 8 报名系统操作说明
 
 ## 8.1 参赛流程
 1. 推荐使用AtomGit账号登录<br><br>
@@ -37,4 +38,6 @@
 
 ***
 
-[上一页：声明条款](clause.md)
+[上一页：License导入说明](license.md)
+
+[下一页：声明条款](clause.md)

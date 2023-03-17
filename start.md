@@ -1,52 +1,67 @@
-[上一页：比赛介绍](README.md)
+[上一页：安装部署](install.md)
 
 ***
+# 3 开发指引
 
-## 2.1 开发环境配置
+## 3.1 运行示例
 
-### 2.1.1 环境要求
-- 操作系统：推荐 Ubuntu 20.04 LTS
-- 内存：16GB及以上
-- CPU：6核及以上
-- 显存：8GB及以上
-- 开发语言：Python 3.7
+- 可直接通过桌面图标 `Oasis` 进入 `Oasis` 竞赛版
 
-### 2.1.2 下载Oasis竞赛版压缩包
+- 申请并下载 `license` 后，导入即可，然后点击 `启动` 进入 `Oasis` 竞赛版系统
 
-[点击这里下载 Oasis 竞赛版压缩包](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos_0309.tar.gz)，压缩包里面包含：
-- 一键部署脚本
-- Oasis 竞赛版使用手册
-- Oasis 竞赛版部署要求文档
-- 动力学参数标定表
-- dora镜像制作脚本
+  ![启动](js/images/start/4.png)
 
-### 2.1.3 运行一键部署脚本，安装 Oasis 竞赛版
+- 点击新建作业
 
-- 根据部署要求文档，准备 Oasis 竞赛版所要安装的环境
+  ![新建作业](js/images/start/5.png)
 
-- 运行一键部署脚本，即可将 Oasis 竞赛版安装完毕
+- 可选择是否显示运行窗口、是否录制，以及自动驾驶系统和版本。然后选择添加场景
+  
+  ![添加场景](js/images/start/6.png)
 
-```bash
-./install.sh
-```
+- 选择若干个场景，点击确认
 
-### 2.1.4 运行示例
+  ![确认场景](js/images/start/7.png)
 
-- 可直接通过桌面图标 `Oasis` 进入Oasis竞赛版
+- 点击 `运行` ，任务加入队列，稍等就会出现运行窗口
 
-- 申请license，获得license许可后，导入license即可进入oasis系统
-
-- 配置场景，加载预置或者自定义的 your_agent.py 文件，创建任务即可开始仿真
+  ![运行窗口](js/images/start/9.png)
 
 - 运行结束，可查看任务运行结果，评价指标，获取传感器数据，查看任务运行视频
 
-## 2.2 基于 Dora 开发
+  ![运行结束](js/images/start/11.png)
 
-### 2.2.1 创建 Agent
+## 3.2 基于 Dora 开发
+
+### 3.2.1 Dora 简介
+
+`dora`（Dataflow Oriented Robotic Architecture）的目标是提供低延迟、可组合、分布式的数据流（`data-flow`）。
+
+`dora-drives` 定义了一些处理节点（`operator`），您可以在数据流文件（`.yaml`）中使用这些处理节点（`operator`）来构建自动驾驶算法。
+
+本次比赛使用 Dora 进行开发，详情请参考：
+
+- [**Dora-drives**](https://github.com/dora-rs/dora-drives)
+
+- [**Dora-drives文档**](https://dora.carsmos.ai/dora-drives)
+
+### 3.2.2 开发概述
+
+如[训练和测试算法](start.md#_33-训练和测试算法)所示，需要开发的内容主要包括：
+
+`your_agent.py`：一个启动文件
+
+`your_data_flow.yaml`：一个数据流文件
+
+`your_operator.py`：若干个包装算法的 `operators`
+
+`your_agent_config`：（可选）一个配置文件
+
+### 3.2.3 创建 Agent
 
 参赛选手需要在 Oasis 竞赛版指定的 **team_code/dora-drives/carla** 目录下，创建 **your_agent.py** 作为启动文件，用于执行自动驾驶算法，可参考示例 **oasis_agent.py** 。
 
-参赛选手所创建的 **your_agent.py** 需要通过继承 **AutonomousAgent** 类进行开发，可以在 **autoagents/autonomous_agent.py** 中找到 *8AutonomousAgent** 类，这里定义了所有需要实现的方法，需要在 **your_agent.py** 中实现来接入自动驾驶算法模块。
+参赛选手所创建的 **your_agent.py** 需要通过继承 **AutonomousAgent** 类进行开发，可以在 **autoagents/autonomous_agent.py** 中找到 **AutonomousAgent** 类，这里定义了所有需要实现的方法，需要在 **your_agent.py** 中实现来接入自动驾驶算法模块。
 
 比赛系统将会使用算法依次运行多个预置的场景，生成任务结果，评估参赛选手的自动驾驶算法。
 
@@ -57,7 +72,7 @@ class YourAgent(AutonomousAgent):
     def __init__(self, debug=False):
 ```
 
-### 2.2.2 初始化配置 setup
+### 3.2.4 初始化配置 *setup*
 
 参赛选手需要在 **your_agent.py** 中重写 *setup* 方法，此方法会在场景任务运行之前，执行 *agent* 所需要的所有初始化，它将在每次加载新的场景时被自动调用。
 
@@ -109,7 +124,7 @@ def from_gps_to_world_coordinate(lat, lon):
 
 ```
 
-### 2.2.3 设置传感器
+### 3.2.5 设置传感器
 
 参赛选手必须要重写 sensors 方法，该方法定义了 agent 能够使用的所有传感器。
 
@@ -178,7 +193,7 @@ def sensors(self):
 
 此外，还有一些空间限制，限制了传感器在车辆包围盒内的位置。如果一个传感器在任何轴线上与主车相距超过3米（例如：`[3.1,0.0,0.0]`），设置将失败。
 
-### 2.2.4 重写 run_step 方法
+### 3.2.6 重写 run_step 方法
 
 这个方法将在每个 *world tick* 被调用一次，产生一个新的动作，其形式为 `carla.VehicleControl` 对象。确保该函数返回控制对象，该对象将被用于更新仿真主车。
 
@@ -210,7 +225,7 @@ def sensors(self):
 
 - `Timestamp`：当前仿真世界时间帧号。
 
-### 2.2.5 重写 destroy 方法
+### 3.2.7 重写 destroy 方法
 
 在每个场景任务结束时，destroy 方法将被调用，需要参赛选手重写 destroy 方法来结束相应的进程或线程。
 
@@ -220,18 +235,11 @@ def destroy(self):
     pass
 ```
 
-## 2.2.6 创建数据流
+### 3.2.8 创建处理节点（`operator`）
 
-## 2.3 基于 Dora 开发
+建议将算法包装成为一个处理节点（`operator`），创建一个python文件：如 `your_operator.py`。
 
-### 2.3.1 Dora简介
-我们推荐使用 Dora 开发算法代码，详情请参考：
-- [**Dora**](https://github.com/dora-rs/dora)
-- [**Dora-drives**](https://github.com/dora-rs/dora-drives)
-
-### 2.3.2 在 Dora 中替换算法
-
-想要将自己的算法（操作符）添加到节点流中，只需要在数据流中创建新的节点即可。我们以添加 *yolov5* 目标检测操作符为例，该算法已经在 *dora-drives/operators/yolov5_op.py* 中编写好。
+我们以添加 *yolov5* 目标检测处理节点为例，该算法已经在 *dora-drives/operators/yolov5_op.py* 中编写好。
 
 ```python
 import os
@@ -289,9 +297,23 @@ class Operator:
         return DoraStatus.CONTINUE
 ```
 
-只需要重写 ____init____ 方法和 **on_input** 方法，____init____ 方法会在初始化节点调用，执行操作符所需要的所有初始化和定义；**on_input** 方法会在每个时间步长中调用一次，参赛选手需要在配置数据流的 *yaml* 文件中定义入参 *inputs* 和输出 *outputs* 的内容。如果成功，返回 CONTINUE 标志；
+只需要重写 ____init____ 方法和 **on_input** 方法，
 
-如果想运行算法操作符，只需要将它们添加到节点图中去：
+____init____ 方法会在初始化节点调用，执行处理节点所需要的所有初始化和定义；
+
+**on_input** 方法会在每个时间步长中调用一次，
+
+参赛选手需要在配置数据流的 *yaml* 文件中定义入参 *inputs* 和输出 *outputs* 的内容。
+
+如果成功，返回 CONTINUE 标志；
+
+### 3.2.9 创建数据流
+
+Dora 需要通过数据流文件启动各个节点，完成感知，定位，规划，控制等 `operators` 的运行启动。
+
+您可以修改 `oasis_agent.yaml` 中的内容，将 `your_operator.py` 作为一个节点加入其中，也可以自己创建一个新的数据流文件 `your_data_flow.yaml`。
+ 
+如果想运行算法处理节点，只需要将它们添加到节点图中去：
 
 ```yaml
 communication:
@@ -299,6 +321,16 @@ communication:
     app_name_prefix: dora-iceoryx-example
 
 nodes:
+  - id: my_algorithm
+    operator:
+      python: your_operator.py
+      outputs:
+        ...
+      inputs:
+        ...
+
+  # 以下为示例
+
   - id: webcam
     operator:
       python: ../../operators/webcam_op.py
@@ -326,7 +358,7 @@ nodes:
 
 - `nodes`：要运行的节点群
 
-- `id`    ：的节点id
+- `id`：节点的 id
 
 - `python`：要运行的代码文件
 
@@ -336,30 +368,26 @@ nodes:
 
 输入以节点名为前缀，以便能够避免名称冲突。
 
+数据流通过一个 `.yaml` 文件来定义，参考 **team_code/dora-drives/graphs/oasis/oasis_agent.yaml**。
+
 可以在 docker 容器中使用以下命令，来运行算法：
 
 ```bash
 ./scripts/launch.sh -b -g tutorials/webcam_yolov5.yaml
 ```
-
 > 更加详细的有关 Dora 的内容请参考：[**Dora 文档**](https://dora-rs.github.io/dora-drives/introduction.html)
 
-## 2.4 训练和测试算法
-将 your_agent.py 和相关配置文件以及代码复制到 Oasis竞赛版安装映射的本机路径 team_code 目录下
+## 3.3 训练和测试算法
 
-```bash
-cp your_agent.py {YOUR_PATH}/oasis/team_code
-cp YOUR_CONFIG {YOUR_PATH}/oasis/team_code
-```
+- 在 `Oasis 竞赛版 - 资源库 - 车辆控制系统 - Dora` 中，将 *oasis_agent.py* 替换为 *your_agent.py*，将 *oasis_agent.yaml* 替换为 *your_data_flow.yaml*，如果有配置文件，请选择，否则可忽略。
 
-在 Oasis 竞赛版中选取 your_agent.py 和相关配置文件，创建作业和运行，如图所示。
+  ![Oasis选取your_agent.py，开启作业](js/images/start/12.png)
 
-  ![Oasis选取your_agent.py，开启作业](js/images/oasis.png)
+- Oasis 竞赛版中准备了一套预定义的场景，参赛选手可以使用这些场景来训练和验证算法。场景可以在 *Oasis 竞赛版 - 场景库* 中找到。具体的场景说明请参考[场景说明](scenarios.md)。
 
- Oasis 竞赛版中准备了一套预定义的场景，参赛选手可以使用这些场景来训练和验证算法。场景可以在 *Oasis 竞赛版 - 场景库* 中找到。
 
 ***
 
-[上一页：比赛介绍](README.md)
+[上一页：开发指引](install.md)
 
 [下一页：比赛规则](rules.md)
