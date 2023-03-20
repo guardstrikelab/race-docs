@@ -1,4 +1,4 @@
-[Previous page: Instructions for using the registration system](signup_en.md)
+[Previous page: Registration System Operation Instructions](signup_en.md)
 
 ------
 
@@ -24,5 +24,5 @@ If the organizers of the competition discover any behavior that violates these t
 
 ------
 
-[Previous page: Instructions for using the registration system](signup_en.md)
+[Previous page: Registration System Operation Instructions](signup_en.md)
 
