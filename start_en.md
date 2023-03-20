@@ -1,7 +1,7 @@
 [Previous page:Install the deployment](install_en.md)
 
 ***
-# 3 Development Guidelines
+# 3 Development Guide
 
 ## 3.1 Running Example
 
