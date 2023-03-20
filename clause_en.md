@@ -1,4 +1,4 @@
-[Previous page: Instructions for using the registration system](baoming_en.md)
+[Previous page: Instructions for using the registration system](signup_en.md)
 
 ------
 
