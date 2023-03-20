@@ -1,36 +1,36 @@
-[Previous Page: License Import Instructions](license.md)
+[上一页：License导入说明](license.md)
 
 ***
-# 8 Registration System Operation Instructions
+# 8 报名系统操作说明
 
-## 8.1 Registration Process
-1. It is recommended to log in with AtomGit account.<br><br>
+## 8.1 参赛流程
+1. 推荐使用AtomGit账号登录<br><br>
 ![](js/images/baoming/1.png)
 
-2. Click the link in the email to verify.<br><br>
+2. 在邮箱中点击链接进行验证<br><br>
 ![](js/images/baoming/2.png)
 
-3. Enter the system and select the Carsmos 2023 Open Source Autonomous Driving Algorithm Competition.<br><br>
+3. 进入系统，选择 Carsmos 2023 开源智驾算法大赛<br><br>
 ![](js/images/baoming/3.png)
 
-4. Enter the team name and create a team.<br><br>
+4. 输入队伍名，创建队伍<br><br>
 ![](js/images/baoming/5.png)
 
-5. Select the created team, enter the team introduction and competition instructions, and click Apply to Participate.<br><br>
+5. 选择所创建的队伍，输入团队介绍和参赛说明，点击申请参赛<br><br>
 ![](js/images/baoming/6.png)
 
-6. Wait for the approval.<br><br>
+6. 等待审核通过<br><br>
 ![](js/images/baoming/7.png)
 
-7. After approval, refresh the page to start submitting images.<br><br>
+7. 审核通过后，刷新页面，即可开始提交镜像<br><br>
 ![](js/images/baoming/8.png)
 
 
 ## 8.2 提交流程
-1. Click "Add New Submission" to get the command, **copy and execute it directly on your local machine**.。<br><br>
+1. 点击新增提交，获取指令，**直接复制到本机执行即可**。<br><br>
 ![](js/images/baoming/9.png)
 
-2. Build the image.<br><br>
+2. 构建镜像<br><br>
 ![](js/images/baoming/10.png)
 
 3. After the image is built successfully, submit the image.<br><br>
@@ -38,4 +38,6 @@
 
 ***
 
-[Next Page: Declaration Clause](clause.md)
+[上一页：License导入说明](license.md)
+
+[下一页：声明条款](clause.md)
