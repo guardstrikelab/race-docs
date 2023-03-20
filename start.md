@@ -5,9 +5,9 @@
 
 ## 3.1 运行示例
 
-- 可直接通过桌面图标 `Oasis` 进入 `Oasis` 竞赛版
+- 直接通过桌面图标 `Oasis` 进入 `Oasis` 竞赛版
 
-- 申请并下载 `license` 后，导入即可，然后点击 `启动` 进入 `Oasis` 竞赛版系统
+- 点击 `启动` 进入 `Oasis` 竞赛版系统
 
   ![启动](js/images/start/4.png)
 
@@ -53,7 +53,7 @@
 
 `your_data_flow.yaml`：一个数据流文件
 
-`your_operator.py`：若干个包装算法的 `operators`
+`your_operator.py`：若干个包装算法的处理节点（`operators`）
 
 `your_agent_config`：（可选）一个配置文件
 
@@ -383,7 +383,9 @@ nodes:
 
   ![Oasis选取your_agent.py，开启作业](js/images/start/12.png)
 
-- Oasis 竞赛版中准备了一套预定义的场景，参赛选手可以使用这些场景来训练和验证算法。场景可以在 *Oasis 竞赛版 - 场景库* 中找到。具体的场景说明请参考[场景说明](scenarios.md)。
+- Oasis 竞赛版中准备了一套预定义的场景，可以使用这些场景来训练和验证算法。
+  
+- 场景可以在 *Oasis 竞赛版 - 场景库* 中找到。具体的场景说明请参考[场景说明](scenarios.md)。
 
 
 ***

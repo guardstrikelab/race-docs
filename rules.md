@@ -99,4 +99,4 @@ $score = 60+40*\frac{|T-x|}{0.4*T}$
 
 [上一页：开发指引](start.md)
 
-[下一页：提交说明](submit.md)
+[下一页：提交算法](submit.md)

@@ -2,7 +2,7 @@
 * [**2.安装部署**](install.md)
 * [**3.开发指引**](start.md)
 * [**4.比赛规则**](rules.md)
-* [**5.提交说明**](submit.md)
+* [**5.提交算法**](submit.md)
 * [**6.场景说明**](scenarios.md)
 * [**7.License导入说明**](license.md)
 * [**8.报名系统操作说明**](baoming.md)

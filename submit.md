@@ -1,16 +1,16 @@
 [上一页：比赛规则](rules.md)
 
 ***
-# 5 提交说明
+# 5 提交算法
 
 ## 5.1 环境准备
 - 设置环境变量指向 Oasis 竞赛版提供的 team_code 文件夹
 ```bash
-export TEAM_CODE_ROOT={YOUR_PATH}/carsmos/team_code
+export TEAM_CODE_ROOT={你的路径}/carsmos/team_code
 ```
 - 给镜像构建脚本添加执行权限
 ```bash
-cd {YOUR_PATH}/carsmos
+cd {你的路径}/carsmos
 sudo chmod +x make_docker.sh
 ```
 
@@ -20,19 +20,17 @@ sudo chmod +x make_docker.sh
 
 - 在 [**比赛报名系统**](https://race.carsmos.cn/) 中进行操作，如有问题，参考 [**报名系统操作说明**](baoming.md#_82-提交流程)
 
-- 在构建好镜像之后，**建议您在本地先进行测试**，确认无误后再提交到云端，启动镜像的参考命令如下：
+<!-- - 在构建好镜像之后，**建议您在本地先进行测试**，确认无误后再提交到云端，启动镜像的参考命令如下：
 
 ```bash
 docker run --gpus all --runtime=nvidia --net=host -it --shm-size=2g --memory=10g --name dora-oasis-container carsmos_dora:0.1 /bin/bash
-```
+``` -->
 
 - 镜像上传成功之后，云端会自动运行参赛选手的算法并提供实时的运行状态
 
-- 参赛选手需要等待一段时间（10分钟至1小时，取决于参赛选手的算法），然后可以在：[**比赛报名系统**](https://race.carsmos.cn/) - 赛事 - 提交 - 提交历史
-看到本次提交的运行结果。
+- 参赛选手需要等待一段时间（12小时以内），然后可以在：[比赛报名系统](https://race.carsmos.cn/) - 赛事 - 提交 - 提交历史 看到本次提交的运行结果。
 
 - 每次提交的结果需要后台专家组审核通过之后，才可以参与排名
-
 
 ***
 
