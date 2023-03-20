@@ -8,7 +8,7 @@ The main goal of the Carsmos Open Source Autonomous Driving Algorithm Competitio
 
 Participants only need to register on the [**Competition Registration System**](https://race.carsmos.cn/), provide team information, and pass the audit to participate.
 
-This competition is organized by[**Xi'an Shenxin Kechuang Information Technology Co., Ltd.**](https://guardstrike.com/)举办。
+This competition is organized by[**Xi'an Shenxin Kechuang Information Technology Co., Ltd.**](https://guardstrike.com/)。
 
 ## 1.2 Competition Tasks
 
