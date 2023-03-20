@@ -56,4 +56,4 @@
 
 [Previous page: Competition Rules](rules_en.md)
 
-[Next page: License Import Instructions](license_en.md)
+[Next page: Instructions for Importing a License](license_en.md)
