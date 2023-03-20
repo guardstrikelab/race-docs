@@ -1,4 +1,4 @@
-[Previous page: Scenario description.](scenarios_en.md)
+[Previous page: Scenario Description.](scenarios_en.md)
 
 ------
 
@@ -40,7 +40,7 @@ If the Oasis Competition Edition is launched successfully, it will generate a ma
 
 ------
 
-[Previous page: Scenario description.](scenarios_en.md)
+[Previous page: Scenario Description.](scenarios_en.md)
 
 [Next page: Instructions for using the registration system.](signup_en.md)
 
