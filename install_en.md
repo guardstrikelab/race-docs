@@ -215,7 +215,7 @@ The desktop shortcut component, double-click to open oasis-web.
 ### 2.6.6 Public
 The public component includes installation packages and installation scripts for docker, nvidia-docker, docker-compose, and openssh.
 
-## 2.7 本地存储目录说明
+## 2.7 Local Storage Directory Description
 
 - /oasisdata/data: video replay, sensor-related data;
 - /oasisdata/log: video replay, sensor-related logs;
