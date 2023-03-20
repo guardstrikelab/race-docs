@@ -142,22 +142,22 @@ Click the startup button to enter the Oasis Simulation Platform.
 
 ![image.png](js/images/install/10.png)
 
-## 2.4 卸载
-进入 oasis 目录执行
+## 2.4 Uninstallation
+Go to the Oasis directory and execute:
 ```shell
 cd  carsmos/oasis
 ./uninstall.sh
 ```
 
-## 2.5 产品说明
-Oasis 仿真测试产品包含以下模块：
+## 2.5 Product Description
+Oasis Simulation Platform includes the following modules:
 
 - Carla
 - Database
 - Services
 - Web
 
-用到的中间件以及工具组件：
+Middleware and tool components used include:
 
 - docker
 - nvidia-docker
@@ -176,54 +176,55 @@ Oasis 仿真测试产品包含以下模块：
 - LibOpenDrive 
 - CodeMirror
 
-推荐的系统版本配置：
+Recommended system version configuration:
 
 - Ubuntu 20.04
 - NVIDIA 3060
-- NVIDIA 驱动 510.108
+- NVIDIA driver 510.108
 
-## 2.6 安装模块说明
+## 2.6 Installation Module Description
 ### 2.6.1 Carla
-执行仿真测试的组件，该目录下包含Carla安装所需的脚本文件和安装包。
+The component that executes simulation testing. This directory includes the necessary scripts and installation packages for Carla installation.
 ### 2.6.2 Database
-数据库及中间件组件：包含 mysql、Redis、etcd、influxdb：
+Database and middleware components, including mysql, Redis, etcd, and influxdb:
 
-- mysql 存储的是整个仿真测试的运行结果；
-- influxdb 存储的是图表展示所需的测试数据；
-- Redis 存储的是运行任务的过程信息；
-- etcd 做为任务调度中间件使用；
+- mysql stores the results of the entire simulation test;
+- influxdb stores the test data required for chart display;
+- Redis stores the process information of running tasks;
+- etcd is used as the middleware for task scheduling;
 
-该目录下包含所有对应组件的安装包和安装脚本。
+This directory includes installation packages and installation scripts for all corresponding components.
 ### 2.6.3 Services
-服务组件包含 5 大模块；
+The service component includes 5 modules:
 
-- oasis-simulate 负责与仿真器的交互，运行测试用例以及结果的收集；
-- oasis-viz 负责对场景运行过程的传感器相关数据收集及显示；
-- oasis-data 负责对场景运行过程中视频的录制和回放；
-- oasis-task-manager 负责整个测试任务的调度，流程控制；
-- oasis-server 整个仿真测试平台的 web 服务器，负责处理页面的下发的请求；
+- oasis-simulate is responsible for interaction with the simulator, running test cases, and collecting results;
+- oasis-viz is responsible for collecting and displaying sensor-related data during the scene running process;
+- oasis-data is responsible for recording and replaying videos during the scene running process;
+- oasis-task-manager is responsible for scheduling the entire test task and process control;
+- oasis-server is the web server for the entire simulation testing platform, responsible for processing requests sent by the page;
 
-该目录下包含所有对应组件的安装包和安装脚本。
+This directory includes installation packages and installation scripts for all corresponding components.
+
 ### 2.6.4 Oasis-web
-界面展示组件，负责作业生成、下发以及运行结果的展示。
-该目录下包含对应组件的安装包和安装脚本。
+The interface display component is responsible for generating, issuing, and displaying the results of the task.
+This directory includes installation packages and installation scripts for the corresponding components.
 
 ### 2.6.5 Oasis-electron-linux
-桌面快捷方式组件，双击可打开 oasis-web。
+The desktop shortcut component, double-click to open oasis-web.
 
 ### 2.6.6 Public
-公共组件，包含 docker、nvidia-docker、docker-compose、openssh 的安装包和安装脚本。
+The public component includes installation packages and installation scripts for docker, nvidia-docker, docker-compose, and openssh.
 
 ## 2.7 本地存储目录说明
 
-- /oasisdata/data： 视频回放、传感器相关数据；
-- /oasisdata/log： 视频回放、传感器相关日志；
-- /oasisviz/data： 测试回放数据；
-- /oasisviz/log： 测试回放模块日志；
-- /opt/db_data/etcd：中间件 etcd 存储路径；
-- /opt/db_data/influx：数据库 influx 存储路径；
-- /opt/db_data/mysql：数据库 mysql 存储路径；
-- /opt/db_data/redis：数据库 redis 存储路径；
+- /oasisdata/data: video replay, sensor-related data;
+- /oasisdata/log: video replay, sensor-related logs;
+- /oasisviz/data: test replay data;
+- /oasisviz/log: test replay module logs;
+- /opt/db_data/etcd: middleware etcd storage path;
+- /opt/db_data/influx: database influx storage path;
+- /opt/db_data/mysql: database mysql storage path;
+- /opt/db_data/redis: database redis storage path;
 
 
 ***
