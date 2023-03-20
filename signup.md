@@ -33,7 +33,7 @@
 2. 构建镜像<br><br>
 ![](js/images/baoming/10.png)
 
-3. After the image is built successfully, submit the image.<br><br>
+3. 构建镜像成功后，提交镜像.<br><br>
 ![](js/images/baoming/11.png)
 
 ***
