@@ -12,7 +12,7 @@ Participants can compete in this competition as individuals or as team members. 
 
 Teams can submit their algorithms according to their own preferences until the submission limit is reached. The competition organizer reserves the right to provide additional computing power or submission times for participating teams.
 
-## 9.2  How to submit your algorithm
+## 9.2  How to submit your algorithm?
 
 By submitting algorithms to this self-driving algorithm competition, participants and teams authorize the organizers of the competition to review and analyze the submitted materials to verify compliance with all the rules of the competition. The submitted code (Docker image) will only be used for evaluation purposes and will not be disclosed without the consent of the participants and teams.
 
