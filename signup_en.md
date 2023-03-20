@@ -1,4 +1,4 @@
-[Previous Page: License Import Instructions](license_en.md)
+[Previous Page: Instructions for Importing a License](license_en.md)
 
 ***
 # 8 Registration System Operation Instructions
@@ -38,4 +38,4 @@
 
 ***
 
-[Next Page: Declaration Clause](clause_en.md)
+[Next Page:Terms and Conditions](clause_en.md)
