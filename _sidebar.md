@@ -5,5 +5,5 @@
 * [**5.提交算法**](submit.md)
 * [**6.场景说明**](scenarios.md)
 * [**7.License导入说明**](license.md)
-* [**8.报名系统操作说明**](baoming.md)
+* [**8.报名系统操作说明**](signup.md)
 * [**9.声明条款**](clause.md)

@@ -42,7 +42,7 @@
 
 ## 1.5 如何开始
 
-1. 在 [**比赛报名系统**](https://race.carsmos.cn) 注册，创建队伍并邀请队友或加入队伍，参与比赛。参考 [**报名系统操作流程**](baoming.md)。
+1. 在 [**比赛报名系统**](https://race.carsmos.cn) 注册，创建队伍并邀请队友或加入队伍，参与比赛。参考 [**报名系统操作流程**](signup.md)。
 
 2. 根据Oasis竞赛版 [__安装部署文档__](install.md)，安装运行Oasis竞赛版系统，[点击此处下载Oasis竞赛版](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz)。
 
@@ -76,7 +76,7 @@
 
 - [License导入说明](license.md)
 
-- [报名系统操作说明](baoming.md)
+- [报名系统操作说明](signup.md)
 
 - [声明条款](clause.md)
 

@@ -48,4 +48,4 @@ tar -zxvf generate_machine_code.tar.gz
 
 [上一页：场景说明](scenarios.md)
 
-[下一页：报名系统操作说明](baoming.md)
+[下一页：报名系统操作说明](signup.md)
