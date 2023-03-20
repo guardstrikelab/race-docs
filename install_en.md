@@ -1,4 +1,4 @@
-[上一页：比赛介绍](README.md)
+[Previous Page: Overview of the Competition](README_EN.md)
 
 ***
 # 2. Installation and Deployment
@@ -228,10 +228,5 @@ The public component includes installation packages and installation scripts for
 
 
 ***
-
-[上一页：比赛说明](README_EN.md)
-
-[下一页：开发指引](start_en.md)
-
-
+[Next Page: Development Guide](start_en.md)
 
