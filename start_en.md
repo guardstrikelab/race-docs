@@ -1,7 +1,7 @@
 [Previous page:Install the deployment](install_en.md)
 
 ***
-# 3 Development Guide
+# 3 Development Guidelines
 
 ## 3.1 Running Example
 
@@ -379,6 +379,6 @@ You can use the following command in the Docker container to run the algorithm:
 
 ***
 
-[Previous page:Development guidelines](install_en.md)
+[Previous page:Development Guidelines](install_en.md)
 
-[Next page:Contest Rules](rules_en.md)
+[Next page:Competition Rules](rules_en.md)
