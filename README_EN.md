@@ -34,11 +34,11 @@ Participants' algorithms need to make reasonable use of various [**scenario info
 ## 1.4 Competition Rewards
 (to be determined)
 
-- Champion: 1 team, prize money of ￥200,000
+- Champion: 1 team, prize money of **￥200,000**
 
-- Runner-up: 1 team, prize money of ￥100,000
+- Runner-up: 1 team, prize money of **￥100,000**
 
-- Third place: 1 team, prize money of ￥50,000
+- Third place: 1 team, prize money of **￥50,000**
 
 4th-8th place:
 
