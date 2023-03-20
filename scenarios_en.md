@@ -2,9 +2,9 @@
 
 ***
 
-# 6 Competition scenarios
+# 6 Competition Scenarios
 
-## 6.1 Training scenarios
+## 6.1 Training Scenarios
 
 | Scene Name                               | Scene Description                                               | Weather Lighting | Expected Mileage(m) | Expected Time Usage(s) |
 | -------------------------------------------- | ------------------------------------------------------------------- | ----- | ---- | ---- |
