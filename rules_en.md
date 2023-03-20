@@ -44,7 +44,7 @@ On the [**Scenarios Page - Test Scenarios**](scenarios_en.md#62-Testing-Scenario
 The main concepts of the scoring mechanism for the competition are explained as follows:
 
 - A scenario is also known as a challenge. Each scenario has a ` scenario score `，and the`final score ` of the competition is the **average score** of all `scenario score`.
-- The score of each scenario is the **weighted average** of several specific [**evaluation metrics**](rules_enn.md#311-evaluation-metrics).
+- The score of each scenario is the **weighted average** of several specific [**evaluation metrics**](rules_en.md#311-evaluation-metrics).
 - The specific parameters of the evaluation metrics for each scene may be different.
 - All scores are on a scale of 0 to 100. The higher the score, the better the performance.
 
