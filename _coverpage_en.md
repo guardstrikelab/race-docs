@@ -3,7 +3,7 @@
 
 > 2023 Spring Competition
 
-Organizer: Xi'an Xi'an GuardStrike Information Technology Co., Ltd.
+Organizer: Xi'an GuardStrike Information Technology Co., Ltd.
 
 [Competition Registration](https://race.carsmos.cn/)
 [View Documentation](README_en.md)
