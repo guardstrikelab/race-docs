@@ -13,20 +13,20 @@
 
 - 内存：建议内存不少于 `16GB`
 
-![image.png](js/images/install/1.png)
+![image.png](images/install/1.png)
 
 ### 2.1.3 显卡型号
 显卡型号推荐 `nvidia 3060` 以上。 
 
-![image.png](js/images/install/2.png)
+![image.png](images/install/2.png)
 ### 2.1.4 显卡驱动版本
 显卡驱动版本推荐 `510.108` 及以上，CUDA版本 `11.4` 及以上。
 
-![image.png](js/images/install/3.png)
+![image.png](images/install/3.png)
 ### 2.1.5 Docker 版本
 Docker 推荐版本 `20.10` 及以上
 
-![image.png](js/images/install/4.png)
+![image.png](images/install/4.png)
 
 ### 2.1.6 开发语言
 建议使用 `Python 3.7` 作为开发语言
@@ -72,7 +72,7 @@ ifconfig
 ```
 可以看到如下图所示的内容，复制以 `e` 开头的网卡的 `inet` 的IP地址，即为本机的IP地址。
 
- ![LOCAL_IP](js/images/install/11.png)
+ ![LOCAL_IP](images/install/11.png)
 
 解压之后进入到 `carsmos/oasis/` 目录，修改 `service_module/service.env` 中的*两处参数*
 
@@ -117,11 +117,11 @@ newgrp docker
 
 安装完成后，会在桌面有个图标，右键选择允许运行
 
-![image.png](js/images/install/5.png)
+![image.png](images/install/5.png)
 
 图标会变为下图
 
-![image.png](js/images/install/6.png)
+![image.png](images/install/6.png)
 
 ## 2.3 登录使用
 ### 2.3.1 申请并配置 license
@@ -130,11 +130,11 @@ newgrp docker
 
 > 请注意：需要在 [**比赛报名系统**](https://race.carsmos.cn) 中申请参赛并且审核通过之后，才可以申请 license。
 
-<!-- ![image.png](js/images/install/7.png)
+<!-- ![image.png](images/install/7.png)
 
 按照如下流程申请
 
-![image.png](js/images/install/8.png)
+![image.png](images/install/8.png)
 
 点击 `提交` 后， 并把 license 下载到本地。
 
@@ -142,12 +142,12 @@ newgrp docker
 
 选择 license 配置后，选择上面步骤下载的  lincense。
 
-![image.png](js/images/install/9.png) -->
+![image.png](images/install/9.png) -->
 ### 2.3.2 进入启动页面
 
 点击启动按钮，即可进入 oasis 仿真平台。
 
-![image.png](js/images/install/10.png)
+![image.png](images/install/10.png)
 
 ## 2.4 卸载
 进入 oasis 目录执行

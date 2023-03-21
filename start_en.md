@@ -9,27 +9,27 @@
 
 - Click on `Start` to enter the Oasis Competition Edition system.
 
-  ![Start](js/images/start/4_en.png)
+  ![Start](images/start/4_en.png)
 
 - Click on `New Job`.
 
-  ![New Job](js/images/start/5.png)
+  ![New Job](images/start/5.png)
 
 - You can choose whether to display the running window, whether to record, and the autonomous driving system and version. Then select the scene to add.
 
-  ![Add Scene](js/images/start/6.png)
+  ![Add Scene](images/start/6.png)
 
 - Select several scenes and click `Confirm`.
 
-  ![Confirm Scene](js/images/start/7.png)
+  ![Confirm Scene](images/start/7.png)
 
 - Click on `Run`, and the task will be added to the queue. Wait a moment and the running window will appear.
 
-  ![Running Window](js/images/start/9.png)
+  ![Running Window](images/start/9.png)
 
 - After the run is finished, you can check the task running results, evaluation metrics, get sensor data, and view the task running video.
 
-  ![Run Finished](js/images/start/11.png)
+  ![Run Finished](images/start/11.png)
 
 ## 3.2 Developed based on Dora
 
@@ -371,7 +371,7 @@ You can use the following command in the Docker container to run the algorithm:
 
 - In `Oasis Competition Edition - Resource Library - Vehicle Control System - Dora`, replace *oasis_agent.py* with *your_agent.py* and replace *oasis_agent.yaml* with *your_data_flow.yaml*. If there is a configuration file, please select it, otherwise you can ignore it.
 
-  ![Select your_agent.py and start the job in Oasis](js/images/start/12.png)
+  ![Select your_agent.py and start the job in Oasis](images/start/12.png)
 
 - A set of predefined scenarios are available in the Oasis Competition Edition, which can be used to train and validate algorithms.
 

@@ -62,7 +62,7 @@ If participants have any questions during the competition, they are welcome to j
 
 - **DingTalk** scan the QR code below to join the group:
   
-  ![QR code](js/images/QRcode.png)
+  ![QR code](images/QRcode.png)
 
 ## 1.7 Document Directory
 

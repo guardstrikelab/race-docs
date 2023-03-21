@@ -6,11 +6,11 @@
 
 1、打开 Oasis 竞赛版，可以看到如下页面
 
-![](js/images/license/image.png)
+![](images/license/image.png)
 
 2、点击 license 申请按钮，进入 license 创建页面
 
-![](js/images/license/image1.png)
+![](images/license/image1.png)
 
 - `参赛邮箱`：填写在报名系统上[__报名的邮箱__](https://race.carsmos.cn/contests)）
 
@@ -30,17 +30,17 @@ tar -zxvf generate_machine_code.tar.gz
 
 如果运行成功，会生成机器码，可以将机器码复制粘贴到 Oasis 竞赛版的机器码输入框中：
 
-![机器码生成](js/images/license/image7.png)
+![机器码生成](images/license/image7.png)
 
 3、正确填写后点击提交按钮，系统会自动向报名邮箱发送授权 license 文件（邮箱附件下载）
 
-![](js/images/license/image4.png)
+![](images/license/image4.png)
 
 4、返回首页，配置 license，导入步骤 3 下载的 license 授权文件
 
-![](js/images/license/image5.png)
+![](images/license/image5.png)
 
-![](js/images/license/image6.png)
+![](images/license/image6.png)
 
 5、导入 license 授权成功后，启动按钮就自动显示，点击启动进入 Oasis 竞赛版
 

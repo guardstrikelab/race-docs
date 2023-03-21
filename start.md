@@ -9,27 +9,27 @@
 
 - 点击 `启动` 进入 `Oasis` 竞赛版系统
 
-  ![启动](js/images/start/4.png)
+  ![启动](images/start/4.png)
 
 - 点击新建作业
 
-  ![新建作业](js/images/start/5.png)
+  ![新建作业](images/start/5.png)
 
 - 可选择是否显示运行窗口、是否录制，以及自动驾驶系统和版本。然后选择添加场景
   
-  ![添加场景](js/images/start/6.png)
+  ![添加场景](images/start/6.png)
 
 - 选择若干个场景，点击确认
 
-  ![确认场景](js/images/start/7.png)
+  ![确认场景](images/start/7.png)
 
 - 点击 `运行` ，任务加入队列，稍等就会出现运行窗口
 
-  ![运行窗口](js/images/start/9.png)
+  ![运行窗口](images/start/9.png)
 
 - 运行结束，可查看任务运行结果，评价指标，获取传感器数据，查看任务运行视频
 
-  ![运行结束](js/images/start/11.png)
+  ![运行结束](images/start/11.png)
 
 ## 3.2 基于 Dora 开发
 
@@ -381,7 +381,7 @@ nodes:
 
 - 在 `Oasis 竞赛版 - 资源库 - 车辆控制系统 - Dora` 中，将 *oasis_agent.py* 替换为 *your_agent.py*，将 *oasis_agent.yaml* 替换为 *your_data_flow.yaml*，如果有配置文件，请选择，否则可忽略。
 
-  ![Oasis选取your_agent.py，开启作业](js/images/start/12.png)
+  ![Oasis选取your_agent.py，开启作业](images/start/12.png)
 
 - Oasis 竞赛版中准备了一套预定义的场景，可以使用这些场景来训练和验证算法。
   
