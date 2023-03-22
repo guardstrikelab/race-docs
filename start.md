@@ -49,19 +49,21 @@
 
 如[训练和测试算法](start.md#_33-训练和测试算法)所示，需要开发的内容主要包括：
 
-`your_agent.py`：一个启动文件
+`my_agent.py`：一个启动文件
 
-`your_data_flow.yaml`：一个数据流文件
+`my_data_flow.yaml`：一个数据流文件
 
-`your_operator.py`：若干个包装算法的处理节点（`operators`）
+`my_operator.py`：若干个包装算法的处理节点（`operators`）
 
-`your_agent_config`：（可选）一个配置文件
+`my_agent_config`：（可选）一个配置文件
+
+> 以上文件名都可以自定义
 
 ### 3.2.3 创建 Agent
 
-参赛选手需要在 Oasis 竞赛版指定的 **team_code/dora-drives/carla** 目录下，创建 **your_agent.py** 作为启动文件，用于执行自动驾驶算法，可参考示例 **oasis_agent.py** 。
+参赛选手需要在 Oasis 竞赛版指定的 **team_code/dora-drives/carla** 目录下，创建 **my_agent.py** 作为启动文件，用于执行自动驾驶算法，可参考示例 **oasis_agent.py** 。
 
-参赛选手所创建的 **your_agent.py** 需要通过继承 **AutonomousAgent** 类进行开发，可以在 **autoagents/autonomous_agent.py** 中找到 **AutonomousAgent** 类，这里定义了所有需要实现的方法，需要在 **your_agent.py** 中实现来接入自动驾驶算法模块。
+参赛选手所创建的 **my_agent.py** 需要通过继承 **AutonomousAgent** 类进行开发，可以在 **autoagents/autonomous_agent.py** 中找到 **AutonomousAgent** 类，这里定义了所有需要实现的方法，需要在 **my_agent.py** 中实现来接入自动驾驶算法模块。
 
 比赛系统将会使用算法依次运行多个预置的场景，生成任务结果，评估参赛选手的自动驾驶算法。
 
@@ -74,7 +76,7 @@ class YourAgent(AutonomousAgent):
 
 ### 3.2.4 初始化配置 *setup*
 
-参赛选手需要在 **your_agent.py** 中重写 *setup* 方法，此方法会在场景任务运行之前，执行 *agent* 所需要的所有初始化，它将在每次加载新的场景时被自动调用。
+参赛选手需要在 **my_agent.py** 中重写 *setup* 方法，此方法会在场景任务运行之前，执行 *agent* 所需要的所有初始化，它将在每次加载新的场景时被自动调用。
 
 如果需要通过 *配置文件* 的方式来初始化配置，需要在 Oasis 竞赛版指定的 **team_code/dora-drives/carla** 目录下创建配置文件，该配置文件的绝对路径会通过 *path_to_conf_files* 传入 *setup* 方法。否则请忽略。
 
@@ -128,7 +130,7 @@ def from_gps_to_world_coordinate(lat, lon):
 
 参赛选手必须要重写 sensors 方法，该方法定义了 agent 能够使用的所有传感器。
 
-在 Oasis 竞赛版中，传感器可直接在 Oasis 竞赛版系统 - 资源库中进行配置，以调试得到适合参赛选手算法的最优传感器配置，**在提交到云端参赛时，需要将最优的传感器配置写入 your_agent.py 中的 sensors 方法中，进行提交。示例如下**
+在 Oasis 竞赛版中，传感器可直接在 Oasis 竞赛版系统 - 资源库中进行配置，以调试得到适合参赛选手算法的最优传感器配置，**在提交到云端参赛时，需要将最优的传感器配置写入 my_agent.py 中的 sensors 方法中，进行提交。示例如下**
 
 ```python
 def sensors(self):
@@ -237,7 +239,7 @@ def destroy(self):
 
 ### 3.2.8 创建处理节点（`operator`）
 
-建议将算法包装成为一个处理节点（`operator`），创建一个python文件：如 `your_operator.py`。
+建议将算法包装成为一个处理节点（`operator`），创建一个python文件：如 `my_operator.py`。
 
 我们以添加 *yolov5* 目标检测处理节点为例，该算法已经在 *dora-drives/operators/yolov5_op.py* 中编写好。
 
@@ -311,7 +313,7 @@ ____init____ 方法会在初始化节点调用，执行处理节点所需要的�
 
 Dora 需要通过数据流文件启动各个节点，完成感知，定位，规划，控制等 `operators` 的运行启动。
 
-您可以修改 `oasis_agent.yaml` 中的内容，将 `your_operator.py` 作为一个节点加入其中，也可以自己创建一个新的数据流文件 `your_data_flow.yaml`。
+您可以修改 `oasis_agent.yaml` 中的内容，将 `my_operator.py` 作为一个节点加入其中，也可以自己创建一个新的数据流文件 `my_data_flow.yaml`。
  
 如果想运行算法处理节点，只需要将它们添加到节点图中去：
 
@@ -323,7 +325,7 @@ communication:
 nodes:
   - id: my_algorithm
     operator:
-      python: your_operator.py
+      python: my_operator.py
       outputs:
         ...
       inputs:
@@ -379,9 +381,9 @@ nodes:
 
 ## 3.3 训练和测试算法
 
-- 在 `Oasis 竞赛版 - 资源库 - 车辆控制系统 - Dora` 中，将 *oasis_agent.py* 替换为 *your_agent.py*，将 *oasis_agent.yaml* 替换为 *your_data_flow.yaml*，如果有配置文件，请选择，否则可忽略。
+- 在 `Oasis 竞赛版 - 资源库 - 车辆控制系统 - Dora` 中，将 *oasis_agent.py* 替换为 *my_agent.py*，将 *oasis_agent.yaml* 替换为 *my_data_flow.yaml*，如果有配置文件，请选择，否则可忽略。
 
-  ![Oasis选取your_agent.py，开启作业](images/start/12.png)
+  ![Oasis选取my_agent.py，开启作业](images/start/12.png)
 
 - Oasis 竞赛版中准备了一套预定义的场景，可以使用这些场景来训练和验证算法。
   

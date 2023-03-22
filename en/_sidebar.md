@@ -1,0 +1,10 @@
+* [**1.Overview of the Competition**](en/README)
+* [**2.Installation and Deployment**](en/install_en)
+* [**3.Development Guidelines**](en/start_en)
+* [**4.Competition Rules**](en/rules_en)
+* [**5.Submitting Algorithms**](en/submit_en)
+* [**6.Scenario Description**](en/scenarios_en)
+* [**7.Instructions for Importing a License**](en/license_en)
+* [**8.Registration System Operation Instructions**](en/signup_en)
+* [**9.Terms and Conditions**](en/clause_en)
+

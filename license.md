@@ -25,7 +25,7 @@
 ```bash
 docker exec -it oasis-server /bin/bash
 tar -zxvf generate_machine_code.tar.gz
-./generate_machine_code/generate_your_machine_code.sh
+./generate_machine_code/generate_my_machine_code.sh
 ```
 
 如果运行成功，会生成机器码，可以将机器码复制粘贴到 Oasis 竞赛版的机器码输入框中：

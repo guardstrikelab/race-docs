@@ -3,20 +3,9 @@
 ***
 # 5 提交算法
 
-## 5.1 环境准备
-- 设置环境变量指向 Oasis 竞赛版提供的 team_code 文件夹
-```bash
-export TEAM_CODE_ROOT={你的路径}/carsmos/team_code
-```
-- 给镜像构建脚本添加执行权限
-```bash
-cd {你的路径}/carsmos
-sudo chmod +x make_docker.sh
-```
+## 5.1 构建并提交镜像
 
-## 5.2 构建并提交镜像
-
-> 在提交之前，请确保在本地运行了至少一次，否则云端将无法识别 *your_agent.py*、*your_agent.yaml* 的路径
+> 在提交之前，请确保在本地运行了至少一次，否则云端将无法识别 *my_agent.py*、*my_agent.yaml* 的路径
 
 - 在 [**比赛报名系统**](https://race.carsmos.cn/) 中进行操作，如有问题，参考 [**报名系统操作说明**](signup.md#_82-提交流程)
 

@@ -1,4 +1,4 @@
-[Previous Page: Overview of the Competition](README_EN.md)
+[Previous Page: Overview of the Competition](en/README)
 
 ***
 # 2. Installation and Deployment
@@ -10,19 +10,19 @@ The recommended operating system is Ubuntu 20.04.
 ### 2.1.2 Storage and Memory
 - Hard disk: It is recommended to reserve more than 60GB of disk space.
 - Memory: It is recommended to have a memory of no less than `16GB`.
-![image.png](images/install/1.png)
+![image.png](../images/install/1.png)
 
 ### 2.1.3 Graphics Card Model
 The recommended graphics card model is nvidia `3060` or above.
-![image.png](images/install/2.png)
+![image.png](../images/install/2.png)
 
 ### 2.1.4 Graphics Card Driver Version
 The recommended graphics card driver version is `510.108` or above, and the CUDA version is `11.4` or above.
-![image.png](images/install/3.png)
+![image.png](../images/install/3.png)
 
 ### 2.1.5 Docker Version
 The recommended Docker version is `20.10` or above.
-![image.png](images/install/4.png)
+![image.png](../images/install/4.png)
 
 ### 2.1.6 Programming Language
 It is recommended to use `Python 3.7` as the programming language.
@@ -67,7 +67,7 @@ ifconfig
 ```
 You can see the IP address of your local machine by copying the IP address， of the `inet` under the network card starting with `e`
 
- ![LOCAL_IP](images/install/11.png)
+ ![LOCAL_IP](../images/install/11.png)
 After decompressing, enter the `carsmos/oasis/` directory and modify the *two parameters* in `service_module/service.env`.
 
 ```shell
@@ -110,11 +110,11 @@ newgrp docker
 
 After installation, there will be an icon on the desktop. Right-click and select Allow to run.
 
-![image.png](images/install/5.png)
+![image.png](../images/install/5.png)
 
 The icon will change to the following:
 
-![image.png](images/install/6.png)
+![image.png](../images/install/6.png)
 
 ## 2.3 Login and Use
 ### 2.3.1 Apply for and Configure license
@@ -123,11 +123,11 @@ Refer to：[License Import Instructions](license_en.md)
 
 > Note：You need to apply for participation in the competition and pass the review on the [**Competition Registration System**](https://race.carsmos.cn) before you can apply for a license.
 
-<!-- ![image.png](images/install/7.png)
+<!-- ![image.png](../images/install/7.png)
 
 按照如下流程申请
 
-![image.png](images/install/8.png)
+![image.png](../images/install/8.png)
 
 点击 `提交` 后， 并把 license 下载到本地。
 
@@ -135,12 +135,12 @@ Refer to：[License Import Instructions](license_en.md)
 
 选择 license 配置后，选择上面步骤下载的  lincense。
 
-![image.png](images/install/9.png) -->
+![image.png](../images/install/9.png) -->
 ### 2.3.2 Enter the Startup Page
 
 Click the startup button to enter the Oasis Simulation Platform.
 
-![image.png](images/install/10.png)
+![image.png](../images/install/10.png)
 
 ## 2.4 Uninstallation
 Go to the Oasis directory and execute:
@@ -228,5 +228,5 @@ The public component includes installation packages and installation scripts for
 
 
 ***
-[Next Page: Development Guide](start_en.md)
+[Next Page: Development Guide](en/start_en)
 
