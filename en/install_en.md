@@ -68,7 +68,7 @@ ifconfig
 You can see the IP address of your local machine by copying the IP address， of the `inet` under the network card starting with `e`
 
  ![LOCAL_IP](../images/install/11.png)
-After decompressing, enter the `carsmos/oasis/` directory and modify the *two parameters* in `service_module/service.env`.
+After decompressing, enter the `carsmos/oasis/` directory and modify the *three parameters* in `service_module/service.env`.
 
 ```shell
 cd carsmos/oasis/
@@ -77,20 +77,20 @@ gedit service_module/service.env
 ```
 
 ```shell
-CLUSTER_MACHINES='[{"host_ip":"修改这里","port":22,"username":"修改这里","password":"修改这里"}]'
-```
-Where:
-- host_ip： the IP address of the local machine
-- port： the fixed port number 22 for SSH
-- username：the login username of the local machine
-- password：the login password of the local machine
-
-```shell
 LOCAL_IP=modify here
 ```
 Where:
 
 - LOCAL_IP： the IP address of the local machine
+
+```shell
+CLUSTER_MACHINES='[{"host_ip":"修改这里","port":22,"username":"修改这里","password":"修改这里"}]'
+```
+Where:
+- port： the fixed port number 22 for SSH
+- username：the login username of the local machine
+- password：the login password of the local machine
+
 
 ### 2.2.3 Run the Installation Script
 
@@ -119,7 +119,7 @@ The icon will change to the following:
 ## 2.3 Login and Use
 ### 2.3.1 Apply for and Configure license
 
-Refer to：[License Import Instructions](license_en.md)
+Refer to：[License Import Instructions](license_en)
 
 > Note：You need to apply for participation in the competition and pass the review on the [**Competition Registration System**](https://race.carsmos.cn) before you can apply for a license.
 

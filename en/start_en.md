@@ -31,6 +31,8 @@
 
   ![Run Finished](../images/start/11.png)
 
+> After the simulation is complete, it is recommended to make a submission first. The first submission may take a longer time, but subsequent submissions will be faster. Please refer to [Submitting Algorithm](submit_en).
+
 ## 3.2 Developed based on Dora
 
 ### 3.2.1 About Dora

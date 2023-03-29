@@ -31,13 +31,15 @@
 
   ![运行结束](images/start/11.png)
 
+> 运行完第一次后，建议先进行一次提交。第一次提交会花费较多时间，后续提交则会很快，参考：[提交算法](submit.md)
+
 ## 3.2 基于 Dora 开发
 
 ### 3.2.1 Dora 简介
 
 `dora`（Dataflow Oriented Robotic Architecture）的目标是提供低延迟、可组合、分布式的数据流（`data-flow`）。
 
-`dora-drives` 定义了一些处理节点（`operator`），您可以在数据流文件（`.yaml`）中使用这些处理节点（`operator`）来构建自动驾驶算法。
+`dora-drives` 定义了一些算子（`operator`），您可以在数据流文件（`.yaml`）中使用这些算子（`operator`）来构建自动驾驶算法。
 
 本次比赛使用 Dora 进行开发，详情请参考：
 
@@ -53,15 +55,15 @@
 
 `my_data_flow.yaml`：一个数据流文件
 
-`my_operator.py`：若干个包装算法的处理节点（`operators`）
+`my_operator.py`：若干个包装算法的算子（`operators`）
 
 `my_agent_config`：（可选）一个配置文件
 
-> 以上文件名都可以自定义
+> 以上文件名都可以自定义，需要在 `carsmos/team_code` 目录下进行开发
 
 ### 3.2.3 创建 Agent
 
-参赛选手需要在 Oasis 竞赛版指定的 **team_code/dora-drives/carla** 目录下，创建 **my_agent.py** 作为启动文件，用于执行自动驾驶算法，可参考示例 **oasis_agent.py** 。
+在 **carsmos/team_code/dora-drives/carla** 目录下，创建 **my_agent.py** 作为启动文件（文件名可自定义），用于执行自动驾驶算法，可参考同目录下的示例 **oasis_agent.py** 。
 
 参赛选手所创建的 **my_agent.py** 需要通过继承 **AutonomousAgent** 类进行开发，可以在 **autoagents/autonomous_agent.py** 中找到 **AutonomousAgent** 类，这里定义了所有需要实现的方法，需要在 **my_agent.py** 中实现来接入自动驾驶算法模块。
 
@@ -78,7 +80,7 @@ class YourAgent(AutonomousAgent):
 
 参赛选手需要在 **my_agent.py** 中重写 *setup* 方法，此方法会在场景任务运行之前，执行 *agent* 所需要的所有初始化，它将在每次加载新的场景时被自动调用。
 
-如果需要通过 *配置文件* 的方式来初始化配置，需要在 Oasis 竞赛版指定的 **team_code/dora-drives/carla** 目录下创建配置文件，该配置文件的绝对路径会通过 *path_to_conf_files* 传入 *setup* 方法。否则请忽略。
+如果需要通过 *配置文件* 的方式来初始化配置，需要在 **carsmos/team_code/dora-drives/carla** 目录下创建配置文件，该配置文件的绝对路径会通过 *path_to_conf_files* 传入 *setup* 方法。否则请忽略。
 
 同时，如果需要，可以将经纬度参考属性加载到 *setup* 方法中，它们会在 *setup* 运行之前就被更新，这两个属性是将 *waypoint* 坐标转换成 *carla* 坐标的参考值。
 
@@ -237,11 +239,11 @@ def destroy(self):
     pass
 ```
 
-### 3.2.8 创建处理节点（`operator`）
+### 3.2.8 创建算子（`operator`）
 
-建议将算法包装成为一个处理节点（`operator`），创建一个python文件：如 `my_operator.py`。
+建议将算法包装成为一个算子（`operator`），创建一个python文件：如 `my_operator.py`。
 
-我们以添加 *yolov5* 目标检测处理节点为例，该算法已经在 *dora-drives/operators/yolov5_op.py* 中编写好。
+我们以添加 *yolov5* 目标检测算子为例，该算法已经在 *dora-drives/operators/yolov5_op.py* 中编写好。
 
 ```python
 import os
@@ -301,7 +303,7 @@ class Operator:
 
 只需要重写 ____init____ 方法和 **on_input** 方法，
 
-____init____ 方法会在初始化节点调用，执行处理节点所需要的所有初始化和定义；
+____init____ 方法会在初始化节点调用，执行算子所需要的所有初始化和定义；
 
 **on_input** 方法会在每个时间步长中调用一次，
 
@@ -315,7 +317,7 @@ Dora 需要通过数据流文件启动各个节点，完成感知，定位，规
 
 您可以修改 `oasis_agent.yaml` 中的内容，将 `my_operator.py` 作为一个节点加入其中，也可以自己创建一个新的数据流文件 `my_data_flow.yaml`。
  
-如果想运行算法处理节点，只需要将它们添加到节点图中去：
+如果想运行算法算子，只需要将它们添加到节点图中去：
 
 ```yaml
 communication:
@@ -379,15 +381,25 @@ nodes:
 ```
 > 更加详细的有关 Dora 的内容请参考：[**Dora 文档**](https://dora-rs.github.io/dora-drives/introduction.html)
 
-## 3.3 训练和测试算法
+## 3.3 训练和调试算法
+
+### 3.3.1 在 Oasis 中运行您的算法
 
 - 在 `Oasis 竞赛版 - 资源库 - 车辆控制系统 - Dora` 中，将 *oasis_agent.py* 替换为 *my_agent.py*，将 *oasis_agent.yaml* 替换为 *my_data_flow.yaml*，如果有配置文件，请选择，否则可忽略。
 
   ![Oasis选取my_agent.py，开启作业](images/start/12.png)
 
-- Oasis 竞赛版中准备了一套预定义的场景，可以使用这些场景来训练和验证算法。
+- Oasis 竞赛版中准备了一套预定义的场景，可以使用这些场景来训练和调试算法。
   
 - 场景可以在 *Oasis 竞赛版 - 场景库* 中找到。具体的场景说明请参考[场景说明](scenarios.md)。
+
+### 3.3.2 如何调试
+
+- 实时查看运行日志
+
+```bash
+docker logs -f oasis-dora
+```
 
 
 ***

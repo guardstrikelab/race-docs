@@ -59,23 +59,36 @@ wget https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz
 tar -xzvf carsmos.tar.gz
 ```
 
-其中包含：
-- 一键部署脚本
-- Oasis 竞赛版使用手册
-- Oasis 竞赛版部署要求文档
-- 动力学参数标定表
-- dora镜像制作脚本
+进入 `carsmos` 文件夹，目录结构如下：
+```bash
+.
+├── oasis
+│   ├── carla ·························· Oasis Carla 模块
+│   ├── database ······················· Oasis Database 模块
+│   ├── doc ···························· 安装说明文档
+│   ├── install.sh ····················· 安装 Oasis 的脚本
+│   ├── oasis-electron-linux ··········· Oasis Electron 模块
+│   ├── oasis-web ······················ Oasis web 模块
+│   ├── public ························· 
+│   ├── service_module ················· Oasis 服务模块
+│   └── uninstall.sh ··················· 卸载 Oasis 的脚本
+├── team_code ·························· 存放选手的代码
+│   ├── dependencies ··················· 将依赖和算法模型放这里
+│   └── dora-drives ···················· 在这里开发程序
+└── upload.sh ·························· 上传算法的脚本
+
+```
 
 ### 2.2.2 修改配置参数
 首先查看电脑的LOCAL_IP：
 ```shell
 ifconfig
 ```
-可以看到如下图所示的内容，复制以 `e` 开头的网卡的 `inet` 的IP地址，即为本机的IP地址。
+可以看到如下图所示的内容，复制以 `e` 开头的网卡的 `inet` 的IP地址，即为本机的 IP 地址。
 
  ![LOCAL_IP](images/install/11.png)
 
-解压之后进入到 `carsmos/oasis/` 目录，修改 `service_module/service.env` 中的*两处参数*
+解压之后进入到 `carsmos/oasis/` 目录，修改 `service_module/service.env` 中的*三个参数*
 
 ```shell
 cd carsmos/oasis/
@@ -84,21 +97,16 @@ gedit service_module/service.env
 ```
 
 ```shell
-CLUSTER_MACHINES='[{"host_ip":"修改这里","port":22,"username":"修改这里","password":"修改这里"}]'
-```
-其中：
-
-- host_ip： 本机 IP 地址
-- port： 为 ssh 固定的端口号 22
-- username：本机的登录用户名
-- password：本机的登录密码
-
-```shell
 LOCAL_IP=修改这里
 ```
-其中：
 
-- LOCAL_IP： 本机 IP 地址
+```shell
+CLUSTER_MACHINES='[{"host_ip":"${LOCAL_IP}","port":22,"username":"修改这里","password":"修改这里"}]'
+```
+
+- LOCAL_IP: 修改为上面获取到的本机 IP 地址
+- username：本机的登录用户名，需要修改
+- password：本机的登录密码，需要修改
 
 ### 2.2.3 执行安装脚本
 

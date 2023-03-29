@@ -44,7 +44,7 @@ Participants' algorithms need to make reasonable use of various [**scenario info
 
 ## 1.5 How to Get Started
 
-1. Register on the [**Competition Registration System**](https://race.carsmos.cn), create a team, invite teammates, or join a team to participate in the competition. Refer to the[**Registration System Operation Process**](baoming_en.md).
+1. Register on the [**Competition Registration System**](https://race.carsmos.cn), create a team, invite teammates, or join a team to participate in the competition. Refer to the[**Registration System Operation Process**](signup_en.md).
 
 2. Install and run the Oasis Competition Edition system according to the [__Installation and Deployment Document__](install_en.md), [click here to download the Oasis Competition Edition](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz)。.
 
