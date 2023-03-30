@@ -68,61 +68,38 @@ tar -xzvf carsmos.tar.gz
 │   ├── doc ···························· 安装说明文档
 │   ├── install.sh ····················· 安装 Oasis 的脚本
 │   ├── oasis-electron-linux ··········· Oasis Electron 模块
-│   ├── oasis-web ······················ Oasis web 模块
+│   ├── oasis-web ······················ Oasis Web 模块
 │   ├── public ························· 离线安装 docker/docker-compose/openssh-server
 │   ├── service_module ················· Oasis 服务模块
 │   └── uninstall.sh ··················· 卸载 Oasis 的脚本
-├── team_code ·························· 存放选手的代码
+├── team_code
 │   ├── dependencies ··················· 将依赖和算法模型放这里
 │   └── dora-drives ···················· 在这里开发程序
 └── upload.sh ·························· 上传算法的脚本
 
 ```
 
-### 2.2.2 修改配置参数
-首先查看电脑的LOCAL_IP：
-```shell
-ifconfig
-```
-可以看到如下图所示的内容，复制以 `e` 开头的网卡的 `inet` 的IP地址，即为本机的 IP 地址。
-
- ![LOCAL_IP](images/install/11.png)
-
-解压之后进入到 `carsmos/oasis/` 目录，修改 `service_module/service.env` 中的*三个参数*
-
-```shell
-cd carsmos/oasis/
-gedit service_module/service.env
-# or：vim service_module/service.env
-```
-
-```shell
-LOCAL_IP=修改这里
-```
-
-```shell
-CLUSTER_MACHINES='[{"host_ip":"${LOCAL_IP}","port":22,"username":"修改这里","password":"修改这里"}]'
-```
-
-- LOCAL_IP: 修改为上面获取到的本机 IP 地址
-- username：本机的登录用户名，需要修改
-- password：本机的登录密码，需要修改
-
-### 2.2.3 执行安装脚本
+### 2.2.2 执行安装脚本
 
 执行 `install.sh` 脚本。
+
 ```shell
-./install.sh 
+./install.sh
 ```
+
+![image.png](images/install/install.jpg)
+
 安装过程会持续半小时左右，请耐心等待。
 
-> 提示：如果执行安装脚本显示 `Permission denied`，请参考如下命令将用户加入 `docker` 组，从而解决权限问题
+> 提示：不支持通过 `Xshell`、`PuTTY` 等远程连接工具安装，需在本机执行安装脚本。
+
+<!-- > 提示：如果执行安装脚本显示 `Permission denied`，请参考如下命令将用户加入 `docker` 组，从而解决权限问题
 ```shell
 sudo gpasswd -a $USER docker
 newgrp docker
-```
+``` -->
 
-### 2.2.4 添加图标权限
+### 2.2.3 添加图标权限
 
 安装完成后，会在桌面有个图标，右键选择允许运行
 
