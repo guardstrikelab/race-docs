@@ -69,7 +69,7 @@ tar -xzvf carsmos.tar.gz
 │   ├── install.sh ····················· 安装 Oasis 的脚本
 │   ├── oasis-electron-linux ··········· Oasis Electron 模块
 │   ├── oasis-web ······················ Oasis web 模块
-│   ├── public ························· 
+│   ├── public ························· 离线安装 docker/docker-compose/openssh-server
 │   ├── service_module ················· Oasis 服务模块
 │   └── uninstall.sh ··················· 卸载 Oasis 的脚本
 ├── team_code ·························· 存放选手的代码
