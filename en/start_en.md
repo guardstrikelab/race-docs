@@ -37,9 +37,12 @@
 
 ### 3.2.1 About Dora
 
-The goal of `dora` (Dataflow Oriented Robotic Architecture) is to provide low-latency, composable, and distributed data flows.
+The goal of `dora` (Dataflow Oriented Robotic Architecture) is to provide low-latency, composable, and distributed dataflows.
 
-`dora-drives` defines some processing nodes (`operators`) that you can use in the data flow file (`.yaml`) to build autonomous driving algorithms.
+`dora-drives` is a starter-kit based on `dora` for creating self-driving software. By breaking self-driving into several sub-problems such as
+perception, mapping, planning, and control, we hope to make self-driving software accessible to all.
+
+`dora-drives` hopes to solve self-driving as a community and we invite anyone to try to solve self-driving with us.
 
 For this competition, we will be using Dora for development. For more information, please refer to:
 
@@ -380,6 +383,45 @@ You can use the following command in the Docker container to run the algorithm:
 - A set of predefined scenarios are available in the Oasis Competition Edition, which can be used to train and validate algorithms.
 
 - The scenarios can be found in the *Oasis Competition Edition - Scenario Library*. Please refer to [Scenario Description](http://172.16.19.250:9001/scenarios.md) for specific scenario descriptions.
+
+## 3.4 On Source Code Management (SCM)
+
+To set up git:
+- Git fork the project. Go to: [dora-drives/fork](https://github.com/dora-rs/dora-drives/fork)
+
+- Set the source code configuration in your `dora-drives` folder:
+
+```bash
+# cd dora-drives
+git remote rm origin
+git remote add dora https://github.com/dora-rs/dora-drives.git
+git remote add origin https://github.com/<USERNAME>/dora-drives.git 
+```
+
+- In case you want to fetch updates from `dora-drives`:
+
+```bash
+git fetch dora
+git checkout main
+git rebase dora/main
+```
+
+- You can push your changes to dora-drives` by creating a Pull Request:
+```bash
+git checkout -b my_branch # Create a new branch
+git add `...changes...` # Add your changes
+git commit -m "message"
+git push --set-upstream origin my_branch
+# go to: https://github.com/dora-rs/dora-drives/compare/main...<USERNAME>:dora-drives:<my_branch>
+```
+
+- We are greatful for any kind of contribution. We know that `dora-drives` still has many issues and we're sorry. But,
+we hope that step-by-step, commit-by-commit, we can make it a great open source self-driving starter kit.
+
+## 3.5 On Issues 
+
+- If you have any issue using `dora-drives`, please raise an issue on our github page: https://github.com/dora-rs/dora-drives/issues
+- You can also reach out to discuss `dora-drives` in the discussion section: https://github.com/dora-rs/dora-drives/discussions
 
 ***
 
