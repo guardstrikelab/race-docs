@@ -33,33 +33,39 @@
 
 > 运行完第一次后，建议先进行一次提交。第一次提交会花费较多时间，后续提交则会很快，参考：[提交算法](submit.md)
 
-## 3.2 基于 Dora 开发
+## 3.2 基于 dora-drives 开发
 
-### 3.2.1 Dora 简介
+### 3.2.1 dora-drives 简介
 
 `dora`（Dataflow Oriented Robotic Architecture）的目标是提供低延迟、可组合、分布式的数据流（`data-flow`）。
 
-`dora-drives` 定义了一些算子（`operator`），您可以在数据流文件（`.yaml`）中使用这些算子（`operator`）来构建自动驾驶算法。
+`dora-drives` 是一款基于 `dora` 的自动驾驶软件入门套件。通过将自动驾驶分解为`感知`、`映射`、`规划`和`控制`等几个子问题，我们希望让所有人都能使用自动驾驶软件。`dora-drives` 希望构建一个自动驾驶社区，我们邀请任何人与我们一起尝试解决自动驾驶问题。
 
-本次比赛使用 Dora 进行开发，详情请参考：
+本次比赛使用 `dora-drives` 进行开发，详情请参考：
 
-- [**Dora-drives**](https://github.com/dora-rs/dora-drives)
+- [**dora-drives**](https://github.com/dora-rs/dora-drives)
 
-- [**Dora-drives文档**](https://dora.carsmos.ai/dora-drives)
+- [**dora-drives文档**](https://dora.carsmos.ai/dora-drives)
 
 ### 3.2.2 开发概述
 
 如[训练和测试算法](start.md#_33-训练和测试算法)所示，需要开发的内容主要包括：
 
-`my_agent.py`：一个启动文件
+`my_operator.py`：（必选）包装算法的算子（`operators`）。`dora-drives` 提供了若干个 `operator` 以供使用，详情如下。您可以实现自己的 `operator`，用于实现您的算法。
 
-`my_data_flow.yaml`：一个数据流文件
+  - `GPS operator`：输入 opendrive 地图、主车坐标及目的地，可计算并输出 gps 路点。
+  - `Yolov5 operator`：输入实时图片，可利用 yolo 算法模型计算并输出 bounding boxes。
+  - `Obstacle location operator`：输入主车坐标、bounding boxes以及激光雷达产生的 point cloud，可计算并输出障碍物的信息。
+  - `FOT operator`：输入主车坐标、速度、障碍物信息以及 gps 路点，可计算并输出真实的路点。比如前方有车挡住路线，这个 `operator` 可以计算出绕过前方车辆的路线。
+  - `PID Control operator`：输入主车坐标、速度及 `FOT operator` 计算出的路点，可计算并输出对主车的控制信息（油门、方向、刹车）。
 
-`my_operator.py`：若干个包装算法的算子（`operators`）
+`my_agent.py`：（可选）启动文件，可直接修改 `oasis` 提供的 `carsmos/team_code/dora-drives/carla/oasis_agent.py`。
 
-`my_agent_config`：（可选）一个配置文件
+`my_data_flow.yaml`：（可选）数据流文件，可直接修改 `oasis` 提供的 `carsmos/team_code/dora-drives/graphs/oasis/oasis_agent.yaml`。
 
-> 以上文件名都可以自定义，需要在 `carsmos/team_code` 目录下进行开发
+`my_agent_config`：（可选）配置文件。
+
+> 以上文件名都可以自定义，需要在 `carsmos/team_code` 目录下进行开发。
 
 ### 3.2.3 创建 Agent
 
@@ -301,7 +307,7 @@ class Operator:
         return DoraStatus.CONTINUE
 ```
 
-只需要重写 ____init____ 方法和 **on_input** 方法，
+添加YOLOv5对象检测处理节点作为一个算子，只需要重写 ____init____ 方法和 **on_input** 方法，
 
 ____init____ 方法会在初始化节点调用，执行算子所需要的所有初始化和定义；
 
