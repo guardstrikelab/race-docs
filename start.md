@@ -53,11 +53,11 @@
 
 `my_operator.py`：（必选）包装算法的算子（`operators`）。`dora-drives` 提供了若干个 `operator` 以供使用，详情如下。您可以实现自己的 `operator`，用于实现您的算法。
 
-  - `GPS operator`：输入 opendrive 地图、主车坐标及目的地，可计算并输出 gps 路点。
-  - `Yolov5 operator`：输入实时图片，可利用 yolo 算法模型计算并输出 bounding boxes。
-  - `Obstacle location operator`：输入主车坐标、bounding boxes以及激光雷达产生的 point cloud，可计算并输出障碍物的信息。
-  - `FOT operator`：输入主车坐标、速度、障碍物信息以及 gps 路点，可计算并输出真实的路点。比如前方有车挡住路线，这个 `operator` 可以计算出绕过前方车辆的路线。
-  - `PID Control operator`：输入主车坐标、速度及 `FOT operator` 计算出的路点，可计算并输出对主车的控制信息（油门、方向、刹车）。
+  - `GPS operator`：输入 opendrive 地图、主车坐标及目的地，可计算并输出 gps 路点。路径：`carsmos/team_code/dora-drives/carla/carla_gps_op.py`
+  - `Yolov5 operator`：输入实时图片，可利用 yolo 算法模型计算并输出 bounding boxes。路径：`carsmos/team_code/dora-drives/operators/yolov5_op.py`
+  - `Obstacle location operator`：输入主车坐标、bounding boxes以及激光雷达产生的 point cloud，可计算并输出障碍物的信息。路径：`carsmos/team_code/dora-drives/operators/obstacle_location_op.py`
+  - `FOT operator`：输入主车坐标、速度、障碍物信息以及 gps 路点，可计算并输出真实的路点。比如前方有车挡住路线，这个 `operator` 可以计算出绕过前方车辆的路线。路径：`carsmos/team_code/dora-drives/operators/fot_op.py`
+  - `PID Control operator`：输入主车坐标、速度及 `FOT operator` 计算出的路点，可计算并输出对主车的控制信息（油门、方向、刹车）。路径：`carsmos/team_code/dora-drives/operators/pid_control_op.py`
 
 `my_agent.py`：（可选）启动文件，可直接修改 `oasis` 提供的 `carsmos/team_code/dora-drives/carla/oasis_agent.py`。
 
