@@ -52,47 +52,24 @@ wget https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz
 tar -xzvf carsmos.tar.gz
 ```
 
-The package includes:
+Enter the `carsmos` folder, the directory structure is as follows:
 
-- One-click deployment script
-- Oasis Competition Edition User Manual
-- Oasis Competition Edition Deployment Requirements Document
-- Kinematic Parameter Calibration Table
-- dora image production script
+├── oasis
+│   ├── carla ·························· Oasis Carla module
+│   ├── database ······················· Oasis Database module
+│   ├── doc ···························· Installation instructions document
+│   ├── install.sh ····················· Oasis installation script
+│   ├── oasis-electron-linux ··········· Oasis Electron module
+│   ├── oasis-web ······················ Oasis Web module
+│   ├── public ························· Offline installation of docker/docker-compose/openssh-server
+│   ├── service_module ················· Oasis service module
+│   └── uninstall.sh ··················· Oasis uninstallation script
+├── team_code
+│   ├── dependencies ··················· Place dependencies and algorithm models here
+│   └── dora-drives ···················· Develop programs here
+└── upload.sh ·························· Script for uploading algorithms.
 
-### 2.2.2 Modify Configuration Parameters
-First, check the LOCAL_IP of your computer：
-```shell
-ifconfig
-```
-You can see the IP address of your local machine by copying the IP address， of the `inet` under the network card starting with `e`
-
- ![LOCAL_IP](../images/install/11.png)
-After decompressing, enter the `carsmos/oasis/` directory and modify the *three parameters* in `service_module/service.env`.
-
-```shell
-cd carsmos/oasis/
-gedit service_module/service.env
-# or：vim service_module/service.env
-```
-
-```shell
-LOCAL_IP=modify here
-```
-Where:
-
-- LOCAL_IP： the IP address of the local machine
-
-```shell
-CLUSTER_MACHINES='[{"host_ip":"修改这里","port":22,"username":"修改这里","password":"修改这里"}]'
-```
-Where:
-- port： the fixed port number 22 for SSH
-- username：the login username of the local machine
-- password：the login password of the local machine
-
-
-### 2.2.3 Run the Installation Script
+### 2.2.2 Run the Installation Script
 
 Run the `install.sh` script.
 ```shell
@@ -100,13 +77,10 @@ Run the `install.sh` script.
 ```
 The installation process will last for about half an hour. Please be patient.
 
-> Note: If executing the installation script shows `Permission denied`, please refer to the following commands to add the user to the `docker` group to solve the permission problem:
-```shell
-sudo gpasswd -a $USER docker
-newgrp docker
-```
+> Note: Installation cannot be performed through remote connection tools such as Xshell and PuTTY. The installation script needs to be executed on the local machine.
 
-### 2.2.4 Add Icon Permissions
+
+### 2.2.3 Add Icon Permissions
 
 After installation, there will be an icon on the desktop. Right-click and select Allow to run.
 

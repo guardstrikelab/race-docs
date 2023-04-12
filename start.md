@@ -54,14 +54,14 @@
 `my_operator.py`：（必选）包装算法的算子（`operators`）。`dora-drives` 提供了若干个 `operator` 以供使用，详情如下。您可以实现自己的 `operator`，用于实现您的算法。
 
   - `GPS operator`：输入 opendrive 地图、主车坐标及目的地，可计算并输出 gps 路点。路径：`carsmos/team_code/dora-drives/carla/carla_gps_op.py`
-  - `Yolov5 operator`：输入实时图片，可利用 yolo 算法模型计算并输出 bounding boxes。路径：`carsmos/team_code/dora-drives/operators/yolov5_op.py`
+  - `Yolov5 operator`：输入实时图片，可利用 yolov5 算法模型计算并输出 bounding boxes。路径：`carsmos/team_code/dora-drives/operators/yolov5_op.py`
   - `Obstacle location operator`：输入主车坐标、bounding boxes以及激光雷达产生的 point cloud，可计算并输出障碍物的信息。路径：`carsmos/team_code/dora-drives/operators/obstacle_location_op.py`
   - `FOT operator`：输入主车坐标、速度、障碍物信息以及 gps 路点，可计算并输出真实的路点。比如前方有车挡住路线，这个 `operator` 可以计算出绕过前方车辆的路线。路径：`carsmos/team_code/dora-drives/operators/fot_op.py`
   - `PID Control operator`：输入主车坐标、速度及 `FOT operator` 计算出的路点，可计算并输出对主车的控制信息（油门、方向、刹车）。路径：`carsmos/team_code/dora-drives/operators/pid_control_op.py`
 
-`my_agent.py`：（可选）启动文件，可直接修改 `oasis` 提供的 `carsmos/team_code/dora-drives/carla/oasis_agent.py`。
+`my_agent.py`：（必选）启动文件，可直接修改并使用默认的 `carsmos/team_code/dora-drives/carla/oasis_agent.py`。
 
-`my_data_flow.yaml`：（可选）数据流文件，可直接修改 `oasis` 提供的 `carsmos/team_code/dora-drives/graphs/oasis/oasis_agent.yaml`。
+`my_data_flow.yaml`：（必选）数据流文件，可直接修改并使用默认的 `carsmos/team_code/dora-drives/graphs/oasis/oasis_agent.yaml`。
 
 `my_agent_config`：（可选）配置文件。
 
@@ -406,6 +406,43 @@ nodes:
 ```bash
 docker logs -f oasis-dora
 ```
+
+## 3.4 关于Dora-drives源代码管理（SCM）
+### 3.4.1 如何贡献代码
+设置Git：
+- Git fork项目。转到：[dora-drives/fork](https://github.com/dora-rs/dora-drives/fork)
+
+- 在您的 `dora-drives` 文件夹中设置源代码配置：
+
+```bash
+# cd dora-drives
+git remote rm origin
+git remote add dora https://github.com/dora-rs/dora-drives.git
+git remote add origin https://github.com/<USERNAME>/dora-drives.git 
+```
+
+- 如果您想从 `dora-drives` 获取更新：
+
+```bash
+git fetch dora
+git checkout main
+git rebase dora/main
+```
+
+你可以通过创建一个 Pull Request 将你的更改推送到 dora-drives：
+```bash
+git checkout -b my_branch # 创建一个新分支
+git add `...changes...` # 添加你的更改
+git commit -m "message"
+git push --set-upstream origin my_branch
+# 前往：https://github.com/dora-rs/dora-drives/compare/main...<USERNAME>:dora-drives:<my_branch>
+```
+
+我们感激任何形式的贡献。我们知道 `dora-drives` 仍然存在许多问题，我们很抱歉。但是，我们希望逐步、逐次地让它成为一个伟大的开源自动驾驶起步工具包。
+
+### 3.4.2 On Issues 
+如果您在使用 `dora-drives` 时遇到任何问题，请在我们的 Github 页面上提出问题：https://github.com/dora-rs/dora-drives/issues
+您也可以在讨论区联系我们，讨论 `dora-drives` 的使用：https://github.com/dora-rs/dora-drives/discussions。
 
 
 ***
