@@ -1,77 +1,329 @@
 [上一页：安装部署](install.md)
 
 ***
-# 3 开发指引
+# 3 开发指南
 
-## 3.1 运行示例
+## 3.1 开发概述
 
-- 直接通过桌面图标 `Oasis` 进入 `Oasis` 竞赛版
-
-- 点击 `启动` 进入 `Oasis` 竞赛版系统
-
-  ![启动](images/start/4.png)
-
-- 点击新建作业
-
-  ![新建作业](images/start/5.png)
-
-- 可选择是否显示运行窗口、是否录制，以及自动驾驶系统和版本。然后选择添加场景
-  
-  ![添加场景](images/start/6.png)
-
-- 选择若干个场景，点击确认
-
-  ![确认场景](images/start/7.png)
-
-- 点击 `运行` ，任务加入队列，稍等就会出现运行窗口
-
-  ![运行窗口](images/start/9.png)
-
-- 运行结束，可查看任务运行结果，评价指标，获取传感器数据，查看任务运行视频
-
-  ![运行结束](images/start/11.png)
-
-> 运行完第一次后，建议先进行一次提交。第一次提交会花费较多时间，后续提交则会很快，参考：[提交算法](submit.md)
-
-## 3.2 基于 dora-drives 开发
-
-### 3.2.1 dora-drives 简介
+### 3.1.1 dora-drives 简介
 
 `dora`（Dataflow Oriented Robotic Architecture）的目标是提供低延迟、可组合、分布式的数据流（`data-flow`）。
 
-`dora-drives` 是一款基于 `dora` 的自动驾驶软件入门套件。通过将自动驾驶分解为`感知`、`映射`、`规划`和`控制`等几个子问题，我们希望让所有人都能使用自动驾驶软件。`dora-drives` 希望构建一个自动驾驶社区，我们邀请任何人与我们一起尝试解决自动驾驶问题。
+`dora-drives` 是一款基于 `dora` 的自动驾驶软件入门套件，本次比赛使用 `dora-drives` 进行开发。通过将自动驾驶分解为`感知`、`映射`、`规划`和`控制`等几个子问题，旨在降低自动驾驶系统开发门槛，让所有人都能开发自己的自驾系统。
 
-本次比赛使用 `dora-drives` 进行开发，详情请参考：
+### 3.1.2 需要做什么
 
-- [**dora-drives**](https://github.com/dora-rs/dora-drives)
+示例代码已经实现了完整的自动驾驶系统，您可以对其进行优化，也可以引入自己的模型，甚至可以重新开发一套新的自动驾驶系统。
 
-- [**dora-drives文档**](https://dora.carsmos.ai/dora-drives)
+要在 `oasis` 中实现您的自动驾驶算法，需要开发的内容主要包括：
 
-### 3.2.2 开发概述
+`my_operator.py`
 
-如[训练和测试算法](start.md#_33-训练和测试算法)所示，需要开发的内容主要包括：
+包装算法的算子（`operators`）。`dora-drives` 提供了若干个 `operator` 以供使用。您可以实现自己的 `operator`，用于实现您的算法，详情见后文。
 
-`my_operator.py`：（必选）包装算法的算子（`operators`）。`dora-drives` 提供了若干个 `operator` 以供使用，详情如下。您可以实现自己的 `operator`，用于实现您的算法。
+`my_agent.py`
 
-  - `GPS operator`：输入 opendrive 地图、主车坐标及目的地，可计算并输出 gps 路点。路径：`carsmos/team_code/dora-drives/carla/carla_gps_op.py`
-  - `Yolov5 operator`：输入实时图片，可利用 yolov5 算法模型计算并输出 bounding boxes。路径：`carsmos/team_code/dora-drives/operators/yolov5_op.py`
-  - `Obstacle location operator`：输入主车坐标、bounding boxes以及激光雷达产生的 point cloud，可计算并输出障碍物的信息。路径：`carsmos/team_code/dora-drives/operators/obstacle_location_op.py`
-  - `FOT operator`：输入主车坐标、速度、障碍物信息以及 gps 路点，可计算并输出真实的路点。比如前方有车挡住路线，这个 `operator` 可以计算出绕过前方车辆的路线。路径：`carsmos/team_code/dora-drives/operators/fot_op.py`
-  - `PID Control operator`：输入主车坐标、速度及 `FOT operator` 计算出的路点，可计算并输出对主车的控制信息（油门、方向、刹车）。路径：`carsmos/team_code/dora-drives/operators/pid_control_op.py`
+启动文件，可直接修改并使用默认的 `carsmos/team_code/dora-drives/carla/oasis_agent.py`，详情见后文。
 
-`my_agent.py`：（必选）启动文件，可直接修改并使用默认的 `carsmos/team_code/dora-drives/carla/oasis_agent.py`。
+`my_data_flow.yaml`
 
-`my_data_flow.yaml`：（必选）数据流文件，可直接修改并使用默认的 `carsmos/team_code/dora-drives/graphs/oasis/oasis_agent.yaml`。
+数据流文件，可直接修改并使用默认的 `carsmos/team_code/dora-drives/graphs/oasis/oasis_agent.yaml`，详情见后文。
 
 `my_agent_config`：（可选）配置文件。
 
 > 以上文件名都可以自定义，需要在 `carsmos/team_code` 目录下进行开发。
 
-### 3.2.3 创建 Agent
+## 3.2 开发示例
+
+### 3.2.1 dora 使用说明
+
+`dora` 的数据流通过一个 `.yaml` 文件定义，示例如下：
+
+```yaml
+communication: 
+  zenoh:
+    prefix: dora-zenoh-example
+
+nodes:
+  - id: oasis_agent # 当前 .yaml 文件中的唯一 id
+    custom: # 自定义节点的输入与输出
+      inputs: # 定义输入
+        tick: dora/timer/millis/400
+      outputs: # 定义输出
+        - opendrive
+        - objective_waypoints
+        - ...
+      source: shell
+      args: >
+        python3 $SIMULATE ...
+ 
+  - id: carla_gps_op
+    operator: # 表示单个 python 文件定义的 operator
+      python: ../../carla/carla_gps_op.py # 实现算法逻辑的 python 代码文件
+      outputs: # 定义 operator 的输出
+        - gps_waypoints
+        - ready
+      inputs: # 定义 operator 的输入
+        opendrive: oasis_agent/opendrive # oasis_agent 节点的 opendrive 输出作为此节点的一个输入
+        objective_waypoints: oasis_agent/objective_waypoints # oasis_agent 节点的 objective_waypoints 输出作为此节点的一个输入
+        ...
+```
+
+在节点中定义好 `id`、`inputs`、`outputs`、`python` 之后，就可以在对应的 `python` 代码文件中处理输入并将结果输出。
+
+实现 `carla_gps_op` 的 `carla_gps_op.py` 代码文件的整体结构如下
+
+```python
+
+from typing import Callable
+from dora import DoraStatus
+
+class Operator:
+
+  def __init__(self):
+    # 执行一些初始化
+  
+  # on_event 方法在每次接收到 dora 事件时会调用，dora 事件包括 “INPUT”、“STOP” 以及其他，但是我们只需要用到 “INPUT”。您可以在下面的 on_input 方法实现算法逻辑并输出，也可以直接在 on_event 方法中实现算法并输出。
+  def on_event(
+      self,
+      dora_event: dict,
+      send_output: Callable[[str, bytes], None],
+  ) -> DoraStatus:
+      # 只需要处理 “INPUT” 类型的 dora 事件
+      if dora_event["type"] == "INPUT":
+          # 可以在这里替换掉 on_input，然后处理输入，实现算法并输出，也可以在 on_input 方法中实现，建议采用后者。
+          return self.on_input(dora_event, send_output)
+      # DoraStatus 包括 CONTINUE 和 STOP，只需要返回 return DoraStatus.CONTINUE ，表示算法继续执行即可，不需要用到 DoraStatus.STOP
+      return DoraStatus.CONTINUE
+
+  # on_input 方法用于处理输入、实现算法并且输出结果
+  def on_input(
+        self,
+        dora_input: dict,
+        send_output: Callable[[str, bytes], None],
+    ) -> DoraStatus:
+    
+    # dora_input 是一个 dict
+    # dora_input["id"] 是一个字符串，等于 .yaml 文件中 inputs 中定义的输入的id
+    # dora_input["data"] 是一个字节数组（bytes），即输入的数据
+    if dora_input["id"] == "objective_waypoints":
+      self.objective_waypoints = np.frombuffer(
+                dora_input["data"], np.float32
+            ).reshape((-1, 3))[self.completed_waypoints :]
+
+    if dora_input["id"] == "opendrive":
+      # 处理 opendrive 输入的数据
+
+    # 实现一些算法与逻辑
+
+    # 调用参数中的 send_output 接口方法，将结果输出
+    # send_output("string", b"string", {"foo": "bar"})
+    # 第一个参数是一个字符串，等于“outputs” 中定义的输出的id
+    # 第二个参数是一个字节数组（bytes），即输出的数据
+    # 第三个参数是一些元数据
+    send_output(
+                    "gps_waypoints",
+                    self.waypoints.tobytes(),
+                    dora_input["metadata"],
+                )
+    return DoraStatus.CONTINUE
+
+```
+
+以上代码的重点：
+
+- **定义输入与输出**：在 `.yaml` 文件中定义输入与输出，比如 `oasis_agent` 节点的输出 `opendrive`、`objective_waypoints`，分别传给了 `carla_gps_op` 节点的 `opendrive`、`objective_waypoints`
+- **处理输入并输出**：利用 Python 处理输入并输出结果。
+
+### 3.2.2 oasis-agent 简介
+
+以 `oasis-agent.yaml` 与 `oasis-agent.py` 为例，以下将详细说明示例算法是如何被开发的。阅读并了解之后，您可以基于此进行优化，或者参考示例开发新的自驾系统。
+
+首先， `oasis-agent.py` 中实现了以下功能：
+
+- 在 `setup()` 方法中执行若干初始化，包括设置目的地、检查 `dora` 节点状态等
+
+- 在 `sensors()` 方法中定义了传感器
+
+- `run_step()` 方法总体实现了4个功能：
+
+  - 接收传感器原始数据，例如获取摄像头的帧：
+
+    ```python
+    frame_raw_data = input_data["camera.center"][1]
+    ```
+
+  - 对传感器原始数据进行预处理，例如将帧原始数据转为字节数组：
+
+    ```python
+    camera_frame = frame_raw_data.tobytes()
+    ```
+
+  - 将预处理后的传感器数据发送到输出端口，例如发送预处理后的帧数据到 `id=image` 的输出端口：
+
+    ```python
+    node.send_output("image", camera_frame)
+    ```
+
+  - 接收从 `PID Control operator` 发送的控制信息（油门、方向、刹车）并返回：
+
+    ```python
+    value = event["data"]
+    [throttle, target_angle, brake] = np.frombuffer(value, np.float16)
+    ```
+
+示例自驾系统整体分为：`全局路径规划` - `障碍物检测` - `障碍物定位` - `局部路径规划` - `控制`，每个部分分别通过一个 `operator` 实现：
+
+  - `GPS operator`
+  
+    输入 opendrive 格式的高精地图、主车坐标及目的地坐标，可计算并输出 gps 路点。路径：`carsmos/team_code/dora-drives/carla/carla_gps_op.py`
+
+  - `Yolov5 operator`
+  
+    输入实时图片，可利用 yolov5 算法模型计算并输出 bounding boxes（以下简称 `bbox`）。路径：`carsmos/team_code/dora-drives/operators/yolov5_op.py`
+
+  - `Obstacle location operator`
+  
+    输入主车坐标、bbox以及激光雷达产生的 point cloud，可计算并输出障碍物的信息。路径：`carsmos/team_code/dora-drives/operators/obstacle_location_op.py`
+
+  - `FOT operator`
+   
+    输入主车坐标、速度、障碍物信息以及 gps 路点，可计算并输出真实的路点。比如前方有车挡住路线，这个 `operator` 可以计算出绕过前方车辆的路线。路径：`carsmos/team_code/dora-drives/operators/fot_op.py`
+
+  - `PID Control operator`
+  
+    输入主车坐标、速度及 `FOT operator` 计算出的路点，可计算并输出对主车的控制信息（油门、方向、刹车）。路径：`carsmos/team_code/dora-drives/operators/pid_control_op.py`
+
+### 3.2.1 全局路径规划
+
+示例算法使用 `GPS operator` 实现全局路径规划，其方法是利用 `carla.GlobalRoutePlanner`，根据给定的起始点和目标点，以及高精地图，生成一条安全、平滑、高效的路径，并考虑到车辆的物理特性、道路限制、交通规则等因素。同时，它还可以实时地根据车辆的实际行驶情况，动态地调整路径规划，以保证车辆始终行驶在最佳的路径上。其关键代码如下：
+
+- _hd_map.py：
+  ```python
+  # 实例化 GlobalRoutePlanner
+  self._grp = GlobalRoutePlanner(
+      self._map, 1.0
+  )  # Distance between waypoints
+
+  # 利用 GlobalRoutePlanner 计算全局路线
+  route = self._grp.trace_route(
+              start_waypoint.transform.location, end_waypoint.transform.location
+          )
+  ```
+
+- carla_gps_op.py
+  ```python
+  waypoints = self.hd_map.compute_waypoints(
+      [
+          x,
+          y,
+          self._goal_location[2],
+      ],
+      self._goal_location,
+  )[:NUM_WAYPOINTS_AHEAD]
+  ```
+
+### 3.2.2 障碍物检测
+
+示例算法使用 `Yolov5 operator` 实现障碍物感知，它可以检测输入图片上的物体并输出 `bbox`，用于标记物体的位置。*示例算法只实现了障碍物的检测，没有实现交通信号灯、交通标志的校测。*
+
+```python
+results = self.model(frame) # 利用 yolov5 模型计算 bbox
+...
+send_output("bbox", arrays, dora_input["metadata"]) # 输出处理后的结果
+```
+
+### 3.2.3 障碍物定位
+
+示例算法使用 `Obstacle location operator` 实现障碍物定位。它利用激光雷达生成的点云和 `Yolov5 operator` 生成的 `bbox`，采取映射的方式，将三维点云映射到二维的 `bbox` 中，从而测算出障碍物的距离。具体的方式是，首先将点云的坐标转换为摄像头的坐标，然后取出在 `bbox` 内的点，选取其*z轴坐标等于四分位数*的点作为距离测算点，从而计算出障碍物的距离。关键代码如下：
+
+```python
+# 将点云坐标转换成摄像头坐标
+camera_point_cloud = local_points_to_camera_view(
+                point_cloud, INTRINSIC_MATRIX
+            )
+
+# 从点云中选取位于 bbox 框内的点
+[min_x, max_x, min_y, max_y, confidence, label] = obstacle_bb
+z_points = self.point_cloud[
+    np.where(
+        (self.camera_point_cloud[:, 0] > min_x)
+        & (self.camera_point_cloud[:, 0] < max_x)
+        & (self.camera_point_cloud[:, 1] > min_y)
+        & (self.camera_point_cloud[:, 1] < max_y)
+    )
+]
+
+# 选择 "z轴坐标=四分位数" 的点作为最近的点，用于定位障碍物（这样做是为了排除噪声）
+if len(z_points) > 0:
+    closest_point = z_points[
+        z_points[:, 2].argsort()[int(len(z_points) / 4)]
+    ]
+```
+
+### 3.2.4 局部路径规划
+
+示例算法使用 `FOT operator` 实现局部路径规划。它通过一系列初始参数，通过计算得到局部路径，初始参数如下：
+```python
+initial_conditions = {
+    "ps": 0,
+    "target_speed": # 目标速度
+    "pos": # 当前的 x, y 坐标
+    "vel": # 当前 x、y 方向的速度 vx, vy
+    "wp": # [[x, y], ... n_waypoints ]，通过 `GPS operator` 计算出的原始路点
+    "obs": # [[min_x, min_y, max_x, max_y], ... ] 路上的障碍物坐标
+}
+```
+
+由于上一步计算得出的障碍物坐标是三维的，因此需要将其转换为二维坐标，通过 `fot_op.py` - `get_obstacle_list` 实现了这个功能。
+
+另外，这个算法模型包含许多超参数（Hyperparameter）：
+```python
+max_speed (float): 最大速度 [m/s]
+max_accel (float): 最大加速度 [m/s^2]
+max_curvature (float): 最大曲率 [1/m]
+max_road_width_l (float): 左侧最大路宽 [m]
+max_road_width_r (float): 右侧最大路宽 [m]
+d_road_w（float）：道路宽度采样离散化[m]
+dt（float）：时间采样离散化[s]
+maxt（float）：最大预测时间[s]
+mint（float）：最小预测时间[s]
+d_t_s（float）：目标速度采样离散化[m/s]
+n_s_sample（float）：目标速度采样数
+obstacle_clearance（float）：障碍物半径[m]
+kd（float）：位置偏差成本
+kv（float）：速度成本
+ka（float）：加速度成本
+kj（float）：加加速度成本
+kt（float）：时间成本
+ko（float）：到障碍物距离成本
+klat（float）：横向成本
+klon（float）：纵向成本
+```
+
+您可以调整这些参数来优化这个局部规划算法。更多详情请参考：[erdos-project/frenet_optimal_trajectory_planner](https://github.com/erdos-project/frenet_optimal_trajectory_planner/)
+
+### 3.2.5 控制
+
+示例算法使用 `PID Control operator` 实现控制，它根据以前的输入对车辆当前速度、方向和位置做出反应，以加速、转向或刹车。
+
+要了解 `dora-drives` 更多内容请参考：
+
+- [**dora 主页**](https://dora.carsmos.ai/)
+
+- [**dora dataflow 文档**](https://dora.carsmos.ai/dora/dataflow-config.html)
+
+- [**dora-drives 文档**](https://dora.carsmos.ai/dora-drives)
+
+## 3.3 agent 开发指南
+
+### 3.3.1 创建 **my_agent.py** 或基于 **oasis_agent.py** 开发
 
 在 **carsmos/team_code/dora-drives/carla** 目录下，创建 **my_agent.py** 作为启动文件（文件名可自定义），用于执行自动驾驶算法，可参考同目录下的示例 **oasis_agent.py** 。
 
-参赛选手所创建的 **my_agent.py** 需要通过继承 **AutonomousAgent** 类进行开发，可以在 **autoagents/autonomous_agent.py** 中找到 **AutonomousAgent** 类，这里定义了所有需要实现的方法，需要在 **my_agent.py** 中实现来接入自动驾驶算法模块。
+也可以直接修改 **oasis_agent.py** 进行开发。
+
+**my_agent.py** 需要通过继承 **AutonomousAgent** 类进行开发，可以在 **autoagents/autonomous_agent.py** 中找到 **AutonomousAgent** 类，这里定义了所有需要实现的方法，需要在 **my_agent.py** 中实现来接入自动驾驶算法模块。
 
 比赛系统将会使用算法依次运行多个预置的场景，生成任务结果，评估参赛选手的自动驾驶算法。
 
@@ -366,26 +618,7 @@ nodes:
         tick: dora/timer/millis/100
 ```
 
-- `nodes`：要运行的节点群
-
-- `id`：节点的 id
-
-- `python`：要运行的代码文件
-
-- `inputs`： 当前节点的输入
-
-- `outputs`：当前节点的输出
-
 输入以节点名为前缀，以便能够避免名称冲突。
-
-数据流通过一个 `.yaml` 文件来定义，参考 **team_code/dora-drives/graphs/oasis/oasis_agent.yaml**。
-
-可以在 docker 容器中使用以下命令，来运行算法：
-
-```bash
-./scripts/launch.sh -b -g tutorials/webcam_yolov5.yaml
-```
-> 更加详细的有关 Dora 的内容请参考：[**Dora 文档**](https://dora-rs.github.io/dora-drives/introduction.html)
 
 ## 3.3 训练和调试算法
 
