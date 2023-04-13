@@ -334,7 +334,7 @@ class YourAgent(AutonomousAgent):
     def __init__(self, debug=False):
 ```
 
-### 3.2.4 初始化配置 *setup*
+### 3.3.2 初始化配置 *setup*
 
 参赛选手需要在 **my_agent.py** 中重写 *setup* 方法，此方法会在场景任务运行之前，执行 *agent* 所需要的所有初始化，它将在每次加载新的场景时被自动调用。
 
@@ -386,7 +386,7 @@ def from_gps_to_world_coordinate(lat, lon):
 
 ```
 
-### 3.2.5 设置传感器
+### 3.3.3 设置传感器
 
 参赛选手必须要重写 sensors 方法，该方法定义了 agent 能够使用的所有传感器。
 
@@ -455,7 +455,7 @@ def sensors(self):
 
 此外，还有一些空间限制，限制了传感器在车辆包围盒内的位置。如果一个传感器在任何轴线上与主车相距超过3米（例如：`[3.1,0.0,0.0]`），设置将失败。
 
-### 3.2.6 重写 run_step 方法
+### 3.3.4 重写 run_step 方法
 
 这个方法将在每个 *world tick* 被调用一次，产生一个新的动作，其形式为 `carla.VehicleControl` 对象。确保该函数返回控制对象，该对象将被用于更新仿真主车。
 
@@ -487,7 +487,7 @@ def sensors(self):
 
 - `Timestamp`：当前仿真世界时间帧号。
 
-### 3.2.7 重写 destroy 方法
+### 3.3.5 重写 destroy 方法
 
 在每个场景任务结束时，destroy 方法将被调用，需要参赛选手重写 destroy 方法来结束相应的进程或线程。
 
@@ -497,132 +497,9 @@ def destroy(self):
     pass
 ```
 
-### 3.2.8 创建算子（`operator`）
+## 3.4 训练和调试算法
 
-建议将算法包装成为一个算子（`operator`），创建一个python文件：如 `my_operator.py`。
-
-我们以添加 *yolov5* 目标检测算子为例，该算法已经在 *dora-drives/operators/yolov5_op.py* 中编写好。
-
-```python
-import os
-from typing import Callable
-
-import cv2
-import numpy as np
-import torch
-from dora import DoraStatus
-
-DEVICE = os.environ.get("PYTORCH_DEVICE") or "cpu"
-
-class Operator:
-    """
-    Infering object from images
-    """
-
-    def __init__(self):
-        self.model = torch.hub.load(
-            "ultralytics/yolov5",
-            "yolov5n",
-        )
-        self.model.to(torch.device(DEVICE))
-        self.model.eval()
-
-    def on_input(
-        self,
-        dora_input: dict,
-        send_output: Callable[[str, bytes], None],
-    ) -> DoraStatus:
-        """Handle image
-        Args:
-            dora_input["id"](str): Id of the input declared in the yaml configuration
-            dora_input["data"] (bytes): Bytes message of the input
-            send_output (Callable[[str, bytes]]): Function enabling sending output back to dora.
-        """
-
-        frame = cv2.imdecode(
-            np.frombuffer(
-                dora_input["data"],
-                dtype="uint8",
-            ),
-            -1,
-        )
-        frame = frame[:, :, :3]
-
-        results = self.model(frame)  # includes NMS
-        arrays = np.array(results.xyxy[0].cpu())[
-            :, [0, 2, 1, 3, 4, 5]
-        ]  # xyxy -> xxyy
-        arrays[:, 4] *= 100
-        arrays = arrays.astype(np.int32)
-        arrays = arrays.tobytes()
-        send_output("bbox", arrays, dora_input["metadata"])
-        return DoraStatus.CONTINUE
-```
-
-添加YOLOv5对象检测处理节点作为一个算子，只需要重写 ____init____ 方法和 **on_input** 方法，
-
-____init____ 方法会在初始化节点调用，执行算子所需要的所有初始化和定义；
-
-**on_input** 方法会在每个时间步长中调用一次，
-
-参赛选手需要在配置数据流的 *yaml* 文件中定义入参 *inputs* 和输出 *outputs* 的内容。
-
-如果成功，返回 CONTINUE 标志；
-
-### 3.2.9 创建数据流
-
-Dora 需要通过数据流文件启动各个节点，完成感知，定位，规划，控制等 `operators` 的运行启动。
-
-您可以修改 `oasis_agent.yaml` 中的内容，将 `my_operator.py` 作为一个节点加入其中，也可以自己创建一个新的数据流文件 `my_data_flow.yaml`。
- 
-如果想运行算法算子，只需要将它们添加到节点图中去：
-
-```yaml
-communication:
-  iceoryx:
-    app_name_prefix: dora-iceoryx-example
-
-nodes:
-  - id: my_algorithm
-    operator:
-      python: my_operator.py
-      outputs:
-        ...
-      inputs:
-        ...
-
-  # 以下为示例
-
-  - id: webcam
-    operator:
-      python: ../../operators/webcam_op.py
-      inputs:
-        tick: dora/timer/millis/100
-      outputs:
-        - image
-
-  - id: yolov5
-    operator: 
-      outputs:
-        - bbox
-      inputs:
-        image: webcam/image
-      python: ../../operators/yolov5_op.py
-
-  - id: plot
-    operator:
-      python: ../../operators/plot.py
-      inputs:
-        image: webcam/image
-        obstacles_bbox: yolov5/bbox
-        tick: dora/timer/millis/100
-```
-
-输入以节点名为前缀，以便能够避免名称冲突。
-
-## 3.3 训练和调试算法
-
-### 3.3.1 在 Oasis 中运行您的算法
+### 3.4.1 在 Oasis 中运行您的算法
 
 - 在 `Oasis 竞赛版 - 资源库 - 车辆控制系统 - Dora` 中，将 *oasis_agent.py* 替换为 *my_agent.py*，将 *oasis_agent.yaml* 替换为 *my_data_flow.yaml*，如果有配置文件，请选择，否则可忽略。
 
@@ -632,14 +509,14 @@ nodes:
   
 - 场景可以在 *Oasis 竞赛版 - 场景库* 中找到。具体的场景说明请参考[场景说明](scenarios.md)。
 
-### 3.3.2 如何调试
+### 3.4.2 如何调试
 
 - 实时查看运行日志
 
 ```bash
 docker logs -f oasis-dora
 ```
-
+<!-- 
 ## 3.4 关于Dora-drives源代码管理（SCM）
 ### 3.4.1 如何贡献代码
 设置Git：
@@ -675,7 +552,7 @@ git push --set-upstream origin my_branch
 
 ### 3.4.2 On Issues 
 如果您在使用 `dora-drives` 时遇到任何问题，请在我们的 Github 页面上提出问题：https://github.com/dora-rs/dora-drives/issues
-您也可以在讨论区联系我们，讨论 `dora-drives` 的使用：https://github.com/dora-rs/dora-drives/discussions。
+您也可以在讨论区联系我们，讨论 `dora-drives` 的使用：https://github.com/dora-rs/dora-drives/discussions。 -->
 
 
 ***
