@@ -18,31 +18,7 @@ For each scenario, the autonomous driving vehicle controlled by the participant'
 
 Participants' algorithms need to make reasonable use of various [**scenario information**](scenarios_en.md) and [**sensor information**](start.md#_223-重写-sensors-方法)，provided by the system to enable the algorithm-controlled vehicle to smoothly pass through these predefined scenarios and strive to obtain higher scores in various [**evaluation indicators**](rules.md#_321-评价指标).
 
-## 1.3 Competition Schedule
-(to be determined)
-
-- Registration begins on March 15th
-
-- Submission deadline is April 20th
-
-- The offline competition begins on May 10th
-
-- The offline competition ends on June 20th
-
-- Awards ceremony on June 30th
-
-## 1.4 Competition Rewards
-(to be determined)
-
-- Champion: 1 team, prize money of **￥200,000**
-
-- Runner-up: 1 team, prize money of **￥100,000**
-
-- Third place: 1 team, prize money of **￥50,000**
-
-4th-8th place:
-
-## 1.5 How to Get Started
+## 1.3 How to Get Started
 
 1. Register on the [**Competition Registration System**](https://race.carsmos.cn), create a team, invite teammates, or join a team to participate in the competition. Refer to the[**Registration System Operation Process**](signup_en.md).
 
@@ -53,10 +29,10 @@ Participants' algorithms need to make reasonable use of various [**scenario info
 4. Follow the prompts in the [**Competition Registration System**](https://race.carsmos.cn) and refer to Submitting Images to package the algorithm into an image and submit the image to the cloud for running results and scores.
 
 
-## 1.6 Competition Help and FAQ
+## 1.4 Competition Help and FAQ
 If participants have any feedback or suggestions about the open source autonomous driving algorithm competition, please contact us through the following channels.
 
-- Email: carsmos@guardstrike.com
+- Email: race@carsmos.ai
 
 If participants have any questions during the competition, they are welcome to join the discussion group.
 
@@ -64,7 +40,7 @@ If participants have any questions during the competition, they are welcome to j
   
   ![QR code](../images/QRcode.png)
 
-## 1.7 Document Directory
+## 1.5 Document Directory
 
 - [Installation and Deployment](en/install_en)
 
