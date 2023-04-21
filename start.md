@@ -9,7 +9,7 @@
 
 `dora`（Dataflow Oriented Robotic Architecture）的目标是提供低延迟、可组合、分布式的数据流（`data-flow`）。
 
-`dora-drives` 是一款基于 `dora` 的自动驾驶软件入门套件，本次比赛使用 `dora-drives` 进行开发。通过将自动驾驶分解为`感知`、`映射`、`规划`和`控制`等几个子问题，旨在降低自动驾驶系统开发门槛，让所有人都能开发自己的自驾系统。
+`dora-drives` 是一款基于 `dora` 的自动驾驶软件入门套件，本次比赛使用 `dora-drives` 进行开发。通过将自动驾驶分解为`感知`、`定位`、`规划`和`控制`等几个子问题，旨在降低自动驾驶系统开发门槛，让所有人都能开发自己的自驾系统。
 
 ### 3.1.2 需要做什么
 
@@ -516,6 +516,11 @@ def destroy(self):
 ```bash
 docker logs -f oasis-dora
 ```
+
+- 查看感知效果
+
+运行结束一个场景之后，可以在 `team_code/dora-drives/graphs/oasis` 目录下，查看 `output01.avi` 视频，视频中会标注感知效果。
+
 <!-- 
 ## 3.4 关于Dora-drives源代码管理（SCM）
 ### 3.4.1 如何贡献代码
