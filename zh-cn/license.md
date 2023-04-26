@@ -1,7 +1,3 @@
-[上一页：场景说明](scenarios.md)
-
-***
-
 # 7 License导入说明
 
 1、打开 Oasis 竞赛版，可以看到如下页面
@@ -43,9 +39,3 @@ tar -zxvf generate_machine_code.tar.gz
 ![](images/license/image6.png)
 
 5、导入 license 授权成功后，启动按钮就自动显示，点击启动进入 Oasis 竞赛版
-
-***
-
-[上一页：场景说明](scenarios.md)
-
-[下一页：报名系统操作说明](signup.md)

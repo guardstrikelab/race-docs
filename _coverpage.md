@@ -3,6 +3,5 @@
 > 2023 春季赛事
 
 [比赛报名](https://race.carsmos.cn/)
-[View Documentation](en/README)
 [查看文档](README)
 

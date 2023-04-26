@@ -1,6 +1,4 @@
-[Previous Page: Development Guide](en/start_en)
 
-***
 # 4 Competition Rules
 
 ## 4.1 Competition Scenarios
@@ -19,19 +17,19 @@ According to the Operational Design Domain (ODD) to which the scenarios belong, 
 
 The training scenarios consist of 28 atomic scenes, which are provided to the participants for the development and debugging of their autonomous driving algorithms. All training scenarios can be viewed and used as seed scenarios to derive more scenarios through the scene generalization function to meet the requirements of data collection and scenario diversity for autonomous driving algorithm development.
 
-On the [**Scenarios Page - Training Scenarios**](scenarios_en.md#61-Training Scene), each training scenario is detailed and introduced.
+On the [**Scenarios Page - Training Scenarios**](en/scenarios_en.md#61-Training Scene), each training scenario is detailed and introduced.
 
 ### 4.1.3 Test Scenarios
 
 The test scenarios consist of 10 complex scenes, each consisting of 2-4 atomic scenes, which are used to evaluate the autonomous driving algorithms submitted by the participants. All test scenarios are deployed on the cloud and cannot be viewed. After submitting their autonomous driving algorithm, the participants will run tests on the test scenarios in sequence and the results will be displayed on the page.
 
-On the [**Scenarios Page - Test Scenarios**](scenarios_en.md#62-Testing-Scenarios), each test scenario is detailed and introduced, including the scene name, scene type, main features, usage, and reference materials.
+On the [**Scenarios Page - Test Scenarios**](en/scenarios_en.md#62-Testing-Scenarios), each test scenario is detailed and introduced, including the scene name, scene type, main features, usage, and reference materials.
 
 ### 4.1.4 Scenario Rules
 
 1. In order to avoid vehicle instability caused by the main car having initial velocity when entering the autonomous driving system being tested, the main cars in all training and test scenarios enter the system with zero initial velocity at 0.1 seconds after the start of the scenario.
 
-2. Using the Hybrid A* algorithm, the shortest path is planned for all scenarios based on the starting and ending points of the main car. The maximum time limit for each scenario is calculated based on the shortest path and the corresponding minimum average speed. The expected mileage and expected time can be viewed on the [**Scenarios Page**](scenarios_en.md). If the main car does not reach the end point within the maximum time limit, it is considered a timeout.
+2. Using the Hybrid A* algorithm, the shortest path is planned for all scenarios based on the starting and ending points of the main car. The maximum time limit for each scenario is calculated based on the shortest path and the corresponding minimum average speed. The expected mileage and expected time can be viewed on the [**Scenarios Page**](en/scenarios_en.md). If the main car does not reach the end point within the maximum time limit, it is considered a timeout.
 
 3. In order to prevent participants from using different path planning algorithms that may cause the main car to travel through uninteresting areas, stationary obstructing vehicles may be placed in irrelevant directions at intersections in the training and test scenarios.
 
@@ -44,7 +42,7 @@ On the [**Scenarios Page - Test Scenarios**](scenarios_en.md#62-Testing-Scenario
 The main concepts of the scoring mechanism for the competition are explained as follows:
 
 - A scenario is also known as a challenge. Each scenario has a ` scenario score `，and the`final score ` of the competition is the **average score** of all `scenario score`.
-- The score of each scenario is the **weighted average** of several specific [**evaluation metrics**](rules_en.md#311-evaluation-metrics).
+- The score of each scenario is the **weighted average** of several specific [**evaluation metrics**](en/rules_en.md#311-evaluation-metrics).
 - The specific parameters of the evaluation metrics for each scene may be different.
 - All scores are on a scale of 0 to 100. The higher the score, the better the performance.
 
@@ -93,9 +91,3 @@ If the actual value is less than the expected value, the score for that metric i
 > Malicious use or attacks on the infrastructure of the Openatom Carsmos Global Open Source Autonomous Driving Algorithm Competition, including all software and hardware used to run the service, are strictly prohibited. These actions may result in teams being banned from participating in the competition.
 
 Each team has a limited number of submission opportunities within one month or one day(up to `30` times per month and up to `2` times per day).
-
-***
-
-[Previous Page: Development Guide](en/start_en)
-
-[Next Page: Submitting Algorithms](en/submit_en)

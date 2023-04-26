@@ -1,6 +1,4 @@
-[Previous page: Scenario Description.](en/scenarios_en)
 
-------
 
 # 7 Instructions for Importing a License
 
@@ -37,10 +35,3 @@ If the Oasis Competition Edition is launched successfully, it will generate a ma
 ![](../images/license/image6_en.png)
 
 5、After the license import is authorized successfully, the "Startup" button will automatically appear. Click on the "Startup" button to enter the Oasis Competition Edition.
-
-------
-
-[Previous page: Scenario Description.](scenarios_en.md)
-
-[Next page: Registration System Operation Instructions](en/signup_en)
-

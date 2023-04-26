@@ -1,6 +1,3 @@
-[上一页：安装部署](install.md)
-
-***
 # 3 开发指南
 
 ## 3.1 开发概述
@@ -503,11 +500,11 @@ def destroy(self):
 
 - 在 `Oasis 竞赛版 - 资源库 - 车辆控制系统 - Dora` 中，将 *oasis_agent.py* 替换为 *my_agent.py*，将 *oasis_agent.yaml* 替换为 *my_data_flow.yaml*，如果有配置文件，请选择，否则可忽略。
 
-  ![Oasis选取my_agent.py，开启作业](images/start/12.png)
+  ![Oasis选取my_agent.py，开启作业](../images/start/12.png)
 
 - Oasis 竞赛版中准备了一套预定义的场景，可以使用这些场景来训练和调试算法。
   
-- 场景可以在 *Oasis 竞赛版 - 场景库* 中找到。具体的场景说明请参考[场景说明](scenarios.md)。
+- 场景可以在 *Oasis 竞赛版 - 场景库* 中找到。具体的场景说明请参考[场景说明](zh-cn/scenarios.md)。
 
 ### 3.4.2 如何调试
 
@@ -558,10 +555,3 @@ git push --set-upstream origin my_branch
 ### 3.4.2 On Issues 
 如果您在使用 `dora-drives` 时遇到任何问题，请在我们的 Github 页面上提出问题：https://github.com/dora-rs/dora-drives/issues
 您也可以在讨论区联系我们，讨论 `dora-drives` 的使用：https://github.com/dora-rs/dora-drives/discussions。 -->
-
-
-***
-
-[上一页：开发指引](install.md)
-
-[下一页：比赛规则](rules.md)

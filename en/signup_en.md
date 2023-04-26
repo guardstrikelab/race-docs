@@ -1,6 +1,4 @@
-[Previous Page: Instructions for Importing a License](en/license_en)
 
-***
 # 8 Registration System Operation Instructions
 
 ## 8.1 Registration Process
@@ -30,6 +28,3 @@
 1. Click "Add New Submission" to get the command, **copy and execute it directly on your local machine**.。<br><br>
 ![](../images/signup/9.png)
 
-***
-
-[Next Page:Terms and Conditions](en/clause_en)

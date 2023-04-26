@@ -1,6 +1,3 @@
-[Previous page: Competition Rules](en/rules_en)
-
-***
 
 # 6 Competition Scenarios
 
@@ -51,9 +48,3 @@
 | test8  | Two Sequential Events:<br />1.The Host Vehicle is Making a Left Turn at an Intersection, and there is a Vehicle Going Straight Across on the Opposite Side;<br />2.The Lane of the Host Vehicle is Partially Occupied by a Stopped Vehicle. | Day、Foggy |76.55 |26      |
 | test9  | Three Sequential Events:<br />1.A Vulnerable Road User is Crossing the Road in Front of the Host Vehicle;<br />2.An Oncoming Vehicle is Encroaching into the Lane of the Host Vehicle;<br />3.The Lead Vehicle in the Same Lane as the Host Vehicle is Slowing Down. | Night、Rainy |139.99|56    |
 | test10 | Three Sequential Events:<br />1.A Vehicle Cuts out of the Same Lane as the Host Vehicle;<br />2.The Lead Vehicle in the Same Lane as the Host Vehicle Brakes;<br />3.The Lead Vehicle in the Same Lane as the Host Vehicle is Slowing Down. | Night、Sunny |192.36|65    |
-
-***
-
-[Previous page: Competition Rules](en/rules_en)
-
-[Next page: Instructions for Importing a License](en/license_en)

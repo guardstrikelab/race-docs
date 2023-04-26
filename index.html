@@ -16,13 +16,13 @@
     <script>
         window.$docsify = {
             // 项目名称
-            name: '首页/Home Page',
+            name: 'Carsmos',
             // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
-            repo: '',
+            repo: true,
             // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
             loadSidebar: true,
             // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
-            // loadNavbar: true,
+            loadNavbar: true,
             // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
             coverpage: true,
             // 最大支持渲染的标题层级
@@ -32,20 +32,71 @@
             // 小屏设备下合并导航栏到侧边栏
             mergeNavbar: true,
             auto2top: true,
+            homepage: 'zh-cn/README.md',
             search: {
                 maxAge: 86400000,// 过期时间，单位毫秒，默认一天
                 paths: 'auto',// 注意：仅适用于 paths: 'auto' 模式
                 placeholder: '搜索',
                 // 支持本地化
                 placeholder: {
-                    '/zh-cn/': '搜索',
-                    '/': 'Type to search'
+                    '/en/': 'Type to search',
+                    '/': '搜索'
                 },
                 noData: '找不到结果',
                 // depth: 4,
                 // hideOtherSidebarContent: false,
                 namespace: 'Docsify-Guide',
-            }
+                pathNamespaces: ['/en']
+            },
+            pagination: {
+                previousText: {
+                    '/en/': 'PREVIOUS',
+                    '/': '上一页'
+                },
+                nextText: {
+                    '/en/': 'NEXT',
+                    '/': '下一页'
+                },
+                crossChapter: true,
+                crossChapterText: true,
+            },
+            Valine: {
+                appId: 'qsT2o79DzpB80qVVtPy6p69Y-gzGzoHsz',
+                appKey: 'x7lQ4bid3AYH1e38f4QtR2aK',
+                placeholder: '以上信息可选，如有任何疑问，欢迎评论！\nThe above information is optional, If you have any questions, please feel free to comment!',
+                visitor: true
+                // docPath: 'hash', //default to `hash` ,or you can choose `full`
+            },
+            progress: {
+                position: "top",
+                color: "var(--theme-color,#42b983)",
+                height: "3px",
+            },
+            count:{
+                countable: true,
+                position: 'top',
+                margin: '10px',
+                float: 'right',
+                fontsize:'0.9em',
+                color:'rgb(90,90,90)',
+                language:'chinese',
+                localization: {
+                    words: "",
+                    minute: ""
+                },
+                isExpected: true
+            },
+            alias: {
+                '/.*/_navbar.md': '/_navbar.md',
+                '/_sidebar.md': '/zh-cn/_sidebar.md',
+                '/zh-cn/.*/_sidebar.md': '/zh-cn/_sidebar.md',
+                '/en/.*/_sidebar.md': '/en/_sidebar.md',
+            },
+            nameLink: {
+                '/zh-cn/': '#/zh-cn/',
+                '/en/': '#/en/',
+                '/': '#/',
+            },
         }
     </script>
     <!-- docsify的js依赖 -->
@@ -63,6 +114,13 @@
     <script src="js/katex.min.js"></script>
     <link rel="stylesheet" href="js/katex.min.css" />
     <script src="js/marked@4.js"></script>
+    <script src="js/docsify-pagination.min.js"></script>
+    <script src="js/Valine.min.js"></script>
+    <script src="js/docsify-valine.min.js"></script>
+    <script src="js/progress.min.js"></script>
+    <script src="js/countable.min.js"></script>
+    <script src="js/pangu.min.js"></script>
+
 
     <!-- CDN files for docsify-katex -->
     <script src="js/docsify-katex.js"></script>

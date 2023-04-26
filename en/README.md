@@ -1,4 +1,3 @@
-***
 
 # 1 Overview of the Competition
 
@@ -12,17 +11,17 @@ This competition is organized by[**Xi'an Shenxin Kechuang Information Technology
 
 ## 1.2 Competition Tasks
 
-The competition is based on the [**Oasis Autonomous Driving Simulation Platform**](https://guardstrike.com/tech.html)，and tests autonomous driving algorithms through a set of predefined  [**scenarios**](rules_en.md#_31-比赛场景)。
+The competition is based on the [**Oasis Autonomous Driving Simulation Platform**](https://guardstrike.com/tech.html)，and tests autonomous driving algorithms through a set of predefined  [**scenarios**].
 
 For each scenario, the autonomous driving vehicle controlled by the participant's algorithm will be initialized at a starting point and instructed to drive to a predefined endpoint. The scenario includes various elements such as weather, lighting conditions, traffic flow (vehicles, pedestrians), traffic lights, traffic signs, roadblocks, etc.
 
-Participants' algorithms need to make reasonable use of various [**scenario information**](scenarios_en.md) and [**sensor information**](start.md#_223-重写-sensors-方法)，provided by the system to enable the algorithm-controlled vehicle to smoothly pass through these predefined scenarios and strive to obtain higher scores in various [**evaluation indicators**](rules.md#_321-评价指标).
+Participants' algorithms need to make reasonable use of various [**scenario information**](en/scenarios_en.md) and [**sensor information**]，provided by the system to enable the algorithm-controlled vehicle to smoothly pass through these predefined scenarios and strive to obtain higher scores in various [**evaluation indicators**].
 
 ## 1.3 How to Get Started
 
-1. Register on the [**Competition Registration System**](https://race.carsmos.cn), create a team, invite teammates, or join a team to participate in the competition. Refer to the[**Registration System Operation Process**](signup_en.md).
+1. Register on the [**Competition Registration System**](https://race.carsmos.cn), create a team, invite teammates, or join a team to participate in the competition. Refer to the[**Registration System Operation Process**](en/signup_en.md).
 
-2. Install and run the Oasis Competition Edition system according to the [__Installation and Deployment Document__](install_en.md), [click here to download the Oasis Competition Edition](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz)。.
+2. Install and run the Oasis Competition Edition system according to the [__Installation and Deployment Document__](en/install_en.md), [click here to download the Oasis Competition Edition](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz)。.
 
 3. Familiarize yourself with the Oasis Competition Edition according to the [__Carsmos Development Guide__](start_en.md#_22-开始开发), and develop and test autonomous driving algorithms based on this.
 
@@ -57,7 +56,3 @@ If participants have any questions during the competition, they are welcome to j
 - [Registration System Operation Instructions](en/signup_en)
 
 - [Declaration Terms](en/clause_en)
-
-***
-
-[Next Page: Installation and Deployment](en/install_en)

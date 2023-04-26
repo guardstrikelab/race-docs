@@ -1,6 +1,4 @@
-[Previous page: Competition Rules](en/rules_en)
 
-***
 # 5 Submit Algorithm
 
 ## 5.1 Environment Preparation
@@ -31,9 +29,3 @@ docker run --gpus all --runtime=nvidia --net=host -it --shm-size=2g --memory=10g
 - The participants need to wait for a period of time（Within a few hours），Then you can check the results in the：[competition registration system](https://race.carsmos.cn/) - Competition - Submit - Submission History You can see the running results of this submission。
 
 - The results of each submission need to be approved by the back-end expert group before they are available，Only after approval can the submission be included in the ranking
-
-***
-
-[Previous page:Competition Rules](en/rules_en)
-
-[Next page:Scenario Description](en/scenarios_en)

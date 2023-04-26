@@ -1,7 +1,3 @@
-
-[上一页：比赛介绍](README.md)
-
-***
 # 2 安装部署
 
 ## 2.1 预置条件
@@ -13,19 +9,19 @@
 
   - `内存`：建议内存不少于 `16GB`
 
-![image.png](images/install/1.png)
+![image.png](../images/install/1.png)
 
 - `显卡型号`：推荐 `nvidia 3060` 以上
 
-![image.png](images/install/2.png)
+![image.png](../images/install/2.png)
 
 - `显卡驱动版本`：推荐 `510.108` 及以上，CUDA版本 `11.4` 及以上
 
-![image.png](images/install/3.png)
+![image.png](../images/install/3.png)
 
 - `Docker`：推荐版本 `20.10` 及以上
 
-![image.png](images/install/4.png)
+![image.png](../images/install/4.png)
 
 - `Docker-compose` 版本要求 `1.29.2` 及以上
 
@@ -81,13 +77,13 @@ tar -xzvf carsmos.tar.gz
 
 ### 2.2.2 执行安装脚本
 
-执行 `install.sh` 脚本。
+进入 `oasis` 文件夹，执行 `install.sh` 脚本。
 
 ```shell
 ./install.sh
 ```
 
-![image.png](images/install/install.jpg)
+![image.png](../images/install/install.jpg)
 
 安装过程会持续半小时左右，请耐心等待。
 
@@ -103,24 +99,24 @@ newgrp docker
 
 安装完成后，会在桌面有个图标，右键选择允许运行
 
-![image.png](images/install/5.png)
+![image.png](../images/install/5.png)
 
 图标会变为下图
 
-![image.png](images/install/6.png)
+![image.png](../images/install/6.png)
 
 ## 2.3 登录使用
 ### 2.3.1 申请并配置 license
 
-参考：[License导入说明](license.md)
+参考：[License导入说明](zh-cn/license.md)
 
 > 请注意：需要在 [**比赛报名系统**](https://race.carsmos.cn) 中申请参赛并且审核通过之后，才可以申请 license。
 
-<!-- ![image.png](images/install/7.png)
+<!-- ![image.png](../images/install/7.png)
 
 按照如下流程申请
 
-![image.png](images/install/8.png)
+![image.png](../images/install/8.png)
 
 点击 `提交` 后， 并把 license 下载到本地。
 
@@ -128,12 +124,12 @@ newgrp docker
 
 选择 license 配置后，选择上面步骤下载的  lincense。
 
-![image.png](images/install/9.png) -->
+![image.png](../images/install/9.png) -->
 ### 2.3.2 进入启动页面
 
 点击启动按钮，即可进入 oasis 仿真平台。
 
-![image.png](images/install/10.png)
+![image.png](../images/install/10.png)
 
 ### 2.3.3 运行示例
 
@@ -141,27 +137,27 @@ newgrp docker
 
 - 点击 `启动` 进入 `Oasis` 竞赛版系统
 
-  ![启动](images/start/4.png)
+  ![启动](../images/start/4.png)
 
 - 点击新建作业
 
-  ![新建作业](images/start/5.png)
+  ![新建作业](../images/start/5.png)
 
 - 可选择是否显示运行窗口、是否录制，以及自动驾驶系统和版本。然后选择添加场景
   
-  ![添加场景](images/start/6.png)
+  ![添加场景](../images/start/6.png)
 
 - 选择若干个场景，点击确认
 
-  ![确认场景](images/start/7.png)
+  ![确认场景](../images/start/7.png)
 
 - 点击 `运行` ，任务加入队列，稍等就会出现运行窗口
 
-  ![运行窗口](images/start/9.png)
+  ![运行窗口](../images/start/9.png)
 
 - 运行结束，可查看任务运行结果，评价指标，获取传感器数据，查看任务运行视频
 
-  ![运行结束](images/start/11.png)
+  ![运行结束](../images/start/11.png)
 
 > 运行完第一次后，建议先进行一次提交。第一次提交会花费较多时间，后续提交则会很快，参考：[提交算法](submit.md)
 
@@ -247,13 +243,6 @@ Oasis 仿真测试产品包含以下模块：
 - /opt/db_data/influx：数据库 influx 存储路径；
 - /opt/db_data/mysql：数据库 mysql 存储路径；
 - /opt/db_data/redis：数据库 redis 存储路径；
-
-
-***
-
-[上一页：比赛说明](README.md)
-
-[下一页：开发指引](start.md)
 
 
 

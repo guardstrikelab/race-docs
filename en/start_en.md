@@ -1,6 +1,4 @@
-[Previous page:Install the deployment](en/install_en)
 
-***
 # 3 Development Guidelines
 
 ## 3.1 Running Example
@@ -388,7 +386,7 @@ You can use the following command in the Docker container to run the algorithm:
 
 - A set of predefined scenarios are available in the Oasis Competition Edition, which can be used to train and validate algorithms.
 
-- The scenarios can be found in the *Oasis Competition Edition - Scenario Library*. Please refer to [Scenario Description](http://172.16.19.250:9001/scenarios.md) for specific scenario descriptions.
+- The scenarios can be found in the *Oasis Competition Edition - Scenario Library*. Please refer to [Scenario Description](en/scenarios.md) for specific scenario descriptions.
 
 ## 3.4 On Dora-drives Source Code Management (SCM)
 
@@ -431,8 +429,3 @@ we hope that step-by-step, commit-by-commit, we can make it a great open source 
 - If you have any issue using `dora-drives`, please raise an issue on our github page: https://github.com/dora-rs/dora-drives/issues
 - You can also reach out to discuss `dora-drives` in the discussion section: https://github.com/dora-rs/dora-drives/discussions
 
-***
-
-[Previous page:Development Guidelines](en/install_en)
-
-[Next page:Competition Rules](en/rules_en)

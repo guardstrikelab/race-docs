@@ -1,6 +1,4 @@
-[Previous Page: Overview of the Competition](en/README)
 
-***
 # 2. Installation and Deployment
 
 ## 2.1 Prerequisites
@@ -93,7 +91,7 @@ The icon will change to the following:
 ## 2.3 Login and Use
 ### 2.3.1 Apply for and Configure license
 
-Refer to：[License Import Instructions](license_en)
+Refer to：[License Import Instructions](en/license_en)
 
 > Note：You need to apply for participation in the competition and pass the review on the [**Competition Registration System**](https://race.carsmos.cn) before you can apply for a license.
 
@@ -199,8 +197,4 @@ The public component includes installation packages and installation scripts for
 - /opt/db_data/influx: database influx storage path;
 - /opt/db_data/mysql: database mysql storage path;
 - /opt/db_data/redis: database redis storage path;
-
-
-***
-[Next Page: Development Guide](en/start_en)
 

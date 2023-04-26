@@ -5,5 +5,4 @@
 
 [Competition Registration](https://race.carsmos.cn/)
 [View Documentation](en/README_en.md)
-[查看文档](README.md)
 
