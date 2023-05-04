@@ -93,7 +93,7 @@ The icon will change to the following:
 
 Refer to：[License Import Instructions](en/license_en)
 
-> Note：You need to apply for participation in the competition and pass the review on the [**Competition Registration System**](https://race.carsmos.cn) before you can apply for a license.
+> Note：You need to apply for participation in the competition and pass the review on the [**Competition Registration System**](https://) before you can apply for a license.
 
 <!-- ![image.png](../images/install/7.png)
 
@@ -128,25 +128,6 @@ Oasis Simulation Platform includes the following modules:
 - Database
 - Services
 - Web
-
-Middleware and tool components used include:
-
-- docker
-- nvidia-docker
-- docker-compose
-- nginx
-- etcd
-- redis
-- mysql
-- influxdb
-- Vue 
-- ElementUI 
-- Echarts 
-- ThreeJS 
-- Electron 
-- WangEditor 
-- LibOpenDrive 
-- CodeMirror
 
 Recommended system version configuration:
 

@@ -5,6 +5,6 @@
 * [**5.Submitting Algorithms**](en/submit_en)
 * [**6.Scenario Description**](en/scenarios_en)
 * [**7.Instructions for Importing a License**](en/license_en)
-* [**8.Registration System Operation Instructions**](en/signup_en)
-* [**9.Terms and Conditions**](en/clause_en)
+<!-- * [**8.Registration System Operation Instructions**](en/signup_en) -->
+* [**8.Terms and Conditions**](en/clause_en)
 

@@ -3,7 +3,7 @@
 
 ## 4.1 Competition Scenarios
 
-Simulation testing is a fundamental and critical technology for autonomous driving development. Compared with the high cost, limitations, and low efficiency of real-world testing, the [**Oasis Autonomous Driving Simulation Platform**](https://guardstrike.com/tech.html) can provide a more diverse range of static environments and continuous dynamic design/intelligent traffic flows. It can significantly increase the density of high-value scenarios in limited simulation testing, improving the efficiency and effectiveness of autonomous driving simulation testing.
+Simulation testing is a fundamental and critical technology for autonomous driving development. Compared with the high cost, limitations, and low efficiency of real-world testing, the [**Oasis Autonomous Driving Simulation Platform**](https://guardstrike.com/sim.html) can provide a more diverse range of static environments and continuous dynamic design/intelligent traffic flows. It can significantly increase the density of high-value scenarios in limited simulation testing, improving the efficiency and effectiveness of autonomous driving simulation testing.
 
 This competition mainly tests the perception, planning, and decision-making abilities of autonomous driving algorithms in various complex traffic environments in urban areas. All the scenarios used in the competition belong to the Operational Design Domain (ODD) of low-speed working conditions with interactions among various traffic participants in urban areas under various weather and lighting conditions.
 
@@ -90,4 +90,4 @@ If the actual value is less than the expected value, the score for that metric i
 
 > Malicious use or attacks on the infrastructure of the Openatom Carsmos Global Open Source Autonomous Driving Algorithm Competition, including all software and hardware used to run the service, are strictly prohibited. These actions may result in teams being banned from participating in the competition.
 
-Each team has a limited number of submission opportunities within one month or one day(up to `30` times per month and up to `2` times per day).
+Each team has a limited number of submission opportunities within one month or one day(up to `2` times per day).

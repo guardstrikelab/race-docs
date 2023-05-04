@@ -3,6 +3,6 @@
 
 > 2023 Spring Competition
 
-[Competition Registration](https://race.carsmos.cn/)
+[Competition Registration](https://)
 [View Documentation](en/README_en.md)
 

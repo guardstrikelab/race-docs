@@ -10,7 +10,7 @@
 
 ![](../images/license/image1_en.png)
 
-- `Registration Email`：Please fill in the email address used for registration on the [__registration system__](https://race.carsmos.cn/contests)
+- `Email`：Please enter your email address correctly so that you can receive the license file.
 - `Team Name`： Please fill in the team name that was registered on the registration system. The system will automatically fill in the team name based on the email used.
 - `Contact Phone`：Participants should fill in their own contact phone number.
 - `Machine Code`：Automatic generation of machine code is used by default to uniquely identify a machine.

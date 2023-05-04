@@ -1,7 +1,10 @@
-# 元遨 Carsmos 开源智驾算法大赛
+# 2023元遨全球开源自动驾驶算法大赛
 
-> 2023 春季赛事
+<font size=4>2023 IEEE & OpenAtom Competition on Open-Source Autonomous Driving Algorithms</font>
 
-[比赛报名](https://race.carsmos.cn/)
+[比赛报名](https://)
 [查看文档](README)
 
+<!-- ![](images/cover.png) -->
+
+<!-- ![color](#66ccff) -->

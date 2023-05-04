@@ -3,32 +3,20 @@
 
 ## 1.1 Introduction to the Competition
 
-The main goal of the Carsmos Open Source Autonomous Driving Algorithm Competition is to evaluate the driving ability of autonomous driving algorithms in real-world traffic scenarios.
+`2023 IEEE & OpenAtom Competition on Open-Source Autonomous Driving Algorithms` is based on the open source project of [**Yuan Ao**](https://www.carsmos.cn) and uses the autonomous driving simulation platform `OASIS` and middleware `DORA` to provide multiple predefined scenarios for participating teams to test the perception, planning, and decision-making abilities of their submitted autonomous driving algorithms in various complex traffic environments in urban areas. Winning teams in the simulation competition will be invited to participate in the **offline vehicle challenge**.
 
-Participants only need to register on the [**Competition Registration System**](https://race.carsmos.cn/), provide team information, and pass the audit to participate.
-
-This competition is organized by[**Xi'an Shenxin Kechuang Information Technology Co., Ltd.**](https://guardstrike.com/)。
-
-## 1.2 Competition Tasks
-
-The competition is based on the [**Oasis Autonomous Driving Simulation Platform**](https://guardstrike.com/tech.html)，and tests autonomous driving algorithms through a set of predefined  [**scenarios**].
-
-For each scenario, the autonomous driving vehicle controlled by the participant's algorithm will be initialized at a starting point and instructed to drive to a predefined endpoint. The scenario includes various elements such as weather, lighting conditions, traffic flow (vehicles, pedestrians), traffic lights, traffic signs, roadblocks, etc.
+<!-- For each scenario, the autonomous driving vehicle controlled by the participant's algorithm will be initialized at a starting point and instructed to drive to a predefined endpoint. The scenario includes various elements such as weather, lighting conditions, traffic flow (vehicles, pedestrians), traffic lights, traffic signs, roadblocks, etc. -->
 
 Participants' algorithms need to make reasonable use of various [**scenario information**](en/scenarios_en.md) and [**sensor information**]，provided by the system to enable the algorithm-controlled vehicle to smoothly pass through these predefined scenarios and strive to obtain higher scores in various [**evaluation indicators**].
 
-## 1.3 How to Get Started
+## 1.2 How to Get Started
 
-1. Register on the [**Competition Registration System**](https://race.carsmos.cn), create a team, invite teammates, or join a team to participate in the competition. Refer to the[**Registration System Operation Process**](en/signup_en.md).
+1. [**Competition registration**](https://)
+2. [**Click here to download Oasis competition version**](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz), install and run the `Oasis` competition version according to the [__installation document__](en/install_en.md).
+3. Develop and test autonomous driving algorithms based on [**Oasis**](https://guardstrike.com/sim.html) and [**Dora-drives**](https://github.com/dora-rs/dora-drives), refer to the [__development guide__](en/start_en.md).
+4. Submit the algorithm in the [**algorithm submission system**](https://) and wait for the result, refer to [**submitting images**](en/submit_en.md).
 
-2. Install and run the Oasis Competition Edition system according to the [__Installation and Deployment Document__](en/install_en.md), [click here to download the Oasis Competition Edition](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz)。.
-
-3. Familiarize yourself with the Oasis Competition Edition according to the [__Carsmos Development Guide__](start_en.md#_22-开始开发), and develop and test autonomous driving algorithms based on this.
-
-4. Follow the prompts in the [**Competition Registration System**](https://race.carsmos.cn) and refer to Submitting Images to package the algorithm into an image and submit the image to the cloud for running results and scores.
-
-
-## 1.4 Competition Help and FAQ
+## 1.3 Competition Help and FAQ
 If participants have any feedback or suggestions about the open source autonomous driving algorithm competition, please contact us through the following channels.
 
 - Email: race@carsmos.ai
@@ -39,7 +27,7 @@ If participants have any questions during the competition, they are welcome to j
   
   ![QR code](../images/QRcode.png)
 
-## 1.5 Document Directory
+## 1.4 Document Directory
 
 - [Installation and Deployment](en/install_en)
 
@@ -52,7 +40,5 @@ If participants have any questions during the competition, they are welcome to j
 - [Scenario Description](en/scenarios_en)
 
 - [License Import Instructions](en/license_en)
-
-- [Registration System Operation Instructions](en/signup_en)
 
 - [Declaration Terms](en/clause_en)

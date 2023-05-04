@@ -1,31 +1,23 @@
 
 # 5 Submit Algorithm
 
-## 5.1 Environment Preparation
-- Set Environment Variables to Point To Oasis The Competition Version Provides team_code Folders
-```bash
-export TEAM_CODE_ROOT={Your Path}/carsmos/team_code
-```
-- Add Execution Permission to the Mirror Build Script
-```bash
-cd {Your Path}/carsmos
-sudo chmod +x make_docker.sh
-```
+## 5.1 Submit Algorithm
+- Perform operations in the algorithm submission system using the provided commands to submit the algorithm.
+- Before submitting, please make sure to run it locally at least once, otherwise the cloud will not be able to recognize the paths of *my_agent.py* and *my_agent.yaml*.
+- The first submission will take a relatively long time, while subsequent submissions will be completed quickly.
+- Once the algorithm is successfully uploaded, the cloud will automatically run the participant's algorithm and provide real-time running status.
+- Participants need to wait for a period of time (within 12 hours), and then they can see the running results of this submission in the "Submit History" section on the [**algorithm submission system**](https:///).
 
-## 5.2 Build and Submit the Mirror
+## 5.2 Competition Phase
 
-> Before submitting, please make sure to run it at least once locally，Otherwise, the cloud will not be able to recognize it *my_agent.py*、*my_agent.yaml* the Path
+- **Online Practice Phase**
 
-- In the [**Competition Registration System**](https://race.carsmos.cn/) Operations can be performed in it，If you have any questions，Reference [**Registration System Operation Instructions**](signup_en.md#_82-提交流程)
+    Before the official competition, as long as you register to participate, you can get free evaluation computing power on the online submission platform. You can have `two submission opportunities per day` for online practice, and there is no ranking in this stage. 
+    
+    The online scenarios running in this stage are public training scenarios.
 
-<!-- - After building the mirror，**we recommend testing it locally first**，Once you have confirmed that it is working correctly, you can submit it to the cloud，The reference command to start the mirror is as follows：
+- **Online Ranking Phase**
 
-```bash
-docker run --gpus all --runtime=nvidia --net=host -it --shm-size=2g --memory=10g --name dora-oasis-container carsmos_dora:0.1 /bin/bash
-​``` -->
-
-- After the mirror upload is successful，the cloud will automatically run the participant's algorithm and provide real-time running status
-
-- The participants need to wait for a period of time（Within a few hours），Then you can check the results in the：[competition registration system](https://race.carsmos.cn/) - Competition - Submit - Submission History You can see the running results of this submission。
-
-- The results of each submission need to be approved by the back-end expert group before they are available，Only after approval can the submission be included in the ranking
+    After the official start of the competition, you need to submit your final algorithm within the specified time, and the competition will be ranked in real time according to the ranking score. 
+    
+    The online scenarios running in this stage are private competition scenarios.

@@ -110,7 +110,7 @@ newgrp docker
 
 参考：[License导入说明](zh-cn/license.md)
 
-> 请注意：需要在 [**比赛报名系统**](https://race.carsmos.cn) 中申请参赛并且审核通过之后，才可以申请 license。
+> 请注意：需要在 [**算法提交系统**](https://) 中申请参赛并且审核通过之后，才可以申请 license。
 
 <!-- ![image.png](../images/install/7.png)
 
@@ -175,25 +175,6 @@ Oasis 仿真测试产品包含以下模块：
 - Database
 - Services
 - Web
-
-用到的中间件以及工具组件：
-
-- docker
-- nvidia-docker
-- docker-compose
-- nginx
-- etcd
-- redis
-- mysql
-- influxdb
-- Vue 
-- ElementUI 
-- Echarts 
-- ThreeJS 
-- Electron 
-- WangEditor 
-- LibOpenDrive 
-- CodeMirror
 
 推荐的系统版本配置：
 
