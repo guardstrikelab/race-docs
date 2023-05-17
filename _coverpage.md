@@ -2,7 +2,7 @@
 
 <font size=4>2023 IEEE & OpenAtom Competition on Open-Source Autonomous Driving Algorithms</font>
 
-[比赛报名](https://)
+[比赛报名（待开放）](#)
 [查看文档](README)
 
 <!-- ![](images/cover.png) -->

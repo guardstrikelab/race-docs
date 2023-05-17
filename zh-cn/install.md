@@ -110,7 +110,7 @@ newgrp docker
 
 参考：[License导入说明](zh-cn/license.md)
 
-> 请注意：需要在 [**算法提交系统**](https://) 中申请参赛并且审核通过之后，才可以申请 license。
+<!-- > 请注意：需要在 [**算法提交系统**](https://) 中申请参赛并且审核通过之后，才可以申请 license。 -->
 
 <!-- ![image.png](../images/install/7.png)
 
@@ -168,7 +168,7 @@ cd  carsmos/oasis
 ./uninstall.sh
 ```
 
-## 2.5 产品说明
+<!-- ## 2.5 产品说明
 Oasis 仿真测试产品包含以下模块：
 
 - Carla
@@ -180,12 +180,12 @@ Oasis 仿真测试产品包含以下模块：
 
 - Ubuntu 20.04
 - NVIDIA 3060
-- NVIDIA 驱动 510.108
+- NVIDIA 驱动 510.108 -->
 
-## 2.6 安装模块说明
-### 2.6.1 Carla
+## 2.5 安装模块说明
+### 2.5.1 Carla
 执行仿真测试的组件，该目录下包含Carla安装所需的脚本文件和安装包。
-### 2.6.2 Database
+### 2.5.2 Database
 数据库及中间件组件：包含 mysql、Redis、etcd、influxdb：
 
 - mysql 存储的是整个仿真测试的运行结果；
@@ -194,7 +194,7 @@ Oasis 仿真测试产品包含以下模块：
 - etcd 做为任务调度中间件使用；
 
 该目录下包含所有对应组件的安装包和安装脚本。
-### 2.6.3 Services
+### 2.5.3 Services
 服务组件包含 5 大模块；
 
 - oasis-simulate 负责与仿真器的交互，运行测试用例以及结果的收集；
@@ -204,17 +204,17 @@ Oasis 仿真测试产品包含以下模块：
 - oasis-server 整个仿真测试平台的 web 服务器，负责处理页面的下发的请求；
 
 该目录下包含所有对应组件的安装包和安装脚本。
-### 2.6.4 Oasis-web
+### 2.5.4 Oasis-web
 界面展示组件，负责作业生成、下发以及运行结果的展示。
 该目录下包含对应组件的安装包和安装脚本。
 
-### 2.6.5 Oasis-electron-linux
+### 2.5.5 Oasis-electron-linux
 桌面快捷方式组件，双击可打开 oasis-web。
 
-### 2.6.6 Public
+### 2.5.6 Public
 公共组件，包含 docker、nvidia-docker、docker-compose、openssh 的安装包和安装脚本。
 
-## 2.7 本地存储目录说明
+## 2.6 本地存储目录说明
 
 - /oasisdata/data： 视频回放、传感器相关数据；
 - /oasisdata/log： 视频回放、传感器相关日志；

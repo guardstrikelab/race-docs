@@ -6,9 +6,9 @@
 - Before submitting, please make sure to run it locally at least once, otherwise the cloud will not be able to recognize the paths of *my_agent.py* and *my_agent.yaml*.
 - The first submission will take a relatively long time, while subsequent submissions will be completed quickly.
 - Once the algorithm is successfully uploaded, the cloud will automatically run the participant's algorithm and provide real-time running status.
-- Participants need to wait for a period of time (within 12 hours), and then they can see the running results of this submission in the "Submit History" section on the [**algorithm submission system**](https:///).
+- Participants need to wait for a period of time (within 12 hours), and then they can see the running results of this submission in the "Submit History" section on the [**algorithm submission system**](#).
 
-> Tip: There is a problem with the current version of 'dora', which may cause the run to fail. If your submit run fails, we will check the log. If the run fails because of 'dora', we will rerun it until it succeeds.
+<!-- > Tip: There is a problem with the current version of 'dora', which may cause the run to fail. If your submit run fails, we will check the log. If the run fails because of 'dora', we will rerun it until it succeeds. -->
 
 ## 5.2 Competition Phase
 

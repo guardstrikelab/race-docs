@@ -93,7 +93,7 @@ The icon will change to the following:
 
 Refer to：[License Import Instructions](en/license_en)
 
-> Note：You need to apply for participation in the competition and pass the review on the [**Competition Registration System**](https://) before you can apply for a license.
+<!-- > Note：You need to apply for participation in the competition and pass the review on the [**Competition Registration System**](https://) before you can apply for a license. -->
 
 <!-- ![image.png](../images/install/7.png)
 
@@ -121,7 +121,7 @@ cd  carsmos/oasis
 ./uninstall.sh
 ```
 
-## 2.5 Product Description
+<!-- ## 2.5 Product Description
 Oasis Simulation Platform includes the following modules:
 
 - Carla
@@ -133,12 +133,12 @@ Recommended system version configuration:
 
 - Ubuntu 20.04
 - NVIDIA 3060
-- NVIDIA driver 510.108
+- NVIDIA driver 510.108 -->
 
-## 2.6 Installation Module Description
-### 2.6.1 Carla
+## 2.5 Installation Module Description
+### 2.5.1 Carla
 The component that executes simulation testing. This directory includes the necessary scripts and installation packages for Carla installation.
-### 2.6.2 Database
+### 2.5.2 Database
 Database and middleware components, including mysql, Redis, etcd, and influxdb:
 
 - mysql stores the results of the entire simulation test;
@@ -147,7 +147,7 @@ Database and middleware components, including mysql, Redis, etcd, and influxdb:
 - etcd is used as the middleware for task scheduling;
 
 This directory includes installation packages and installation scripts for all corresponding components.
-### 2.6.3 Services
+### 2.5.3 Services
 The service component includes 5 modules:
 
 - oasis-simulate is responsible for interaction with the simulator, running test cases, and collecting results;
@@ -158,17 +158,17 @@ The service component includes 5 modules:
 
 This directory includes installation packages and installation scripts for all corresponding components.
 
-### 2.6.4 Oasis-web
+### 2.5.4 Oasis-web
 The interface display component is responsible for generating, issuing, and displaying the results of the task.
 This directory includes installation packages and installation scripts for the corresponding components.
 
-### 2.6.5 Oasis-electron-linux
+### 2.5.5 Oasis-electron-linux
 The desktop shortcut component, double-click to open oasis-web.
 
-### 2.6.6 Public
+### 2.5.6 Public
 The public component includes installation packages and installation scripts for docker, nvidia-docker, docker-compose, and openssh.
 
-## 2.7 Local Storage Directory Description
+## 2.6 Local Storage Directory Description
 
 - /oasisdata/data: video replay, sensor-related data;
 - /oasisdata/log: video replay, sensor-related logs;
