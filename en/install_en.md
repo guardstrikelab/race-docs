@@ -121,20 +121,6 @@ cd  carsmos/oasis
 ./uninstall.sh
 ```
 
-<!-- ## 2.5 Product Description
-Oasis Simulation Platform includes the following modules:
-
-- Carla
-- Database
-- Services
-- Web
-
-Recommended system version configuration:
-
-- Ubuntu 20.04
-- NVIDIA 3060
-- NVIDIA driver 510.108 -->
-
 ## 2.5 Installation Module Description
 ### 2.5.1 Carla
 The component that executes simulation testing. This directory includes the necessary scripts and installation packages for Carla installation.

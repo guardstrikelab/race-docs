@@ -8,7 +8,7 @@
 - Once the algorithm is successfully uploaded, the cloud will automatically run the participant's algorithm and provide real-time running status.
 - Participants need to wait for a period of time (within 12 hours), and then they can see the running results of this submission in the "Submit History" section on the [**algorithm submission system**](#).
 
-<!-- > Tip: There is a problem with the current version of 'dora', which may cause the run to fail. If your submit run fails, we will check the log. If the run fails because of 'dora', we will rerun it until it succeeds. -->
+> Tip: There is a problem with the current version of 'dora', which may cause the run to fail. If your submit run fails, we will check the log. If the run fails because of 'dora', we will rerun it until it succeeds.
 
 ## 5.2 Competition Phase
 

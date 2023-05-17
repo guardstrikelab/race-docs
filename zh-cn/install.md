@@ -109,8 +109,8 @@ newgrp docker
 ### 2.3.1 申请并配置 license
 
 参考：[License导入说明](zh-cn/license.md)
-
-<!-- > 请注意：需要在 [**算法提交系统**](https://) 中申请参赛并且审核通过之后，才可以申请 license。 -->
+<!-- 
+> 请注意：需要在 [**算法提交系统**](https://) 中申请参赛并且审核通过之后，才可以申请 license。 -->
 
 <!-- ![image.png](../images/install/7.png)
 
@@ -167,20 +167,6 @@ newgrp docker
 cd  carsmos/oasis
 ./uninstall.sh
 ```
-
-<!-- ## 2.5 产品说明
-Oasis 仿真测试产品包含以下模块：
-
-- Carla
-- Database
-- Services
-- Web
-
-推荐的系统版本配置：
-
-- Ubuntu 20.04
-- NVIDIA 3060
-- NVIDIA 驱动 510.108 -->
 
 ## 2.5 安装模块说明
 ### 2.5.1 Carla
