@@ -3,6 +3,6 @@
 
 > 2023 Spring Competition
 
-[Competition Registration](https://)
+[Competition Registration](#)
 [View Documentation](en/README_en.md)
 
