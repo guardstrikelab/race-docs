@@ -6,7 +6,13 @@ race_v1.0.0
 2023/5/9
 
 ### 9.1.2 Download
-<font size=4>[oasis_race_v1.0.0.tar.gz](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz)</font>
+- Click to download：
+<font size=4>[oasis_race_v1.0.0.tar.gz](hhttps://carsmos.oss-cn-chengdu.aliyuncs.com/oasis_race_v1.0.0.tar.gz)</font>
+
+- Unzip after downloading finished：
+    ```shell
+    tar -xzvf oasis_race_v1.0.0.tar.gz
+    ```
 
 ### 9.1.3 Changes
 `OASIS SIM simulation platform` race version is officially released.

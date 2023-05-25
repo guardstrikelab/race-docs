@@ -45,10 +45,7 @@ sudo apt install ufw
 
 ### 2.2.1 Download and Extract the Installation Package
 
-```shell
-wget https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz
-tar -xzvf carsmos.tar.gz
-```
+[**Click here to go to download page**](en/release_en.md)
 
 Enter the `carsmos` folder, the directory structure is as follows:
 
@@ -93,21 +90,6 @@ The icon will change to the following:
 
 Refer to：[License Import Instructions](en/license_en)
 
-<!-- > Note：You need to apply for participation in the competition and pass the review on the [**Competition Registration System**](https://) before you can apply for a license. -->
-
-<!-- ![image.png](../images/install/7.png)
-
-按照如下流程申请
-
-![image.png](../images/install/8.png)
-
-点击 `提交` 后， 并把 license 下载到本地。
-
-## 3.2 配置 license
-
-选择 license 配置后，选择上面步骤下载的  lincense。
-
-![image.png](../images/install/9.png) -->
 ### 2.3.2 Enter the Startup Page
 
 Click the startup button to enter the Oasis Simulation Platform.

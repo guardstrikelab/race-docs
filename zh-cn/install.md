@@ -50,10 +50,7 @@ sudo apt install ufw
 
 ### 2.2.1 下载解压安装包
 
-```shell
-wget https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz
-tar -xzvf carsmos.tar.gz
-```
+[**点击此处前往下载页面**](zh-cn/release.md)
 
 进入 `carsmos` 文件夹，目录结构如下：
 ```bash

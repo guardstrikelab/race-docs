@@ -12,7 +12,7 @@ Participants' algorithms need to make reasonable use of various [**scenario info
 ## 1.2 How to Get Started
 
 1. [**Competition registration**](#)
-2. [**Click here to download Oasis competition version**](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz), install and run the `Oasis` competition version according to the [__installation document__](en/install_en.md).
+2. [**Click here to go to download page**](en/release_en.md), install and run the `Oasis` competition version according to the [__installation document__](en/install_en.md).
 3. Develop and test autonomous driving algorithms based on [**Oasis**](https://www.synkrotron.ai/sim.html) and [**Dora-drives**](https://github.com/dora-rs/dora-drives), refer to the [__development guide__](en/start_en.md).
 4. Submit the algorithm in the [**algorithm submission system**](#) and wait for the result, refer to [**submitting images**](en/submit_en.md).
 
