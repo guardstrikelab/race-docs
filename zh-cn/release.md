@@ -8,7 +8,7 @@ race_v1.0.0
 ### 9.1.2 下载
 
 - 直接点击下载：
-<font size=4>[oasis_race_v1.0.0.tar.gz](hhttps://carsmos.oss-cn-chengdu.aliyuncs.com/oasis_race_v1.0.0.tar.gz)</font>
+<font size=4>[oasis_race_v1.0.0.tar.gz](https://carsmos.oss-cn-chengdu.aliyuncs.com/oasis_race_v1.0.0.tar.gz)</font>
 
 - 下载完成后解压：
     ```shell
