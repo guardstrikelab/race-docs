@@ -3,7 +3,7 @@
 
 ## 1.1 比赛介绍
 
-<font size=4 color="#cc66ff">2023元遨全球开源自动驾驶算法大赛</font> 基于[**元遨开源项目**](https://www.carsmos.cn)的自动驾驶中间件 [**DORA**](https://github.com/dora-rs) 和仿真平台 [**OASIS**](https://guardstrike.com/sim.html)，在仿真环境下为参赛队伍提供多个预定义的场景，通过不同的场景测试每个参赛队提交的自动驾驶算法在城市区域内各种复杂交通环境下的感知、规划和决策能力。仿真竞赛优胜队伍将被邀请参加**线下车辆挑战赛**。
+<font size=4 color="#cc66ff">2023元遨全球开源自动驾驶算法大赛</font> 基于[**元遨开源项目**](https://www.carsmos.cn)的自动驾驶中间件 [**DORA**](https://github.com/dora-rs) 和仿真平台 [**OASIS**](https://www.synkrotron.ai/sim.html)，在仿真环境下为参赛队伍提供多个预定义的场景，通过不同的场景测试每个参赛队提交的自动驾驶算法在城市区域内各种复杂交通环境下的感知、规划和决策能力。仿真竞赛优胜队伍将被邀请参加**线下车辆挑战赛**。
 
 <!-- 对于每个场景，由参赛选手的算法控制的自动驾驶车辆将在一个起点被初始化，并被指示开往预定义的终点。 场景包含天气、光照条件、交通流（车辆、行人）、红绿灯、交通标志、路障等各种元素。 -->
 
@@ -13,9 +13,9 @@
 
 1. [**比赛报名**](#)
 
-2. [**点击此处下载Oasis竞赛版**](https://carsmos.oss-cn-chengdu.aliyuncs.com/carsmos.tar.gz)，根据 [__安装文档__](zh-cn/install.md)，安装运行 `Oasis` 竞赛版。
+2. [**点击此处前往下载页面**](zh-cn/release.md)，下载完成后根据 [__安装文档__](zh-cn/install.md)，安装运行 `Oasis` 竞赛版。
 
-3. 基于 [**Oasis**](https://guardstrike.com/sim.html) 和 [**Dora-drives**](https://github.com/dora-rs/dora-drives) 开发和测试自动驾驶算法，参考 [__开发指南__](zh-cn/start.md)。
+3. 基于 [**Oasis**](https://www.synkrotron.ai/sim.html) 和 [**Dora-drives**](https://github.com/dora-rs/dora-drives) 开发和测试自动驾驶算法，参考 [__开发指南__](zh-cn/start.md)。
 
 4. 在 [**算法提交系统（待开放）**](#) 中提交算法并等待结果，参考 [**提交镜像**](zh-cn/submit.md)。
 
@@ -31,19 +31,3 @@
   
   ![二维码](../images/QRcode.png)
 
-<!-- ## 1.4 文档目录
-
-- [安装部署](zh-cn/install.md)
-
-- [开发指引](zh-cn/start.md)
-
-- [比赛规则](zh-cn/rules.md)
-
-- [提交说明](zh-cn/submit.md)
-
-- [场景说明](zh-cn/scenarios.md)
-
-- [License导入说明](zh-cn/license.md)
-
-
-- [声明条款](zh-cn/clause.md) -->

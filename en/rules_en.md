@@ -3,7 +3,7 @@
 
 ## 4.1 Competition Scenarios
 
-Simulation testing is a fundamental and critical technology for autonomous driving development. Compared with the high cost, limitations, and low efficiency of real-world testing, the [**Oasis Autonomous Driving Simulation Platform**](https://guardstrike.com/sim.html) can provide a more diverse range of static environments and continuous dynamic design/intelligent traffic flows. It can significantly increase the density of high-value scenarios in limited simulation testing, improving the efficiency and effectiveness of autonomous driving simulation testing.
+Simulation testing is a fundamental and critical technology for autonomous driving development. Compared with the high cost, limitations, and low efficiency of real-world testing, the [**Oasis Autonomous Driving Simulation Platform**](https://www.synkrotron.ai/sim.html) can provide a more diverse range of static environments and continuous dynamic design/intelligent traffic flows. It can significantly increase the density of high-value scenarios in limited simulation testing, improving the efficiency and effectiveness of autonomous driving simulation testing.
 
 This competition mainly tests the perception, planning, and decision-making abilities of autonomous driving algorithms in various complex traffic environments in urban areas. All the scenarios used in the competition belong to the Operational Design Domain (ODD) of low-speed working conditions with interactions among various traffic participants in urban areas under various weather and lighting conditions.
 
