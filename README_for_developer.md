@@ -4,6 +4,6 @@
     - Clone the project
     - Checkout a new branch
     - Modify the code
-    - Commit the code
+    - Commit and push the code
     - Waiting for merging to master
     - After merging to master, the code will be updated automatically on the server in 5 minutes
