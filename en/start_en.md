@@ -1,74 +1,323 @@
-
 # 3 Development Guidelines
 
-## 3.1 Running Example
+## 3.1 Overview
 
-- Access the Oasis Competition Edition directly through the desktop icon `Oasis`.
+### 3.1.1 Brief to DORA-drives
 
-- Click on `Start` to enter the Oasis Competition Edition system.
+The goal of `DORA` (Dataflow Oriented Robotic Architecture) is to provide low-latency, composable, and distributed *data-flow*. 
 
-  ![Start](../images/start/4_en.png)
+`DORA-Drives` is an introductory kit for autonomous driving software based on `DORA`, which will be used in this competition. By breaking down autonomous driving into sub-problems such as `perception`, `localization`, `planning`, and `control`, the aim is to lower the barrier to entry for autonomous driving system development and enable anyone to develop their own self-driving system.
 
-- Click on `New Job`.
+### 3.1.2 What to do
 
-  ![New Job](../images/start/5_en.png)
+The sample code has already implemented a complete autonomous driving system, which you can optimize, introduce your own model, or even develop a new autonomous driving system. 
 
-- You can choose whether to display the running window, whether to record, and the autonomous driving system and version. Then select the scene to add.
+To implement your autonomous driving algorithm in `oasis`, the main content you need to develop includes:
 
-  ![Add Scene](../images/start/6_en.png)
+`my_operator.py`
 
-- Select several scenes and click `Confirm`.
+The operators of packaging algorithm (`operators`). `DORA-drives` provides several operators for use. You can implement your own operator to implement your algorithm.
 
-  ![Confirm Scene](../images/start/7_en.png)
+See details in the following text.
 
-- Click on `Run`, and the task will be added to the queue. Wait a moment and the running window will appear.
+`my_agent.py`
 
-  ![Running Window](../images/start/9_en.png)
+The startup file can be directly modified and used with the default `carsmos/team_code/dora-drives/carla/oasis_agent.py`. 
 
-- After the run is finished, you can check the task running results, evaluation metrics, get sensor data, and view the task running video.
+See details in the following text.
 
-  ![Run Finished](../images/start/11_en.png)
+`my_data_flow.yaml`
 
-> After the simulation is complete, it is recommended to make a submission first. The first submission may take a longer time, but subsequent submissions will be faster. Please refer to [Submitting Algorithm](submit_en).
+Data flow files that can be directly modified and used with the default `carsmos/team_code/dora-drives/graphs/oasis/oasis_agent.yaml`. 
 
-## 3.2 Developed based on Dora
+See details in the following text.
 
-### 3.2.1 About Dora
+`my_agent_config`：(optional) configuration file.
 
-The goal of `dora` (Dataflow Oriented Robotic Architecture) is to provide low-latency, composable, and distributed dataflows.
+> The above file names can all be customized and development must be carried out in the `carsmos/team_code` directory.
 
-`dora-drives` is a starter-kit based on `dora` for creating self-driving software. By breaking self-driving into several sub-problems such as
-perception, mapping, planning, and control, we hope to make self-driving software accessible to all.
+## 3.2 Development example.
 
-`dora-drives` hopes to solve self-driving as a community and we invite anyone to try to solve self-driving with us.
+### 3.2.1 DORA brief manual
 
-For this competition, we will be using Dora for development. For more information, please refer to:
+The data flow of `DORA` is defined through a `.yaml` file, as shown in the example below:
 
-- [**Dora-drives**](https://github.com/dora-rs/dora-drives)
 
-- [**Dora-drives文档**](https://dora.carsmos.ai/dora-drives)
+```yaml
+communication: 
+  zenoh:
+    prefix: dora-zenoh-example
 
-### 3.2.2 Development overview
+nodes:
+  - id: oasis_agent # The unique ID in the current .yaml file.
+    custom: # Customize the input and output of the node
+      inputs: # Define the input
+        tick: dora/timer/millis/400
+      outputs: # Define the output
+        - opendrive
+        - objective_waypoints
+        - ...
+      source: shell
+      args: >
+        python3 $SIMULATE ...
+ 
+  - id: carla_gps_op
+    operator: # Represents an operator defined by a single python file
+      python: ../../carla/carla_gps_op.py # python code file that implements algorithmic logic
+      outputs: # Define the output of the operator
+        - gps_waypoints
+        - ready
+      inputs: # Define the input of the operator
+        opendrive: oasis_agent/opendrive # The output opendrive of oasis_agent node is one of the inputs of this node
+        objective_waypoints: oasis_agent/objective_waypoints # The output objective_waypoints of oasis_agent is one of the inputs of this node
+        ...
+```
 
-As shown in [Training and Testing Algorithms](http://172.16.19.250:9001/start.md#_33-training-and-testing-algorithms), the main components that need to be developed include:
+Once `id`, `inputs`, `outputs`, and `python` are defined in the node, input can be processed and results can be output in the corresponding `python` code file.
+The overall structure of the `carla_gps_op.py` code file for implementing `carla_gps_op` is as follows.
 
-`my_operator.py`: (required) Operator that wraps the algorithm. `dora-drives` provides several operators for use, as detailed below. You can implement your own operator to implement your algorithm.
+```python
 
-- `GPS operator`: Inputs opendrive map, main vehicle coordinates, and destination, and calculates and outputs gps waypoints. Path: `carsmos/team_code/dora-drives/carla/carla_gps_op.py`
-- `Yolov5 operator`: Inputs real-time images and uses the yolov5 algorithm model to calculate and output bounding boxes. Path: `carsmos/team_code/dora-drives/operators/yolov5_op.py`
-- `Obstacle location operator`: Inputs main vehicle coordinates, bounding boxes, and point cloud generated by lidar, and calculates and outputs obstacle information. Path: `carsmos/team_code/dora-drives/operators/obstacle_location_op.py`
-- `FOT operator`: Inputs main vehicle coordinates, speed, obstacle information, and gps waypoints, and calculates and outputs real waypoints. For example, if a vehicle blocks the route ahead, this operator can calculate a route around the vehicle. Path: `carsmos/team_code/dora-drives/operators/fot_op.py`
-- `PID Control operator`: Inputs main vehicle coordinates, speed, and the route points calculated by the `FOT operator`, and calculates and outputs control information for the main vehicle (throttle, direction, brake). Path: `carsmos/team_code/dora-drives/operators/pid_control_op.py`
+from typing import Callable
+from dora import DoraStatus
 
-`my_agent.py`: (required) Startup file, can be directly modified and used with the default `carsmos/team_code/dora-drives/carla/oasis_agent.py`.
+class Operator:
 
-`my_data_flow.yaml`: (required) Data flow file, can be directly modified and used with the default `carsmos/team_code/dora-drives/graphs/oasis/oasis_agent.yaml`.
+  def __init__(self):
+  # Perform some initialization.
+  
+  # The on_event method will be called every time a DORA event is received, including "INPUT", "STOP", and others, but we only need to use "INPUT". You can implement the algorithm logic and output in the on_input method below, or directly implement the algorithm and output in the on_event method.
+  # 
+  def on_event(
+      self,
+      dora_event: dict,
+      send_output: Callable[[str, bytes], None],
+  ) -> DoraStatus:
+      # Only need to handle "INPUT" type DORA events.
+      if dora_event["type"] == "INPUT":
+          # You can replace on_input here, then process the input, implement the algorithm and output it, or you can implement it in the on_input method, and the latter is recommended.
+          return self.on_input(dora_event, send_output)
+      # DoraStatus is an enumeration variable which includes CONTINUE and STOP. You only need to return DoraStatus.CONTINUE to indicate that the algorithm should continue to execute. You do not need to use DoraStatus.STOP.
+      return DoraStatus.CONTINUE
 
-`my_agent_config`: (optional) Configuration file.
+  # The on_input method is used to handle input, implement algorithms, and output results.
+  def on_input(
+        self,
+        dora_input: dict,
+        send_output: Callable[[str, bytes], None],
+    ) -> DoraStatus:
+    
+    # dora_input is a dict
+    # dora_input["id"] is a string that is equal to the ID of the input defined in the "inputs" section of the .yaml file.
+    # dora_input["data"] is a byte array, which means the input data.
+    if dora_input["id"] == "objective_waypoints":
+      self.objective_waypoints = np.frombuffer(
+                dora_input["data"], np.float32
+            ).reshape((-1, 3))[self.completed_waypoints :]
 
-> The above file names can be customized and developed in the `carsmos/team_code` directory.
+    if dora_input["id"] == "opendrive":
+      # Processing data input from OpenDRIVE.
 
-### 3.2.3 Create an agent
+    # Implement some algorithms and logic here
+
+    # Call the send_output method in the parameter to output the result
+    # send_output("string", b"string", {"foo": "bar"})
+    # The first argument is a string equal to the id of the output defined in the outputs
+    # The second argument is a byte array (bytes), which is the output data
+    # The third parameter is some metadata
+    send_output(
+                    "gps_waypoints",
+                    self.waypoints.tobytes(),
+                    dora_input["metadata"],
+                )
+    return DoraStatus.CONTINUE
+
+```
+
+The point of the above code：
+
+- **Define inputs and outputs**：The input and output are defined in the `.yaml` file, such as the output of the `oasis_agent` node, which includes `opendrive` and `objective_waypoints`, which are respectively passed to the `carla_gps_op` node as `opendrive` and `objective_waypoints`.
+- **Process input and output**：Use Python to process the input and output the result.
+
+### 3.2.2 oasis-agent 简介
+
+Using `oasis-agent.yaml` and `oasis-agent.py` as examples, the following will provide a detailed explanation of how the sample algorithm was developed. After reading and understanding this, you can use it as a basis for optimization or reference when developing new autonomous driving systems.
+
+First, the `oasis-agent.py` implements the following functions:
+- Executes several initializations in the `setup()` method, including setting the destination, checking the status of the `dora` node, etc.
+- Defines sensors in the `sensors()` method.
+- The `run_step()` method implements four functions in general:
+  - Receives raw data from sensors, such as frames from the camera.
+
+    ```python
+    frame_raw_data = input_data["camera.center"][1]
+    ```
+
+  - The sensor raw data is preprocessed, for example, the frame raw data is converted into byte array
+
+    ```python
+    camera_frame = frame_raw_data.tobytes()
+    ```
+
+  - Send preprocessed sensor data to the output port, for example, send preprocessed frame data to the output port of `id=image`:
+
+    ```python
+    node.send_output("image", camera_frame)
+    ```
+
+  - Receive control information (throttle, steer, brake) sent from the PID Control operator and return:
+
+    ```python
+    value = event["data"]
+    [throttle, target_angle, brake] = np.frombuffer(value, np.float16)
+    ```
+
+The overall structure of the self-driving system is divided into global path planning, obstacle detection, obstacle localization, local path planning, and control, each of which is implemented through an operator.
+
+  - `GPS operator`
+  
+     Inputting high-precision maps in OpenDRIVE format, as well as the coordinates of the main vehicle and destination, can calculate and output GPS waypoints. The code file path is: `carsmos/team_code/dora-drives/carla/carla_gps_op.py`.
+
+  - `Yolov5 operator`
+  
+    Real-time images can be input and YOLOv5 algorithm model can be used to calculate and output bounding boxes (referred to as `bbox` hereafter). The code file path is: `carsmos/team_code/dora-drives/operators/yolov5_op.py`.
+
+  - `Obstacle location operator`
+  
+    By inputting the main vehicle's coordinates, bbox, and point cloud generated by the LiDAR, it is possible to calculate and output information about obstacles. The code file path is: `carsmos/team_code/dora-drives/operators/obstacle_location_op.py`.
+
+  - `FOT operator`
+   
+    By inputting the main vehicle's coordinates, speed, obstacle information, and GPS waypoints, it is possible to calculate and output the actual waypoints. For example, if there is a vehicle blocking the route ahead, this operator can calculate a route to bypass the vehicle. The code file path is: `carsmos/team_code/dora-drives/operators/fot_op.py`.
+
+  - `PID Control operator`
+  
+    Input the coordinates and speed of the main vehicle, as well as the waypoints calculated by the FOT operator, and output control information for the main vehicle (throttle, steering, brakes) can be calculated and generated.） The code file path is: `carsmos/team_code/dora-drives/operators/pid_control_op.py`.
+
+### 3.2.1 Global Route Planning
+
+The example algorithm uses `GPS operator` to implement global path planning, which utilizes `carla.GlobalRoutePlanner` to generate a safe, smooth, and efficient path based on the given starting and ending points, as well as the high-precision map, while considering factors such as the vehicle's physical characteristics, road restrictions, and traffic rules. At the same time, it can dynamically adjust the path planning based on the actual driving situation of the vehicle in real time, to ensure that the vehicle always travels on the optimal path. The key code is as follows:
+
+- _hd_map.py：
+  ```python
+  # Instantiate GlobalRoutePlanner
+  self._grp = GlobalRoutePlanner(
+      self._map, 1.0
+  )  # Distance between waypoints
+
+  # Calculate global routes using GlobalRoutePlanner
+  route = self._grp.trace_route(
+              start_waypoint.transform.location, end_waypoint.transform.location
+          )
+  ```
+
+- carla_gps_op.py
+  ```python
+  waypoints = self.hd_map.compute_waypoints(
+      [
+          x,
+          y,
+          self._goal_location[2],
+      ],
+      self._goal_location,
+  )[:NUM_WAYPOINTS_AHEAD]
+  ```
+
+### 3.2.2 Obstacle Detection
+
+The example algorithm uses the `Yolov5 operator` to achieve obstacle perception. It can detect objects in the input image and output `bbox` to mark the position of the object. The example algorithm only implements obstacle detection and does not implement the calibration of traffic signals and signs.
+
+```python
+results = self.model(frame) # bbox was calculated using yolov5 model
+...
+send_output("bbox", arrays, dora_input["metadata"]) # Output the processed result
+```
+
+### 3.2.3 障碍物定位
+
+The example algorithm uses the `Obstacle location operator` to locate obstacles. It uses the point cloud generated by the LIDAR and the `bbox` generated by the `Yolov5 operator`. By mapping the three-dimensional point cloud to the two-dimensional `bbox`, the distance of the obstacle can be calculated. Specifically, the coordinates of the point cloud are first converted to the coordinates of the camera, and then the points within the `bbox` are selected. The points with *z-axis coordinates equal to the quartile* are selected as distance measurement points, and the distance of the obstacle is calculated. The key code is as follows:
+
+```python
+# Convert point cloud coordinates to camera coordinates
+camera_point_cloud = local_points_to_camera_view(
+                point_cloud, INTRINSIC_MATRIX
+            )
+
+# Select the point in the bbox from the point cloud
+[min_x, max_x, min_y, max_y, confidence, label] = obstacle_bb
+z_points = self.point_cloud[
+    np.where(
+        (self.camera_point_cloud[:, 0] > min_x)
+        & (self.camera_point_cloud[:, 0] < max_x)
+        & (self.camera_point_cloud[:, 1] > min_y)
+        & (self.camera_point_cloud[:, 1] < max_y)
+    )
+]
+
+# Select the point with "Z-axis coordinate = quartile" as the nearest point for locating obstacles (this is done to eliminate noise)
+if len(z_points) > 0:
+    closest_point = z_points[
+        z_points[:, 2].argsort()[int(len(z_points) / 4)]
+    ]
+```
+
+### 3.2.4 Local Path Planning
+
+The example algorithm uses `FOT operator` to implement local path planning. It computes the local path through a series of initial parameters. The initial parameters are as follows:
+```python
+initial_conditions = {
+    "ps": 0,
+    "target_speed": 
+    "pos": # current x, y coordinate
+    "vel": # current speed on x、y axis
+    "wp": # [[x, y], ... n_waypoints ]，conpute the origin waypoints by `GPS operator`
+    "obs": # [[min_x, min_y, max_x, max_y], ... ] obstacles' coordinate on the road
+}
+```
+
+Because the obstacle coordinates calculated in the previous step are three-dimensional, they need to be converted to two-dimensional coordinates, which is achieved through `fot_op.py` - `get_obstacle_list`.
+
+In addition, the algorithm model contains many hyperparameters： 
+```python
+max_speed (float): [m/s]
+max_accel (float): [m/s^2]
+max_curvature (float): [1/m]
+max_road_width_l (float): Maximum left-side width [m]
+max_road_width_r (float): Maximum right-side width [m]
+d_road_w（float）：Road width sampling discretization[m]
+dt（float）：Time sampling discretization [s]
+maxt（float）：Maximum prediction time [s]
+mint（float）：Minimum prediction time [s]
+d_t_s（float）：Target velocity sampling discretization [m/s]
+n_s_sample（float）：Target velocity sampling number
+obstacle_clearance（float）：Radius of obstacle [m]
+kd（float）：Location deviation cost
+kv（float）：Speed cost
+ka（float）：Acceleration cost
+kj（float）：Cost of rate of change in acceleration
+kt（float）：Time cost
+ko（float）：Distance to obstacle cost
+klat（float）：Horizontal cost
+klon（float）：Vertical cost
+```
+
+You can tune these parameters to optimize the local programming algorithm。 For more details: [erdos-project/frenet_optimal_trajectory_planner](https://github.com/erdos-project/frenet_optimal_trajectory_planner/)
+
+### 3.2.5 Control
+
+The example algorithm uses the PID Control operator to achieve control, which responds to the current speed, direction, and position of the vehicle based on previous inputs to accelerate, turn, or brake.
+
+For more information about 'dora-drives' please refer to：
+
+- [**dora homepage**](https://dora.carsmos.ai/)
+
+- [**dora dataflow document**](https://dora.carsmos.ai/dora/dataflow-config.html)
+
+- [**dora-drives document**](https://dora.carsmos.ai/dora-drives)
+
+## 3.3 Developed based on an agent
+
+### 3.3.1 Create an agent
 
 Participants need to create **my_agent.py** as the startup file in the **team_code/dora-drives/carla** directory specified in the Oasis Competition Version to execute the autonomous driving algorithm, and can refer to the example **oasis_agent.py**.
 
@@ -83,7 +332,7 @@ class YourAgent(AutonomousAgent):
     def __init__(self, debug=False):
 ```
 
-### 3.2.4 Initialize the configuration  *setup*
+### 3.3.2 Initialize the configuration *setup*
 
 Participants need to override the *setup* method in **my_agent.py**. This method performs all the initialization required by the *agent* before the scene task is run and is automatically called each time a new scene is loaded.
 
@@ -97,7 +346,7 @@ lat_ref = None
 lon_ref = None
 class YourAgent(AutonomousAgent):
     def __init__(self, debug=False):
-``````
+
     def setup(self, destination, path_to_conf_file):
         """
         Setup the agent parameters
@@ -105,8 +354,6 @@ class YourAgent(AutonomousAgent):
         global lat_ref, lon_ref
         lat_ref = self.lat_ref
         lon_ref = self.lon_ref
-        ........
-
 ```
 
 You can refer to the following function `from_gps_to_world_coordinate` to convert GPS data to world coordinates:
@@ -132,10 +379,9 @@ def from_gps_to_world_coordinate(lat, lon):
     y = -(my - my_initial)
 
     return [x, y]
-
 ```
 
-### 3.2.5 Setting Up Sensors
+### 3.3.3 Setting Up Sensors
 
 Participants must rewrite the code to set up the  sensors Method，This method defines all the sensors that the agent can use.
 
@@ -198,7 +444,7 @@ Sensors are explained as follows:
 
 In addition, there are some spatial restrictions that limit the position of the sensor inside the vehicle bounding box. If a sensor is more than 3 meters away from the main vehicle on any axis (for example: `[3.1,0.0,0.0]`), the setting will fail.
 
-### 3.2.6 Override the run_step method
+### 3.3.4 Override the run_step method
 
 The *run_step* method will be called once per *world tick* and generates a new action in the form of a `carla.VehicleControl` object. Make sure to return the control object from this function, which will be used to update the simulation's ego vehicle.
 
@@ -230,7 +476,7 @@ Participants can develop their algorithm in the *run_step* method and must ensur
 
 - `Timestamp`: The current simulation world time frame number.
 
-### 3.2.7 Override the destroy method
+### 3.3.5 Override the destroy method
 
 At the end of each scene task, the `destroy` method will be called, and participants need to override the `destroy` method to end the corresponding processes or threads.
 
@@ -239,154 +485,6 @@ def destroy(self):
     # destroy process 
     pass
 ```
-
-### 3.2.8 Create a processing node（`operator`）
-
-It is recommended to package the algorithm as a processing node (`operator`) and create a Python file such as `my_operator.py`.
-
-As an example, we can add the YOLOv5 object detection processing node, which is already implemented in *dora-drives/operators/yolov5_op.py*.
-
-```python
-import os
-from typing import Callable
-
-import cv2
-import numpy as np
-import torch
-from dora import DoraStatus
-
-DEVICE = os.environ.get("PYTORCH_DEVICE") or "cpu"
-
-class Operator:
-    """
-    Infering object from images
-    """
-
-    def __init__(self):
-        self.model = torch.hub.load(
-            "ultralytics/yolov5",
-            "yolov5n",
-        )
-        self.model.to(torch.device(DEVICE))
-        self.model.eval()
-
-    def on_input(
-        self,
-        dora_input: dict,
-        send_output: Callable[[str, bytes], None],
-    ) -> DoraStatus:
-        """Handle image
-        Args:
-            dora_input["id"](str): Id of the input declared in the yaml configuration
-            dora_input["data"] (bytes): Bytes message of the input
-            send_output (Callable[[str, bytes]]): Function enabling sending output back to dora.
-        """
-
-        frame = cv2.imdecode(
-            np.frombuffer(
-                dora_input["data"],
-                dtype="uint8",
-            ),
-            -1,
-        )
-        frame = frame[:, :, :3]
-
-        results = self.model(frame)  # includes NMS
-        arrays = np.array(results.xyxy[0].cpu())[
-            :, [0, 2, 1, 3, 4, 5]
-        ]  # xyxy -> xxyy
-        arrays[:, 4] *= 100
-        arrays = arrays.astype(np.int32)
-        arrays = arrays.tobytes()
-        send_output("bbox", arrays, dora_input["metadata"])
-        return DoraStatus.CONTINUE
-```
-
-To add the YOLOv5 object detection processing node as an operator, you need to override the `__init__` and `on_input` methods.
-
-The `__init__` method is called when the processing node is initialized, and is used to perform all the initialization and definition required by the processing node.
-
-The `on_input` method is called once per time step.
-
-Participants need to define the input `inputs` and output `outputs` in the configuration data stream's YAML file.
-
-If successful, return the CONTINUE flag;
-
-### 3.2.9 Create a dataflow
-
-Dora needs to start each node through the data stream file to complete the operation and startup of perception, localization, planning, control, and other `operators`.
-
-You can modify the contents of `oasis_agent.yaml` to include `my_operator.py` as a node, or you can create a new data stream file `my_data_flow.yaml`.
-
-If you want to run the algorithm processing node, you just need to add them to the node graph:
-
-```yaml
-communication:
-  iceoryx:
-    app_name_prefix: dora-iceoryx-example
-
-nodes:
-  - id: my_algorithm
-    operator:
-      python: my_operator.py
-      outputs:
-        ...
-      inputs:
-        ...
-
-  # 以下为示例
-
-  - id: webcam
-    operator:
-      python: ../../operators/webcam_op.py
-      inputs:
-        tick: dora/timer/millis/100
-      outputs:
-        - image
-
-  - id: yolov5
-    operator: 
-      outputs:
-        - bbox
-      inputs:
-        image: webcam/image
-      python: ../../operators/yolov5_op.py
-
-  - id: plot
-    operator:
-      python: ../../operators/plot.py
-      inputs:
-        image: webcam/image
-        obstacles_bbox: yolov5/bbox
-        tick: dora/timer/millis/100
-```
-
-- `nodes`: The group of nodes to be run.
-- `id`: The ID of the node.
-- `python`: The code file to be run.
-- `inputs`: The input of the current node.
-- `outputs`: The output of the current node.
-
-The inputs are prefixed with the node name to avoid naming conflicts.
-
-The data stream is defined through a `.yaml` file, see **team_code/dora-drives/graphs/oasis/oasis_agent.yaml** for reference.
-
-You can use the following command in the Docker container to run the algorithm:
-
-```bash
-./scripts/launch.sh -b -g tutorials/webcam_yolov5.yaml
-```
-> For more detailed information about Dora, please refer to:[**Dora documentation**](https://dora-rs.github.io/dora-drives/introduction.html)
-
-## 3.3 Train and test algorithms
-
-- In `Oasis Competition Edition - Resource Library - Vehicle Control System - Dora`, replace *oasis_agent.py* with *my_agent.py* and replace *oasis_agent.yaml* with *my_data_flow.yaml*. If there is a configuration file, please select it, otherwise you can ignore it.
-
-  ![Select my_agent.py and start the job in Oasis](../images/start/12.png)
-
-- A set of predefined scenarios are available in the Oasis Competition Edition, which can be used to train and validate algorithms.
-
-- The scenarios can be found in the *Oasis Competition Edition - Scenario Library*. Please refer to [Scenario Description](en/scenarios.md) for specific scenario descriptions.
 
 ## 3.4 On Dora-drives Source Code Management (SCM)
 

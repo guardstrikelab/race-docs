@@ -90,7 +90,7 @@ class Operator:
       if dora_event["type"] == "INPUT":
           # 可以在这里替换掉 on_input，然后处理输入，实现算法并输出，也可以在 on_input 方法中实现，建议采用后者。
           return self.on_input(dora_event, send_output)
-      # DoraStatus 包括 CONTINUE 和 STOP，只需要返回 return DoraStatus.CONTINUE ，表示算法继续执行即可，不需要用到 DoraStatus.STOP
+      # DoraStatus 是一个枚举变量，包括 CONTINUE 和 STOP，只需要返回 return DoraStatus.CONTINUE ，表示算法继续执行即可，不需要用到 DoraStatus.STOP
       return DoraStatus.CONTINUE
 
   # on_input 方法用于处理输入、实现算法并且输出结果
@@ -111,7 +111,7 @@ class Operator:
     if dora_input["id"] == "opendrive":
       # 处理 opendrive 输入的数据
 
-    # 实现一些算法与逻辑
+    # 在这里实现一些算法与逻辑
 
     # 调用参数中的 send_output 接口方法，将结果输出
     # send_output("string", b"string", {"foo": "bar"})
