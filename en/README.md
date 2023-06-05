@@ -25,4 +25,4 @@ If you have any questions or any feedback or suggestions about the open source a
 
 - **WeChat** scan the QR code below to join the group:
   
-  ![QR code](../images/QRcode.png)
+  ![QR code](../images/QRcode.jpg)

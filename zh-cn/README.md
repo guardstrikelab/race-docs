@@ -29,5 +29,5 @@
 
 - **微信**扫描下方二维码入群：
   
-  ![二维码](../images/QRcode.png)
+  ![二维码](../images/QRcode.jpg)
 
