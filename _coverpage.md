@@ -1,4 +1,4 @@
-# 2023元遨全球开源自动驾驶算法大赛
+# 2023首届开放原子开源大赛CARSMOS国际自动驾驶算法挑战赛
 
 <font size=4>2023 IEEE & OpenAtom Competition on Open-Source Autonomous Driving Algorithms</font>
 
