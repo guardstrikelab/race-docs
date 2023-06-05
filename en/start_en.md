@@ -184,11 +184,11 @@ Sensor parameter configuration can refer to the example content in AutonomousAge
 
 Sensors are explained as follows:
 
-- [`sensor.camera.rgb`](https://carla.readthedocs.io/en/0.9.10/ref_sensors/#rgb-camera) - A regular camera that captures images.
-- [`sensor.lidar.ray_cast`](https://carla.readthedocs.io/en/0.9.10/ref_sensors/#lidar-sensor) - Velodyne 64 lidar.
-- [`sensor.other.radar`](https://carla.readthedocs.io/en/0.9.10/ref_sensors/#radar-sensor) - Remote radar (maximum distance of 100 meters).
-- [`sensor.other.gnss`](https://carla.readthedocs.io/en/0.9.10/ref_sensors/#gnss-sensor) - GPS sensor that returns geographical location data.
-- [`sensor.other.imu`](https://carla.readthedocs.io/en/0.9.10/ref_sensors/#imu-sensor) - Six-axis inertial measurement unit.
+- [`sensor.camera.rgb`](https://carla.readthedocs.io/en/0.9.13/ref_sensors/#rgb-camera) - A regular camera that captures images.
+- [`sensor.lidar.ray_cast`](https://carla.readthedocs.io/en/0.9.13/ref_sensors/#lidar-sensor) - Velodyne 64 lidar.
+- [`sensor.other.radar`](https://carla.readthedocs.io/en/0.9.13/ref_sensors/#radar-sensor) - Remote radar (maximum distance of 100 meters).
+- [`sensor.other.gnss`](https://carla.readthedocs.io/en/0.9.13/ref_sensors/#gnss-sensor) - GPS sensor that returns geographical location data.
+- [`sensor.other.imu`](https://carla.readthedocs.io/en/0.9.13/ref_sensors/#imu-sensor) - Six-axis inertial measurement unit.
 - `sensor.opendrive_map` - A pseudo sensor that parses a high-definition map in OpenDRIVE format into a string.
 - `sensor.speedometer` - A pseudo sensor that provides an approximate value of linear speed.
 

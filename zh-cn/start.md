@@ -432,15 +432,15 @@ def sensors(self):
 
 传感器具体解释如下：
 
-- [`sensor.camera.rgb`](https://carla.readthedocs.io/en/0.9.10/ref_sensors/#rgb-camera) - 捕捉图像的普通相机。
+- [`sensor.camera.rgb`](https://carla.readthedocs.io/en/0.9.13/ref_sensors/#rgb-camera) - 捕捉图像的普通相机。
 
-- [`sensor.lidar.ray_cast`](https://carla.readthedocs.io/en/0.9.10/ref_sensors/#lidar-sensor) - Velodyne 64 激光雷达。
+- [`sensor.lidar.ray_cast`](https://carla.readthedocs.io/en/0.9.13/ref_sensors/#lidar-sensor) - Velodyne 64 激光雷达。
 
-- [`sensor.other.radar`](https://carla.readthedocs.io/en/0.9.10/ref_sensors/#radar-sensor) - 远程雷达（最远100米）。
+- [`sensor.other.radar`](https://carla.readthedocs.io/en/0.9.13/ref_sensors/#radar-sensor) - 远程雷达（最远100米）。
 
-- [`sensor.other.gnss`](https://carla.readthedocs.io/en/0.9.10/ref_sensors/#gnss-sensor) - 返回地理位置数据的GPS传感器。
+- [`sensor.other.gnss`](https://carla.readthedocs.io/en/0.9.13/ref_sensors/#gnss-sensor) - 返回地理位置数据的GPS传感器。
 
-- [`sensor.other.imu`](https://carla.readthedocs.io/en/0.9.10/ref_sensors/#imu-sensor) - 六轴惯性测量单元。
+- [`sensor.other.imu`](https://carla.readthedocs.io/en/0.9.13/ref_sensors/#imu-sensor) - 六轴惯性测量单元。
 
 - `sensor.opendrive_map` - 伪传感器，以OpenDRIVE格式解析为字符串的高清地图。
 
