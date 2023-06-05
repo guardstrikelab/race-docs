@@ -3,36 +3,36 @@
 
 ## 6.1 训练场景
 
-| 场景名称                                         | 场景描述                                                                | 天气光照  | 预期里程(m) | 预期用时(s) |
-| -------------------------------------------- | ------------------------------------------------------------------- | ----- | ---- | ---- |
-| train1-leading_vehicle_brake                 | 主车同车道前方车辆制动                                                         | 白天、晴朗 |131.85|53    |
+| 场景名称                                         | 场景描述                                                                | 天气光照  | 预期里程(m) | 预期用时(s) | 是否演练赛场景 |
+| -------------------------------------------- | ------------------------------------------------------------------- | ----- | ---- | ---- | ---- |
+| train1-leading_vehicle_brake                 | 主车同车道前方车辆制动                                                         | 白天、晴朗 |131.85|53    | 
 | train2-leading_vehicle_brake                 | 主车同车道前方车辆制动                                                         | 白天、下雨 |97.99 |40    |
 | train3-leading_vehicle_slow                  | 主车同车道前方车辆慢行                                                         | 白天、有雾 |108.66|44    |
 | train4-leading_vehicle_slow                  | 主车同车道前方车辆慢行                                                         | 夜间、晴朗 |198.00|80    |
 | train5-front_obstacle                        | 主车同车道前方有障碍物                                                         | 白天、晴朗 |106.02|43    |
-| train6-front_obstacle                        | 主车同车道前方有障碍物                                                         | 夜间、下雨 |85.89 |35    |
+| train6-front_obstacle                        | 主车同车道前方有障碍物                                                         | 夜间、下雨 |85.89 |35    | 是 |
 | train7-front_opposite_vehicle_turnaround     | 主车前方有对向车辆掉头                                                         | 白天、晴朗 |97.56 |40    |
-| train8-front_opposite_vehicle_turnaround     | 主车前方有对向车辆掉头                                                         | 白天、有雾 |88.00 |36    |
+| train8-front_opposite_vehicle_turnaround     | 主车前方有对向车辆掉头                                                         | 白天、有雾 |88.00 |36    | 是 |
 | train9-left_vehicle_cutin                    | 主车左侧车辆切入                                                            | 夜间、有雾 |154.15|62    |
 | train10-right_vehicle_cutin                  | 主车右侧车辆切入                                                            | 夜间、晴朗 |162.00|65    |
 | train11-front_vru_cross                      | 主车前方有弱势道路使用者横穿马路                                                    | 白天、晴朗 |131.99|53    |
 | train12-front_vru_cross                      | 主车前方有弱势道路使用者横穿马路                                                    | 夜间、晴朗 |72.07 |29    |
 | train13-gostraight_left_vehicle_runred       | 主车路口直行，路口左侧车辆闯红灯                                                    | 白天、晴朗 |88.04 |36    |
-| train14-gostraight_left_vehicle_runred       | 主车路口直行，路口右侧车辆闯红灯                                                    | 白天、下雨 |97.46 |39    |
-| train15-turnright_left_vehicle_gostaright    | 主车路口右转，路口左侧有直行车                                                     | 夜间、晴朗 |85.91 |35    |
+| train14-gostraight_left_vehicle_runred       | 主车路口直行，路口右侧车辆闯红灯                                                    | 白天、下雨 |97.46 |39    | 是 |
+| train15-turnright_left_vehicle_gostaright    | 主车路口右转，路口左侧有直行车                                                     | 夜间、晴朗 |85.91 |35    | 是 |
 | train16-turnright_left_vehicle_gostaright    | 主车路口右转，路口左侧有直行车                                                     | 夜间、下雨 |92.66 |38    |
 | train17-turnleft_opposite_vehicle_gostaright | 主车路口左转，路口对向有直行车                                                     | 白天、晴朗 |79.65 |32    |
 | train18-turnleft_opposite_vehicle_gostaright | 主车路口左转，路口对向有直行车                                                     | 夜间、有雾 |96.87 |39    |
-| train19-turnright_right_vru_cross            | 主车路口右转，路口右侧弱势道路使用者横穿马路                                              | 夜间、晴朗 |93.48 |38    |
+| train19-turnright_right_vru_cross            | 主车路口右转，路口右侧弱势道路使用者横穿马路                                              | 夜间、晴朗 |93.48 |38    | 是 |
 | train20-turnright_right_vru_cross            | 主车路口右转，路口右侧弱势道路使用者横穿马路                                              | 白天、下雨 |85.48 |35    |
-| train21-front_occluded_vru_appear            | 主车前方盲区弱势道路使用者横穿马路                                                   | 夜间、晴朗 |133.99|54    |
+| train21-front_occluded_vru_appear            | 主车前方盲区弱势道路使用者横穿马路                                                   | 夜间、晴朗 |133.99|54    | 是 |
 | train22-front_occluded_vru_appear            | 主车前方盲区弱势道路使用者切入                                                   | 白天、有雾 |115.58|47    |
 | train23-enter_ramp                           | 主车驶入匝道                                                              | 白天、有雾 |117.89|48    |
 | train24-exit_ramp                            | 主车驶出匝道                                                              | 夜间、晴朗 |172.73|70    |
-| train25-advanced1                            | 四个有序事件：1.主车右侧车辆切入2.主车前方有弱势道路使用者横穿马路3.主车同车道前方有障碍物4.主车前方盲区弱势道路使用者横穿马路 | 白天、晴朗 |181.91|73    |
-| train26-advanced2                            | 三个有序事件：1.主车前方有对向车辆掉头2.主车前方有弱势道路使用者横穿马路3.主车同车道前方车辆逆行                 | 夜间、下雨 |138.00|56    |
-| train27-advanced3                            | 两个有序事件：1.主车路口左转，路口对向有直行车2.主车前方有弱势道路使用者横穿马路                          | 白天、有雾 |81.52 |33    |
-| train28-advanced4                            | 两个有序事件：1.主车路口左转，路口右侧有左转车辆 2.主车路口左转，路口左侧弱势道路使用者横穿马路                   | 夜间、晴朗 |100.42|41    |
+| train25-advanced1                            | 四个有序事件：1.主车右侧车辆切入2.主车前方有弱势道路使用者横穿马路3.主车同车道前方有障碍物4.主车前方盲区弱势道路使用者横穿马路 | 白天、晴朗 |181.91|73    | 是 |
+| train26-advanced2                            | 三个有序事件：1.主车前方有对向车辆掉头2.主车前方有弱势道路使用者横穿马路3.主车同车道前方车辆逆行                 | 夜间、下雨 |138.00|56    | 是 |
+| train27-advanced3                            | 两个有序事件：1.主车路口左转，路口对向有直行车2.主车前方有弱势道路使用者横穿马路                          | 白天、有雾 |81.52 |33    | 是 |
+| train28-advanced4                            | 两个有序事件：1.主车路口左转，路口右侧有左转车辆 2.主车路口左转，路口左侧弱势道路使用者横穿马路                   | 夜间、晴朗 |100.42|41    | 是 |
 
 ## 6.2 测试场景
 

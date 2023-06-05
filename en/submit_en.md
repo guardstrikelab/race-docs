@@ -14,7 +14,7 @@
 
     Before the official competition, as long as you register to participate, you can get free evaluation computing power on the online submission platform. You can have `two submission opportunities per day` for online practice, and there is no ranking in this stage. 
     
-    The online scenarios running in this stage are public training scenarios.
+    The online scenarios running in this stage are public training scenarios. Details for [Scenarios](en/scenarios_en.md)。
 
 - **Online Ranking Phase**
 

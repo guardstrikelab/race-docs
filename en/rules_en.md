@@ -23,7 +23,7 @@ On the [**Scenarios Page - Training Scenarios**](en/scenarios_en.md#61-Training 
 
 The test scenarios consist of 10 complex scenes, each consisting of 2-4 atomic scenes, which are used to evaluate the autonomous driving algorithms submitted by the participants. All test scenarios are deployed on the cloud and cannot be viewed. After submitting their autonomous driving algorithm, the participants will run tests on the test scenarios in sequence and the results will be displayed on the page.
 
-On the [**Scenarios Page - Test Scenarios**](en/scenarios_en.md#62-Testing-Scenarios), each test scenario is detailed and introduced, including the scene name, scene type, main features, usage, and reference materials.
+On the [**Scenarios Page - Test Scenarios**](en/scenarios_en.md#62-Testing-Scenarios), each test scenario is detailed and introduced, including the scene name, scene type, main features, usage, and reference materials. It contains `10` scenarios used in the Online Practice Phase.
 
 ### 4.1.4 Scenario Rules
 
