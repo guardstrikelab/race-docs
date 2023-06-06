@@ -11,13 +11,13 @@
 
 ## 1.2 比赛流程
 
-1. [**比赛报名**](#)
+1. [**比赛报名**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e)
 
 2. [**点击此处前往下载页面**](zh-cn/release.md)，下载完成后根据 [__安装文档__](zh-cn/install.md)，安装运行 `Oasis` 竞赛版。
 
 3. 基于 [**Oasis**](https://www.synkrotron.ai/sim.html) 和 [**Dora-drives**](https://github.com/dora-rs/dora-drives) 开发和测试自动驾驶算法，参考 [__开发指南__](zh-cn/start.md)。
 
-4. 在 [**算法提交系统（待开放）**](#) 中提交算法并等待结果，参考 [**提交镜像**](zh-cn/submit.md)。
+4. 在 [**算法提交系统（）**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e) 中提交算法并等待结果，参考 [**提交镜像**](zh-cn/submit.md)。
 
 ## 1.3 比赛帮助和答疑
 
