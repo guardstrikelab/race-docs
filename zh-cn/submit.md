@@ -2,7 +2,7 @@
 
 ## 5.1 利用命令提交算法
 
-- 在 [**算法提交系统（）**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e) 中进行操作，利用给出的命令提交算法。
+- 在 [**算法提交系统**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e) 中进行操作，利用给出的命令提交算法。
 
 - 在提交之前，请确保在本地运行了至少一次，否则云端将无法识别 *my_agent.py*、*my_agent.yaml* 的路径
 
@@ -10,13 +10,13 @@
 
 - 算法上传成功之后，云端会自动运行参赛选手的算法并提供实时的运行状态
 
-- 参赛选手需要等待一段时间（12小时以内），然后可以在：[**算法提交系统（）**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e) - 提交 - 提交历史 看到本次提交的运行结果。
+- 参赛选手需要等待一段时间（12小时以内），然后可以在：[**算法提交系统**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e) - 提交 - 提交历史 看到本次提交的运行结果。
 
 ## 5.2 比赛阶段
 
 - **线上演练阶段**
 
-    正式开赛之前，只要您[**报名参赛（）**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e), 即可在 *线上提交平台* 免费获得评估算力，您可以获得 `每天两次` 提交机会进行线上提交练习，**此阶段不进行排名**。
+    正式开赛之前，只要您[**报名参赛**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e), 即可在 *线上提交平台* 免费获得评估算力，您可以获得 `每天两次` 提交机会进行线上提交练习，**此阶段不进行排名**。
 
     此阶段线上运行的场景是 `10` 个公开的训练场景，详见[场景说明](zh-cn/scenarios.md#61-训练场景)。
 
