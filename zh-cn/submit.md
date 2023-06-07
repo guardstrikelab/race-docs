@@ -12,7 +12,7 @@
 
 - 参赛选手需要等待一段时间（12小时以内），然后可以在：[**算法提交系统**](https://race.carsmos.cn) - 提交 - 提交历史 看到本次提交的运行结果。
 
-- 仅允许在[**报名网站**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e)中报名的账号进行提交。**团队中成员若要提交，需要登录报名的账**号。
+- 仅允许在[**报名网站**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e)中报名的账号进行提交。**团队中成员若要提交，需要登录报名的账号。**
 
 ## 5.2 比赛阶段
 
