@@ -80,7 +80,7 @@ $score = 60+40*\frac{|T-x|}{0.4*T}$
 
 For the metrics of`acceleratio` and`jerk`,the calculation method is slightly different. If the actual value is greater than the expected value, the score for that metric is:
 
-$score = 60+40*\frac{|T-x|}{0.4*T}$
+$score = 59*(1 - \frac{|T-x|}{0.2*T})$
 
 If the actual value is less than the expected value, the score for that metric is calculated in the same way as the 'scenario time' metric.
 
