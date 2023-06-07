@@ -14,7 +14,7 @@ Participants' algorithms need to make reasonable use of various [**scenario info
 1. [**Competition registration**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e)
 2. [**Click here to go to download page**](en/release_en.md), install and run the `Oasis` competition version according to the [__installation document__](en/install_en.md).
 3. Develop and test autonomous driving algorithms based on [**Oasis**](https://www.synkrotron.ai/sim.html) and [**Dora-drives**](https://github.com/dora-rs/dora-drives), refer to the [__development guide__](en/start_en.md).
-4. Submit the algorithm in the [**algorithm submission system**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e) and wait for the result, refer to [**submitting images**](en/submit_en.md).
+4. Submit the algorithm in the [**algorithm submission system**](https://race.carsmos.cn) and wait for the result, refer to [**submitting images**](en/submit_en.md).
 
 ## 1.3 Competition Help and FAQ
 If you have any questions or any feedback or suggestions about the open source autonomous driving algorithm competition, please contact us through the following channels.
@@ -23,6 +23,6 @@ If you have any questions or any feedback or suggestions about the open source a
 
 - Forum: https://www.meta-hub.ai
 
-- **WeChat** scan the QR code below to join the group:
+- **WeChat APP** scan the QR code below to join the group:
   
   ![QR code](../images/QRcode.jpg)

@@ -2,7 +2,7 @@
 
 ## 5.1 利用命令提交算法
 
-- 在 [**算法提交系统**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e) 中进行操作，利用给出的命令提交算法。
+- 报名成功之后，在 [**算法提交系统**](https://race.carsmos.cn) 中进行操作，利用给出的命令提交算法。
 
 - 在提交之前，请确保在本地运行了至少一次，否则云端将无法识别 *my_agent.py*、*my_agent.yaml* 的路径
 
@@ -10,7 +10,9 @@
 
 - 算法上传成功之后，云端会自动运行参赛选手的算法并提供实时的运行状态
 
-- 参赛选手需要等待一段时间（12小时以内），然后可以在：[**算法提交系统**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e) - 提交 - 提交历史 看到本次提交的运行结果。
+- 参赛选手需要等待一段时间（12小时以内），然后可以在：[**算法提交系统**](https://race.carsmos.cn) - 提交 - 提交历史 看到本次提交的运行结果。
+
+- 仅允许在[**报名网站**](https://competition.atomgit.com/competitionInfo?id=2e1cce10c89711edb4b22fd906d12a1e)中报名的账号进行提交。**团队中成员若要提交，需要登录报名的账**号。
 
 ## 5.2 比赛阶段
 
