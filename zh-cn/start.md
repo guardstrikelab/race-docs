@@ -191,7 +191,7 @@ class Operator:
   
     输入主车坐标、速度及 `FOT operator` 计算出的路点，可计算并输出对主车的控制信息（油门、方向、刹车）。路径：`carsmos/team_code/dora-drives/operators/pid_control_op.py`
 
-### 3.2.1 全局路径规划
+### 3.2.3 全局路径规划
 
 示例算法使用 `GPS operator` 实现全局路径规划，其方法是利用 `carla.GlobalRoutePlanner`，根据给定的起始点和目标点，以及高精地图，生成一条安全、平滑、高效的路径，并考虑到车辆的物理特性、道路限制、交通规则等因素。同时，它还可以实时地根据车辆的实际行驶情况，动态地调整路径规划，以保证车辆始终行驶在最佳的路径上。其关键代码如下：
 
@@ -220,7 +220,7 @@ class Operator:
   )[:NUM_WAYPOINTS_AHEAD]
   ```
 
-### 3.2.2 障碍物检测
+### 3.2.4 障碍物检测
 
 示例算法使用 `Yolov5 operator` 实现障碍物感知，它可以检测输入图片上的物体并输出 `bbox`，用于标记物体的位置。*示例算法只实现了障碍物的检测，没有实现交通信号灯、交通标志的校测。*
 
@@ -230,7 +230,7 @@ results = self.model(frame) # 利用 yolov5 模型计算 bbox
 send_output("bbox", arrays, dora_input["metadata"]) # 输出处理后的结果
 ```
 
-### 3.2.3 障碍物定位
+### 3.2.5 障碍物定位
 
 示例算法使用 `Obstacle location operator` 实现障碍物定位。它利用激光雷达生成的点云和 `Yolov5 operator` 生成的 `bbox`，采取映射的方式，将三维点云映射到二维的 `bbox` 中，从而测算出障碍物的距离。具体的方式是，首先将点云的坐标转换为摄像头的坐标，然后取出在 `bbox` 内的点，选取其*z轴坐标等于四分位数*的点作为距离测算点，从而计算出障碍物的距离。关键代码如下：
 
@@ -258,7 +258,7 @@ if len(z_points) > 0:
     ]
 ```
 
-### 3.2.4 局部路径规划
+### 3.2.6 局部路径规划
 
 示例算法使用 `FOT operator` 实现局部路径规划。它通过一系列初始参数，通过计算得到局部路径，初始参数如下：
 ```python
@@ -300,7 +300,7 @@ klon（float）：纵向成本
 
 您可以调整这些参数来优化这个局部规划算法。更多详情请参考：[erdos-project/frenet_optimal_trajectory_planner](https://github.com/erdos-project/frenet_optimal_trajectory_planner/)
 
-### 3.2.5 控制
+### 3.2.7 控制
 
 示例算法使用 `PID Control operator` 实现控制，它根据以前的输入对车辆当前速度、方向和位置做出反应，以加速、转向或刹车。
 
