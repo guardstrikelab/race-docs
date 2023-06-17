@@ -43,6 +43,22 @@ If the `ufw` command is not supported, execute the following command to install 
 sudo apt install ufw
 ```
 
+Before installation, ensure that the following ports are not occupied. Run the following command to check the ports.
+```shell
+sudo netstat -anp
+```
+
+If the following port number does not appear, go to the next step. Otherwise, close the corresponding program or run the command to kill the corresponding process.
+```shell
+MYSQL_PORT="3306"
+REDIS_PORT="6379"
+NGINX_PORT="8080"
+ETCD_CLIENT_PORT="2379"
+ETCD_SERVER_PORT="2380"
+INFLUX_CLIENT_PORT="8083"
+INFLUX_SERVER_PORT="8086"
+```
+
 ### 2.2.1 Download and Extract the Installation Package
 
 [**Click here to go to download page**](en/release_en.md)

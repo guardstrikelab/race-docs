@@ -48,6 +48,22 @@ sudo ufw disable
 sudo apt install ufw
 ```
 
+安装前请确保以下端口没有被占用，输入命令检查：
+```shell
+sudo netstat -anp
+```
+
+如果没有出现下面的端口号，则进行下一步。否则请关闭对应程序或执行命令杀死对应进程。
+```shell
+MYSQL_PORT="3306"
+REDIS_PORT="6379"
+NGINX_PORT="8080"
+ETCD_CLIENT_PORT="2379"
+ETCD_SERVER_PORT="2380"
+INFLUX_CLIENT_PORT="8083"
+INFLUX_SERVER_PORT="8086"
+```
+
 ### 2.2.1 下载解压安装包
 
 [**点击此处前往下载页面**](zh-cn/release.md)
