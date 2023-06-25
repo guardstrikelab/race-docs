@@ -7,3 +7,4 @@
 * [**7.Instructions for Importing a License**](en/license_en)
 * [**8.Terms and Conditions**](en/clause_en)
 * [**9.Releases**](en/release_en)
+* [**9.FAQ**](en/FAQ_en)
