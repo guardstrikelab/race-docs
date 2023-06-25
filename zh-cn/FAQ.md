@@ -31,13 +31,27 @@
 
     这是由于 Oasis 需要的一些端口被其他程序占用了，在安装之前，需要检查端口是否被占用，参考：[**安装步骤**](zh-cn/install.md#_22-安装步骤)。
 
+    网络问题解决后，可以使用 Ctrl+Shift+R 刷新页面。
+
 - 任务为什么会一直显示“排队中”？
 
     1. 安装不成功（正常情况下有11个运行正常的容器），请关注安装情况，同时 docker ps -a 查看各个容器是否运行状态正常
-    2. 同时检查 docker logs -f oasis-task-manager
+    2. 检查输出日志，看是否有错误
+        ```
+        docker logs -f oasis-task-manager
+        ```
+    3. 安装机器有没有安装nvidia驱动，可以通过 nvidia-smi来查看是否安装驱动
 
 - 任务为什么会运行“异常”
     
     1. 可能由于代码错误。您可以检查代码是否有语法错误
     2. 可能由于任务超时（超时时间为8分钟），即在规定的时间内主车没有到达终点。
-    3. 可能由于carla未正常启动。检查carla是否正常启动（检查nvidia驱动是否安转正常`nvidia-smi`）：docker logs -f oasis_carla_0.9.13-0407
+    3. 可能由于carla未正常启动。检查carla是否正常启动（检查nvidia驱动是否安转正常`nvidia-smi`）：
+        ```
+        docker logs -f oasis_carla_0.9.13-0407
+        ```
+    4. 通过 
+        ```
+        docker ps -a
+        ```
+        检查任务运行过程中 carla 是否有过重启（检查 STATUS 状态）
