@@ -17,12 +17,15 @@ Participants' algorithms need to make reasonable use of various [**scenario info
 4. Submit the algorithm in the [**algorithm submission system**](https://race.carsmos.cn) and wait for the result, refer to [**submitting images**](en/submit_en.md).
 
 ## 1.3 Competition Help and FAQ
-If you have any questions or any feedback or suggestions about the open source autonomous driving algorithm competition, please contact us through the following channels.
+To learn more detailed information, please add the WeChat account of Synkrotron AI Assistant: synkrotron1, and mention `competition` in the remarks to join.
 
-- Email: race@carsmos.ai
+  ![QRCode](../images/QRcodeV2.jpg)
 
-- Forum: https://www.meta-hub.ai
+You can also contact us via email:
 
-- **WeChat APP** scan the QR code below to join the group:
-  
-  ![QR code](../images/QRcode.jpg)
+- race@carsmos.ai
+
+Visit YuanhuZhixing Forum for more information:
+
+- https://www.meta-hub.ai
+
