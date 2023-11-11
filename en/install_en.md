@@ -163,3 +163,26 @@ The public component includes installation packages and installation scripts for
 - /opt/db_data/mysql: database mysql storage path;
 - /opt/db_data/redis: database redis storage path;
 
+
+## 2.7 Upgrading dora
+
+Find the file: make_docker.tar.gz and unzip it, then:
+```shell
+./make_dora_docker_upgrade.sh 
+```
+
+Modify the configuration file:
+
+```shell
+cd carsmos/oasis/service_module/
+vim ./install_service.sh
+```
+
+![Alt text](../images/install/12.png)
+
+Uninstall the original low version dora and reinstall with the new dora image:
+
+```shell
+./uninstall_service.sh
+./install_service.sh
+```

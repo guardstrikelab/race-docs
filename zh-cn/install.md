@@ -224,5 +224,25 @@ cd  carsmos/oasis
 - /opt/db_data/mysql：数据库 mysql 存储路径；
 - /opt/db_data/redis：数据库 redis 存储路径；
 
+## 2.7 升级 dora 说明
+
+找到文件：make_docker.tar.gz并解压，然后执行：
+```shell
+./make_dora_docker_upgrade.sh 
+```
+
+修改配置文件：
+
+```shell
+cd carsmos/oasis/service_module/
+vim ./install_service.sh
+```
+
+![Alt text](../images/install/12.png)
 
 
+卸载原始低版dora，使用新dora镜像重新安装：
+```shell
+./uninstall_service.sh
+./install_service.sh
+```
