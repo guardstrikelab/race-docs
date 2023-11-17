@@ -166,9 +166,20 @@ The public component includes installation packages and installation scripts for
 
 ## 2.7 Upgrading dora
 
-Find the file: make_docker.tar.gz and unzip it, then:
+Enter the following directory and download the installation package for the corresponding version of dora that needs to be upgraded (here, v0.2.3 is taken as an example)
 ```shell
-./make_dora_docker_upgrade.sh 
+cd carsmos/oasis/dora_upgrade
+wget https://github.com/dora-rs/dora/releases/download/v0.2.3/dora-v0.2.3-x86_64-Linux.zip
+```
+![dora](../images/install/13.png)
+
+Modify the version of dora in make_dora_docker_upgrade.sh and Dockerfile_oasis_v0.2.3 to the version downloaded above:
+![dora](../images/install/14.png)
+![dora](../images/install/15.png)
+```shell
+vim ./make_dora_docker_upgrade.sh
+vim Dockerfile_oasis_v0.2.x
+./make_dora_docker_upgrade.sh
 ```
 
 Modify the configuration file:

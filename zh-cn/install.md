@@ -226,9 +226,20 @@ cd  carsmos/oasis
 
 ## 2.7 升级 dora 说明
 
-找到文件：make_docker.tar.gz并解压，然后执行：
+进入如下目录，并下载dora需要升级对应版本的安装包（这里以v0.2.3为例）
 ```shell
-./make_dora_docker_upgrade.sh 
+cd carsmos/oasis/dora_upgrade
+wget https://github.com/dora-rs/dora/releases/download/v0.2.3/dora-v0.2.3-x86_64-Linux.zip
+```
+![dora](../images/install/13.png)
+
+修改make_dora_docker_upgrade.sh和Dockerfile_oasis_v0.2.3中dora的版本为上面下载的版本：
+![dora](../images/install/14.png)
+![dora](../images/install/15.png)
+```shell
+vim ./make_dora_docker_upgrade.sh
+vim Dockerfile_oasis_v0.2.x
+./make_dora_docker_upgrade.sh
 ```
 
 修改配置文件：
